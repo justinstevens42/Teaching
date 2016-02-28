@@ -1,0 +1,251 @@
+\documentclass[12pt,openany]{book}
+\setlength{\headheight}{15pt}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{mdframed}
+\usepackage{lipsum}
+
+\newmdtheoremenv{thm}{Theorem}[section]
+\newmdtheoremenv{exmp}{Example}[section]
+\newtheorem*{tips}{Tips}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem*{lemma}{Lemma}
+\newtheorem{cor}{Corollary}[section]
+\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{comment}{\begin{proof}[Comment]}{\end{proof}}
+\newenvironment{motivation}{\begin{proof}[Motivation]}{\end{proof}}
+\newtheorem{psol}{Problem}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{hint}{Hint}[section]
+\usepackage{amsthm,amssymb,amsmath}
+\theoremstyle{definition}
+\newtheorem*{case}{Example}
+\newtheorem{tip}{Tip}[section]
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\filcenter}
+{\LARGE\thechapter}
+{1ex}
+{\titlerule[2pt]
+\vspace{2ex}%
+\LARGE}
+[\vspace{1ex}%
+{\titlerule[2pt]}]
+
+
+
+\usepackage[margin=4cm]{geometry}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{Fermat's Little Theorem}
+\chead{Justin Stevens}
+\rhead{Page \thepage}
+\newenvironment{dedication}
+    {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
+    {\par\end{em}\end{center}\end{quotation}}
+    
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\begin{document}
+\begin{center}
+\HRule \\[0.4cm]
+{ \huge \bfseries STEM Class:  Modular Arithmetic}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author}\\
+Justin \textsc{Stevens} \newline
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+
+\end{flushright}
+\end{minipage}\\[0.5cm]
+\end{center}
+\setcounter{chapter}{1}
+
+\begin{defi}  We call two numbers \textit{relatively prime} if they don't share any prime factors.  We write the \textit{greatest common divisor} of two numbers as the largest number that divides both of them.  We write this as $\gcd(a,b)$ or sometimes shorthanded to $(a,b)$.    \end{defi}
+
+\textbf{IMPORTANT:}  For this whole text, $p$ is assumed to be a prime.  
+
+\begin{exmp}  Are $2$ and $3$ relatively prime?  What about $3$ and $6$?  What about $8$ and $2$?  Calculuate the gcd's of all these pairs. \end{exmp}
+\begin{soln}  We \textit{prime factorize} all the numbers.
+\begin{itemize}
+\item $2=2^1$, $3=3^1$ so they are indeed relatively prime.  $\gcd(2,3)=1$
+\item  $3=3^1, 6=3^1\cdot 2^1$ so they are not relatively prime.  $\gcd(3,6)=3$
+\item  $8=2^3, 2=2^1$ so they are not relatively prime. $\gcd(8,2)=2$ \end{itemize}  
+\end{soln}
+\section{Linear Congruences}
+
+\textbf{Motivation:} We know the congruence $5\equiv 2\pmod{3}$ and equations such as $2x+1=5$.  Now, we combine the two concepts of modular arithmetic and equations to get \textbf{linear congruences}.  
+
+\begin{defi}  A linear congruence is an equation of the form \begin{align} ax\equiv b\pmod{c} \end{align}  \end{defi}
+
+Since this notation may be a bit intense, we look at several examples first.
+
+\begin{exmp}  Solve the equation $2x\equiv 2\pmod{3}$. \end{exmp}
+\begin{soln} $$\begin{cases} 2\cdot 0\equiv 0\pmod{3}\\ 2\cdot 1\equiv 2\pmod{3} \\ 2\cdot 2\equiv 4\equiv 1\pmod{3} \end{cases}\implies x\equiv 1\pmod{3}$$ \end{soln}
+
+\begin{exmp}  Solve the equations $2x\equiv 5\pmod{7}, 3x\equiv 8\pmod{11}$, $3x\equiv 1\pmod{2}, 9x\equiv 1\pmod{11}$.  What do you notice? \end{exmp}
+\begin{soln}  By trial and error we arrive at \begin{itemize}
+\item $2x\equiv 5\pmod{7}\implies x\equiv 6\pmod{7}$
+\item $3x\equiv 8\pmod{11}\implies x\equiv 10\pmod{11}$
+\item $3x\equiv 1\pmod{2}\implies x\equiv 1\pmod{2}$
+\item $9x\equiv 1\pmod{11}\implies x\equiv 5\pmod{11}$
+\end{itemize}
+We notice that in all cases there is only one solution for $x$.  We also notice that looking back at the notation $ax\equiv b\pmod{c}$ we have $\gcd(a,c)=1$.    
+\end{soln}
+
+\begin{exmp}  Solve the equations $2x\equiv 1\pmod{2}, 3x\equiv 2\pmod{6}$, $5x\equiv 19\pmod{1000}, 9x\equiv 10^{1000}\pmod{510}$.  What do you notice? \end{exmp}
+\begin{soln}  We notice in the following examples, there are no solutions.  \begin{itemize}
+\item $2x\equiv 0\pmod{2}$ so there are no solutions.
+\item  $3x\equiv 0,3\pmod{6}$ so there are no solutions.
+\item  We must have $5x\equiv 19\pmod{5}\implies 19\equiv 0\pmod{5}$ so there are no solutions.
+\item  If $9x$ is divisible by $510$, it must also be divisible by $3$, so $9x\equiv 10^{1000}\pmod{3}$, therefore there are no solutions.
+\end{itemize}
+In all cases here there are no solutions to the linear congruences.  We notice that $\gcd(a,c)\neq 1$ and $\gcd(a,c)$ doesn't divide $b$.    \end{soln}  
+
+\begin{exmp}  Conjecture whether or not there exists solutions to the following linear congruences:
+Again by trial and error we notice 
+\begin{itemize}
+\item  $2x\equiv 9\pmod{500}$
+\item  $3x\equiv 5\pmod{7}$
+\item  $9x\equiv 2\pmod{15}$
+\item  $19x\equiv 1\pmod{21}$
+\item  $3x\equiv 6\pmod{9}$
+\item  $2x\equiv 4\pmod{8}$
+\end{itemize} \end{exmp}
+
+\begin{soln}
+\begin{itemize}
+Again by trial and error we notice
+\item We must have $9\equiv 0\pmod{2}$ contradiction.  Notice that $\gcd(2,500)=2\nmid 9$
+\item  $x\equiv 4\pmod{7}$.  Notice that $\gcd(3,7)=1$.  
+\item  Taking the equation mod $3$ we arrive at $2\equiv 0\pmod{3}$. Notice that $\gcd(9,15)=3\nmid 2$.
+\item  $x\equiv 10\pmod{21}$.  Notice that $\gcd(19,21)=1$.  
+\item  $x\equiv 2\pmod{3}$ which gives three solutions mod 9:  $x\equiv 2,5,8\pmod{9}$.  Notice that $\gcd(3,9)=3\mid 6$.  
+\item $x\equiv 2\pmod{4}$.  Notice that $\gcd(2,8)=2\mid 4$.
+\end{itemize}
+\end{soln}
+
+
+\begin{exmp}  Take a conjecture as to how many solutions $ax\equiv b\pmod{c}$ can have as long as $a$ and $c$ are relatively prime.  Then prove your conjecture. \end{exmp}
+
+\begin{soln}  We predict that the equation has at most $1$ solution mod $c$. \end{soln}
+\begin{proof}  Assume that there exist two distinct solutions $a\equiv x_1, x_2\pmod{c}$.  Then we have \begin{eqnarray*} ax_1\equiv ax_2\equiv b\pmod{c} \\ a(x_1-x_2)\equiv 0\pmod{c} \end{eqnarray*}
+$a$ and $c$ share no common factors, so therefore we must have $x_1-x_2\equiv 0\pmod{c}$ contradicting there being two distinct solutions.  \end{proof} 
+
+\section{A useful lemma}
+\begin{exmp}  Reduce the set $\{2\times 1, 2\times 2, 2\times 3, 2\times 4\}\pmod{5}$.  What do you notice?  \end{exmp}
+
+\begin{soln}  We arrive at $\{2\times 1, 2\times 2, 2\times 3, 2\times 4\}\equiv \{2, 4, 1, 3\}\pmod{5}$.  This is the set of all natural numbers less than $5$.  \end{soln}
+
+\begin{exmp}  Reduce the sets below:
+\begin{itemize}
+\item $\{3\times 1, 3\times 2, 3\times 3, 3\times 4, 3\times 5, 3\times 6\}\pmod{7}$
+\item $\{2\times 1, 2\times 2, 2\times 3, 2\times 4, 2\times 5, 2\times 6\}\pmod{7}$
+\item $\{5\times 1, 5\times 2, 5\times 3, \cdots, 5\times 9, 5\times 10\}\pmod{11}$
+\end{itemize}  What do you notice? \end{exmp}
+
+\begin{soln} By reducing, \begin{itemize}
+\item  $\{3\times 1, 3\times 2, 3\times 3, 3\times 4, 3\times 5, 3\times 6\}\equiv \{3, 6, 2, 5, 1, 4\}\pmod{7}$
+\item  $\{2\times 1, 2\times 2, 2\times 3, 2\times 4, 2\times 5, 2\times 6\}\pmod{7}\equiv \{2, 4, 6, 1, 3, 5\}\pmod{7}$
+\item $\{5\times 1, 5\times 2, 5\times 3, 5\times 4, 5\times 5, 5\times 6, 5\times 7, 5\times 8, 5\times 9, 5\times 10\}\pmod{11}\equiv \{5, 10, 4, 9, 3, 8, 2, 7, 1,  6\}$
+\end{itemize}
+We notice that again multiplying a set by $a$ and reducing mod $p$ results in the same set.  \end{soln}
+
+\textbf{WARNING:}  $\{6\times 1, 6\times 2\}\equiv \{0,0\}\pmod{3}$ \textbf{not} $\{1,2\}\pmod{3}$. 
+
+\begin{exmp}  Complete the table: 
+$\begin{array}{c|c}
+x\pmod{7} & 2x\pmod{7} \\ \hline
+1 & ? \\ 
+2 & ?\\
+3 & ?\\
+4 & ?\\
+5 & ? \\
+6 & ? \\
+\end{array}$ \end{exmp}
+
+\begin{soln}
+$\begin{array}{c|c}
+x\pmod{7} & 2x\pmod{7} \\ \hline
+1 & 2 \\ 
+2 & 4 \\
+3 & 6\\
+4 & 1\\
+5 & 3 \\
+6 & 5 \\
+\end{array}$
+\end{soln}
+
+\begin{thm}  If $\gcd(a,p)=1$ prove that $$S=\{a\times 1, a\times 2, a\times 3, \cdots, a\times (p-1)\}\equiv \{1,2,3,\cdots, p-1\}=Q\pmod{p}$$ \end{thm}
+
+\begin{proof}
+There are three conditions we need to prove that the two sets are the same.
+\begin{itemize}
+\item  No element in $S$ is divisible by $p$.
+\item  No two elements of $p$ are the same.
+\item  $p-1$ elements
+\end{itemize}
+
+The reason behind this is that no element in $S$ is divisible by $p$, the elements are all distinct, and it has $p-1$ elements, it forces these $p-1$ elements to be $\{1,2,3,\cdots, p-1\}$.  
+
+We verify that indeed:
+\begin{itemize}
+\item  $\gcd(ar, p)=1$ when $\gcd(a,p)=1$ and $\gcd(r,p)=1$.
+\item  Proven earlier.  
+\item  They both have $p-1$ elements.
+\end{itemize}
+
+\end{proof}
+
+
+\section{First Proof of Fermat's Little Theorem}
+
+One immediate application of the lemma is in solving modular congruences, as illustrated below.  
+
+\begin{prob}  Consider the set $\{2\times 1, 2\times 2, 2\times 3, 2\times 4\}\pmod{5}$.  Use the above result to prove that there exists a solution to the equation $2x\equiv 1\pmod{5}$.  \end{prob}
+
+\begin{thm}  The equation $ax\equiv b\pmod{p}$ has a solution in $x$ as long as $\gcd(a,p)=1$.  \end{thm}
+\begin{proof}  If $b\equiv 0\pmod{p}$ then set $x\equiv 0\pmod{p}$.  Else, we have $b\in Q$ so therefore $b\in S$ using our above lemma.  \end{proof}
+
+This leads to Fermat's Little Theorem:  
+
+\begin{exmp}  Consider the congruence $$\{2\times 1, 2\times 2, 2\times 3, 2\times 4\}\equiv \{1,2,3,4\}\pmod{5}$$  Make a second conclusion based on this fact.  \end{exmp}
+
+\begin{soln}  The product of the two sets must be the same.  Therefore we must have $$2^4\cdot 4!\equiv 4!\pmod{5}\implies 4!\left(2^4-1\right)\equiv 0\pmod{5}$$
+Since $\gcd(4!, 5)=1$ we have $2^4\equiv 1\pmod{5}$.  \end{soln}
+
+\begin{thm}  As long as $\gcd(a,p)=1$ we have $$a^{p-1}\equiv 1\pmod{p}.$$ \end{thm}
+\begin{proof}  By our above theorem we have:  \begin{eqnarray*} \{a\times 1, a\times 2, a\times 3,\cdots, a\times (p-1)\}\equiv \{1,2,3,\cdots, p-1\}\pmod{p} \\ a^{p-1}\cdot (p-1)!\equiv (p-1)!\pmod{p} \\ \left(p-1\right)!\left(a^{p-1}-1\right)\equiv 0\pmod{p} \\ a^{p-1}\equiv 1\pmod{p} \end{eqnarray*} \end{proof}
+
+\section{Second proof of Fermat's little theorem}
+
+This proof relies on using the binomial theorem.     
+
+\begin{thm}  We have $a^p\equiv a\pmod{p}$ \end{thm}
+
+\begin{proof}  We use induction. We only account for $a\in \{0,1,2,\cdots, p-1\}$ because this is the residue set mod $p$.
+
+\textbf{Base Case:}  For $a=0$ we arrive at $0\equiv 0\pmod{p}$. For $a=1$ we get $1^{p-1}\equiv 1\pmod{p}$.  
+
+\textbf{Inductive hypothesis:}  Assume the statement holds for $a=n$.  We prove it holds for $a=n+1$.  We have \begin{eqnarray*} \left(n+1\right)^p&\equiv& n^p+\binom{p}{1}n^{p-1}+\cdots+\binom{p}{p-1}n^1+\binom{p}{p}\pmod{p} \\ &\equiv& n+1\pmod{p} \end{eqnarray*} 
+
+The reason behind the last step is that $p\mid \binom{p}{i}=\frac{p!}{\left(p-i\right)!i!}$.  \end{proof}
+ 
+\section{Problems for the reader}
+\begin{prob}  Calculate $19^{30}\pmod{31}$.\end{prob}
+\begin{prob}  Calculate $8^{7^{2}}\pmod{5}$ \end{prob}
+\begin{prob}  Calculate $9^{10^2+1}\pmod{101}$ \end{prob}
+\begin{prob}(Brilliant.org)  If $29^p+1$ is divisible by a prime $p$ find all possible positive values of $p$. \end{prob}
+\begin{prob}  Calculate $2^{10}+5^{10}\pmod{10}$ \end{prob}  
+\begin{prob}  Calculate $2^{3^{4^{5}}}\pmod{19}$  \end{prob} 
+
+\end{document}
