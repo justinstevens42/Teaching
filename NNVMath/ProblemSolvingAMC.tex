@@ -1,0 +1,122 @@
+\input{HEADER.tex}
+
+\title{ARML Lecture:  Problem Solving in AMC}
+\begin{document}
+	
+\thispagestyle{empty}
+	
+    \begin{center}
+    	\vspace*{1cm}
+    	
+    	\Huge
+    	\textbf{Problem Solving Strategies in AMC Contests}
+    	
+    	\vspace{0.5cm}
+    	\LARGE
+    	A Collection of my Favourite Problems
+    	
+    	\vspace{1.5cm}
+    	
+    	\textbf{Justin Stevens}
+    
+    	
+  
+    	
+    \end{center}
+
+\section{Algebra}
+
+The first few problems which we will explore in this section all invoke finding symmetry in systems of equations.  
+\begin{exmp}(AMC 12)  If $x,y,$ and $z$ are positive numbers satisfying $$x+\frac{1}{y}=4, \text{ } y+\frac{1}{z}=1, \text{ and } z+\frac{1}{x}=\frac{7}{3},$$ find the value of $xyz$.  \end{exmp} 
+\begin{soln}  We want to find the product $xyz$, therefore, we think to multiply the three equations, and see where that goes.  Multiplying the three equations, we find that \begin{eqnarray*}\left(x+\frac{1}{y}\right)\left(y+\frac{1}{z}\right)\left(z+\frac{1}{x}\right)&=&xyz+\frac{xy}{x}+\frac{xz}{z}+\frac{x}{zx}+\frac{yz}{y}+\frac{y}{yx}+\frac{z}{yz}+\frac{1}{xyz} \\ &=& xyz+\left(x+y+z\right)+\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right)+\frac{1}{xyz} \\ &=& 4\cdot 1 \cdot \frac73=\frac{28}{3}. \end{eqnarray*}  
+
+Our goal is to find $xyz$, however, there are a lot of terms in the above product which we don't know how to compute directly.  However, we note that each of these terms appears exactly once in the above equations, therefore, we now think to add the original three equations: $$\left(x+\frac{1}{y}\right)+\left(y+\frac{1}{z}\right)+\left(z+\frac{1}{x}\right)=4+1+\frac{7}{3}=\frac{22}{3}$$
+
+Substituting this into the first equation gives us $$xyz+\frac{22}{3}+\frac{1}{xyz}=\frac{28}{3}\implies xyz+\frac{1}{xyz}=2.$$
+
+Finally, multiplying by $xyz$ and re-arranging shows that the above equation is equivalent to $$(xyz-1)^2=0\implies xyz=\boxed{1}.$$
+
+\end{soln} 
+
+\begin{exmp}(Purple Comet) Let $a,b,$ and $c$ be non-zero real numbers such that $$\frac{ab}{a+b}=3, \text{ } \frac{bc}{b+c}=4, \text{ and } \frac{ca}{c+a}=5.$$  Find $\displaystyle \frac{abc}{ab+bc+ca}$.  \end{exmp}
+\begin{soln}  From our success in the previous problem, we think that possibly multiplying the three equations may be beneficial:  $$\left(\frac{ab}{a+b}\right)\left(\frac{bc}{b+c}\right)\left(\frac{ca}{c+a}\right)=\frac{(abc)^2}{a^2b+ab^2+a^2c+c^2a+b^2c+c^2b+2abc}$$
+
+While we could try to manipulate the denominator in some way, this doesn't look particularly promising, therefore, we begin at the drawing board.  Since we are dealing with fractions, we think that this may have something to do with reciprocals.  Note that $$\frac{1}{a}+\frac{1}{b}=\frac{a+b}{ab},$$ which is exactly the reciprocal of the first expression.  Therefore, $\frac{1}{a}+\frac{1}{b}=\frac13$.  Using the same idea for the other equation, we find that \begin{eqnarray} \label{rec:1} \frac{1}{a}+\frac{1}{b}=\frac13; \quad \frac{1}{b}+\frac{1}{c}=\frac14; \quad \frac{1}{c}+\frac{1}{a}=\frac15. \end{eqnarray}
+
+Now, taking the reciprocal of our desired expression,  $\displaystyle \frac{ab+bc+ca}{abc}=\frac{1}{c}+\frac{1}{a}+\frac{1}{b}.$ \newline We therefore want to find the sum of the reciprocals of $a,b,c$.  In order to do this, summing up the equations from \ref{rec:1}, we see that $$\frac{2}{a}+\frac{2}{b}+\frac{2}{c}=\frac13+\frac14+\frac15=\frac{47}{60}\implies \frac{1}{a}+\frac{1}{b}+\frac{1}{c}=\frac{47}{120}.$$
+
+Finally, $$\frac{abc}{ab+bc+ca}=\frac{1}{\frac{ab+bc+ca}{abc}}=\frac{1}{\frac1a+\frac1b+\frac1c}=\boxed{\frac{120}{47}}.$$
+
+
+
+
+	
+	\end{soln}
+
+\begin{exmp} Find $\displaystyle x^5+\frac{1}{x^5}$ in terms of $\displaystyle x+\frac{1}{x}$.  \end{exmp}
+\begin{soln}  There are several equally valid ways to approach this problem.  Define $\displaystyle A_n=x^n+\frac{1}{x^n}$.  In order to find $A_2$, we simply square $A_1$:  $$\left(x+\frac{1}{x}\right)^2=x^2+2\cdot x\cdot \frac{1}{x}+\frac{1}{x^2}=x^2+2+\frac{1}{x^2}\implies A_2=A_1^2-2.$$
+
+In order to find $A_3$ and $A_4$, we will try to use the previous value in order to recursively find these.  For instance, to find $A_3$, we would simply multiply $A_2$ by $A_1$ in two different ways.     \begin{eqnarray*} \left(x^2+\frac{1}{x^2}\right)\left(x+\frac{1}{x}\right)&=&\left(A_1^2-2\right)\left(A_1\right)=A_1^3-2A_1 \\  &=& x^3+x+\frac{1}{x}+\frac{1}{x^3}=A_3+A_1   \end{eqnarray*}
+Equating the final two terms of both equations, we see that $$A_3+A_1=A_1^3-2A_1\implies A_3=A_1^3-3A_1.$$
+
+Similarly, in order to find $A_4$, we multiply $A_3$ by $A_1$ in two different ways: 
+\begin{eqnarray*}  \left(x^3+\frac{1}{x^3}\right)\left(x+\frac{1}{x}\right)&=&\left(A_1^3-3A_1\right)\left(A_1\right)=A_1^4-3A_1^2 \\ &=& x^4+x^2+\frac{1}{x^2}+\frac{1}{x^4}=A_4+A_2 \end{eqnarray*}
+Equating the final two terms of both equations, we see that  $$A_4=\left(A_1^4-3A_1^2\right)-A_2=\left(A_1^4-3A_1^2\right)-\left(A_1^2-2\right)=A_1^4-4A_1^2+2.$$
+
+Once we have the value of $A_3$ and $A_4$, we simply have to multiply $A_4$ by $A_1$ in order to find $A_5$:  
+
+\begin{eqnarray*}  
+	\left(x^4+\frac{1}{x^4}\right)\left(x+\frac1x\right)&=&\left(A_1^4-4A_1^2+2\right)\left(A_1\right)=A_1^5-4A_1^3+2A_1 \\ &=& x^5+x^3+\frac{1}{x^3}+\frac{1}{x^5}=A_5+A_3 \end{eqnarray*}
+
+Therefore, equating the final two terms, we see that $$A_5=\left(A_1^5-4A_1^3+2A_1\right)-A_3=\left(A_1^5-4A_1^3+2A_1\right)-\left(A_1^3-3A_1\right)=\boxed{A_1^5-5A_1^3+5A_1}.$$
+
+\end{soln}
+
+\begin{comment}  
+
+Another way to find $A_3$ and $A_4$ are by expanding:
+
+When we cube $A_1$, we find: $$\left(x+\frac{1}{x}\right)^3=x^3+3x^2 \frac{1}{x}+3x \frac{1}{x^2}+\frac{1}{x^3}=x^3+3x+\frac{3}{x}+\frac{1}{x^3}\implies A_3=A_1^3-3A_1.$$
+
+When we square $A_2$, we find $$\left(x^2+\frac{1}{x^2}\right)^2=x^4+2\cdot x^2\cdot \frac{1}{x^2}+\frac{1}{x^4}=x^4+2+\frac{1}{x^4}.$$
+Remembering that $A_2=A_1^2-2$ from before, we now have \begin{eqnarray*}  A_4=x^4+\frac{1}{x^4}&=&\left(x^2+\frac{1}{x^2}\right)^2-2 \\ &=&\left(A_1^2-2\right)^2-2=A_1^4-4A_1^2+2. \end{eqnarray*}  \end{comment}  
+
+The next few problems all involve functions.  
+
+\begin{exmp}(Mandelbrot)  Let $f(x)$ be a function with domain $\mathbb{N}$.  If $a$ and $b$ are positive integers such that when $a+b=2^n$ for positive integer $n$, then $f(a)+f(b)=n^2$.  Find the value of $f(2002)$.  \end{exmp}
+\begin{soln}  The condition in the problem statement initially seems a bit weird, therefore, we try plugging in some small values of $a$ and $b$ to see if we can figure out some properties of the function.  When $a=b=1$, we have $n=1$, therefore $f(1)+f(1)=1\implies f(1)=\frac12$.  When $a=b=2$, we have $n=2$, therefore $f(2)+f(2)=4\implies f(2)=2$.  We see that we can calculate $f(2^k)$ in general using this method. However, the value which we want, $2002$, unfortunately is not a power of $2$.  We therefore have to think of another method to calculate $f(2002)$.  
+	
+One way to begin is by finding a power of $2$ close to $2002$.  The nearest power of $2$ is $2048=2^{11}$.  Therefore, if we set $a=2002$ and $b=46$ in the original statement, we see that $$2002+46=2^{11}\implies f(2002)+f(46)=11^2=121.$$
+We have now reduced the problem down to finding the value of $f(46)$.  This approach seems promising, therefore, we try it again.  The closest power of $2$ to $46$ is $64$, therefore, when $a=46$ and $b=18$,  $$46+18=2^6\implies f(46)+f(18)=6^2=36.$$
+Repeating this process a few more times gives \begin{eqnarray*}  18+14=2^5\implies f(18)+f(14)&=&5^2=25 \\ 14+2=2^4\implies f(14)+f(2)&=& 4^2=16. \end{eqnarray*}
+
+However, we know the value of $f(2)$ from above; it's simply $2$!  Therefore, substituting this into the final equation gives $f(14)=16-2=14$.  Continuing this chain, we find $$f(18)=25-f(14)=11; \quad f(46)=36-f(18)=25; \quad f(2002)=121-f(46)=\boxed{96}.$$  \end{soln}
+
+\begin{exmp}(AMC 12)  Let $f$ be a function for which $f(x/3) = x^2 + x + 1$. Find the sum of all values of $z$ for which $f(3z) = 7$. \end{exmp}
+
+\begin{exmp}(HMMT)  Define $a\star b=ab+a+b$ for all integers $a$ and $b$.  Evaluate $$1\star(2\star(3\star(4\star\cdots(99\star100)\cdots))).$$ \end{exmp}
+\begin{soln}  
+We use Simon's Favourite Factoring Trick.  Note that $(a+1)(b+1)=ab+a+b+1$.  Therefore, we have $$a\star b=(a+1)(b+1)-1.$$
+
+Using this property, we have $99\star 100=100\times 101-1$.  Now, looking at the next term, \begin{eqnarray*} 98\star(99\star 100)=98\star(100\times 101-1)&=&(98+1)(100\times 101-1+1)-1 \\ &=&99\times 100\times 101-1. \end{eqnarray*}  
+It looks like there may be a pattern.  We investigate further, and find that \begin{eqnarray*} 97\star\left(98\star(99\star 100)\right)=97\star(99\times 100\times 101-1)&=&\left(97+1\right)\left(99\times 100\times 101-1+1\right)-1 \\ &=&98\times 99\times 100\times 101-1. \end{eqnarray*}
+The pattern will continue to hold, because we see that we always add $1$ to $b$ in the product.  Therefore, $$1\star(2\star(3\star(4\star\cdots(99\star100)\cdots)))=2\times 3\times 4\times \cdots \times 100\times 101-1=\boxed{101!-1}.$$
+\end{soln}
+The next few problems all involve polynomials.
+
+\begin{exmp}  Let the polynomial $p(x)=x^3-3x^2-5x+2$ have roots $r,s,t$.  Find the polynomial with roots 
+	\begin{itemize}
+		\item $r+1$, $s+1$, and $t+1$.
+		\item $3r$, $3s$, and $3t$.
+		\item $\frac{1}{r}$, $\frac{1}{s}$, and $\frac{1}{t}$.
+	\end{itemize}
+\end{exmp}
+
+The next few problems all involve infinite sums.
+
+\begin{exmp}(Vishal Arul)  Define $A(n)=1+2+3+\cdots+n$.  Compute the value of the infinite sum $$\sum_{i=1}^{\infty}\left(\frac{A(n)}{3^n}\right).$$ \end{exmp}
+
+
+
+
+\end{document}

@@ -1,0 +1,79 @@
+\input{HEADER.tex}
+\lhead{Telescoping Series}
+\title{ARML Lecture:  Telescoping Series}
+\begin{document}
+\begin{center}
+\HRule \\[0.4cm]
+{ \huge \bfseries ARML: Telescoping Series}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors}\\
+Justin \textsc{Stevens} \newline
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+
+\end{flushright}
+\end{minipage}\\[0.5cm]
+\end{center}
+
+\section{Lecture}
+
+With certain sums/products, the majority of the terms will cancel which helps to simplify calculations.  Notation used throughout the document:
+
+$$\prod_{i=1}^{n}a_i=a_1\times a_2\times a_3\times \cdots \times a_n$$
+$$\sum_{i=1}^{n}a_i=a_1+a_2+a_3+\cdots+a_n$$
+
+\begin{exmp}[Mathcounts]  Evaluate the product $$\left(1+\frac12\right)\left(1+\frac13\right)\left(1+\frac14\right)\left(1+\frac15\right)\left(1+\frac16\right)\left(1+\frac17\right)$$ \end{exmp}
+\begin{soln}  
+The product is equivalent to $$\left(\frac32\right)\left(\frac43\right)\left(\frac54\right)\left(\frac65\right)\left(\frac76\right)\left(\frac87\right)=\frac{8}{2}=4$$ after cancellation   \end{soln}
+
+\begin{exmp}  Simplify the product $$\left(1-\frac13\right)\left(1-\frac14\right)\left(1-\frac15\right)\cdots\left(1-\frac1n\right)$$ \end{exmp}
+\begin{soln}
+\begin{eqnarray*}  \left(1-\frac13\right)\left(1-\frac14\right)\left(1-\frac15\right)\cdots \left(1-\frac1n\right) &=& \left(\frac23\right)\left(\frac34\right)\left(\frac45\right)\cdots\left(\frac{n-1}{n}\right) \\ 
+&=& \left(\frac{2}{\cancel{3}}\right)\left(\frac{\cancel{3}}{\cancel{4}}\right)\left(\frac{\cancel{4}}{\cancel{5}}\right)\cdots \left(\frac{\cancel{n-1}}n \right) \\ &=& \frac{2}{n} \end{eqnarray*}
+\end{soln}
+
+\begin{exmp}   Evaluate $\displaystyle \prod_{k=2}^{n}\left(1-\frac{1}{k^2}\right)$  \end{exmp}
+\begin{soln}  
+\begin{eqnarray*} \prod_{k=2}^{n}\left(1-\frac{1}{k^2}\right) &=& \prod_{k=2}^{n}\frac{(k+1)(k-1)}{k^2} \\ &=& \left(\prod_{k=2}^{n}\frac{k+1}{k}\right)\left(\prod_{k=2}^{n}\frac{k-1}{k}\right) \\ &=& \left(\frac{n+1}{2}\right)\left(\frac{1}{n}\right)=\frac{n+1}{2n} \end{eqnarray*}  \end{soln}
+
+\begin{exmp}[AMC 12] Let $T_n=1+2+3+\cdots+n$ and $$P_n=\frac{T_2}{T_2-1}\cdot \frac{T_3}{T_3-1}\cdot \frac{T_4}{T_4-1}\cdots \frac{T_n}{T_n-1}$$ for $n=2,3,4,\cdots$.  Find $P_{1991}$. \end{exmp}  
+\begin{soln} 
+Notice that $T_n=\frac{n(n+1)}{2}$ and $$T_n-1=\frac{n(n+1)}{2}-1=\frac{n^2+n-2}{2}=\frac{(n+2)(n-1)}{2}$$.  Therefore the product which we want to evaluate is equivalent to
+\begin{eqnarray*} P_n&=&\left(\prod_{i=2}^{1991}\frac{i}{i+2}\right)\left(\prod_{i=2}^{1991}\frac{i+1}{i-1}\right) \\ &=& \frac{2\times 3}{1992\times 1993}\times \left(\frac{1991\times 1992}{1\times 2}\right) \\ &=& \frac{3\times 1991}{1993}=\frac{5973}{1993} \end{eqnarray*} \end{soln}
+
+\begin{exmp}  Evaluate the sum $$\frac{1}{1\times 2}+\frac{1}{2\times 3}+\frac{1}{3\times 4}+\frac{1}{4\times 5}+\cdots +\frac{1}{99\times 100}$$ \end{exmp}
+\begin{soln}  
+Notice that $\displaystyle \frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}$, therefore the sum is equivalent to 
+$$\left(\frac11-\frac12\right)+\left(\frac12-\frac13\right)+\left(\frac13-\frac14\right)+\cdots+\left(\frac{1}{99}-\frac{1}{100}\right)= \frac11-\frac{1}{100}=\frac{99}{100}$$
+
+\end{soln}
+
+
+
+\section{Problem Solving}
+
+Here is a set of problems involving telescoping series.  If you have any questions or want hints on any of these questions please feel free to ask me!  
+
+\begin{prob}[AHSME]  Find the sum $\displaystyle \frac{1}{1\cdot 3}+\frac{1}{3\cdot 5}+\cdots+\frac{1}{(2n-1)(2n+1)}+\cdots+\frac{1}{255\times 257}$ \end{prob}
+\begin{prob}  Find the product $\displaystyle  \prod_{n=1}^{20}\left(1+\frac{2n+1}{n^2}\right)$.  \end{prob}  
+\begin{prob}  Consider the sequence $1, -2, 3, -4, 5, -6, \cdots$ whose $n$th term is $(-1)^{n+1}\cdot n$.  What is the average of the first $200$ terms of the sequence?  \end{prob}  
+\begin{prob}[HMMT]  Evaluate $1\cdot 2-2\cdot 3+3\cdot 4-4\cdot 5+\cdots+2001\cdot 2002$.  \end{prob}
+\begin{prob}[Mandelbrot]  Calculate $$\prod_{n=1}^{13}\frac{n(n+2)}{(n+4)^2}$$ \end{prob}
+\begin{prob}[AHSME]  Calculate $$ T=\frac{1}{3-\sqrt{8}}-\frac{1}{\sqrt{8}-\sqrt{7}}+\frac{1}{\sqrt{7}-\sqrt{6}}-\frac{1}{\sqrt{6}-\sqrt{5}}+\frac{1}{\sqrt{5}-2}. $$ \end{prob}
+\begin{prob}  Find $$\frac{1}{1+\sqrt2}+\frac{1}{\sqrt2+\sqrt3}+\frac{1}{\sqrt3+\sqrt4}+\cdots+\frac{1}{\sqrt{99}+\sqrt{100}}$$ \end{prob}
+\begin{prob}  Find the sum $\frac{1}{2!}+\frac{2}{3!}+\frac{3}{4!}+\cdots+\frac{n-1}{n!}$ \end{prob}  
+\begin{prob}[AIME]  Let $ \displaystyle x=\frac{4}{(\sqrt{5}+1)(\sqrt[4]{5}+1)(\sqrt[8]{5}+1)(\sqrt[16]{5}+1)}. $ Find $ (x+1)^{48}. $ \end{prob}  
+\begin{prob}  Find the integer closest to $\displaystyle 1000\sum_{n=3}^{1000}\frac{1}{n^2-4}$.  \end{prob}  
+\begin{prob}    Evaluate $\displaystyle \sum_{k=2}^{n}k!(k^2+k+1)$  \end{prob}  
+\begin{prob}[Mandelbrot]  Compute the product $$\frac{\left(1998^2-1996^2\right)\left(1998^2-1995^2\right)\cdots \left(1998^2-0^2\right)}{\left(1997^2-1996^2\right)\left(1997^2-1995^2\right)\cdots \left(1997^2-0^2\right)}$$  \end{prob}  
+\begin{prob}[USAMTS]  Determine the value of $$S=\sqrt{1+\frac{1}{1^2}+\frac{1}{2^2}}+\sqrt{1+\frac{1}{2^2}+\frac{1}{3^2}}+\cdots+\sqrt{1+\frac{1}{n^2}+\frac{1}{(n+1)^2}}+\cdots+\sqrt{1+\frac{1}{1999^2}+\frac{1}{2000^2}}$$  [Hint:  This problem is very difficult.  Try expressing each of the radicals in term of $n$] \end{prob}
+\begin{prob}  Evaluate the infinite product $\displaystyle \prod_{n=2}^{\infty}\left(\frac{n^3-1}{n^3+1}\right)$  [Hint:  Factor and write out the first few terms]  \end{prob}  
+
+
+
+\end{document}

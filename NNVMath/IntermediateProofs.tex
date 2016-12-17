@@ -1,0 +1,122 @@
+\input{HEADER.tex}
+\lhead{Intermediate Proofs}
+\title{ARML Lecture:  Intermediate Proofs}
+\begin{document}
+\begin{center}
+\HRule \\[0.4cm]
+{ \huge \bfseries ARML: Intermediate Proofs}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors}\\
+Justin \textsc{Stevens} \newline
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+
+\end{flushright}
+\end{minipage}\\[0.5cm]
+\end{center}
+
+\section{Lecture}
+
+There are several methods used in Intermediate Proofs:  
+
+\textbf{Contradictions:}  If we want to show that $A$ is true, we use proof by contradiction by showing that if $A$ is false, then that would result in an impossibility, thereby resulting in $A$ being true.  
+
+\textbf{Induction:}  Let's say we want to prove a statement $P(n)$ for positive integer $n$, with $n_0$ being a fixed positive integer.  If $P(n_0)$ is true and $P(k+1)$ is true whenever $P(k)$ is, then $P(n)$ is true for $n\ge n_0$.  
+
+\textbf{Strong Induction:}  Let's say we want to prove a statement $P(n)$ for positive integers $n$, with $n_0$ being a fixed positive integer.  If $P(n_0)$ is true and $P(k+1)$ is true whenever $P(m)$ is for $n_0 \le m\le k$, then $P(n)$ is true for $n\ge n_0$.
+
+We'll cover these all in depth throughout this lesson.
+
+\begin{exmp}  Prove that there are infinitely many prime numbers. \end{exmp}
+\begin{soln}  We proceed by proof by contradiction.  Assume that there are only a finite number of prime numbers, namely $p_1, p_2, \cdots, p_k$.  Consider the number $M=p_1p_2\cdots p_k+1$.  Clearly, $M$ is not divisible by $p_i$ for $1\le i\le k$, therefore $M$ must be divisible by a prime which is not in our assumed set of primes, contradiction.  There are therefore infinitely many primes.  \end{soln}
+
+\begin{exmp}  Prove that there does not exist integers $a,b$ such that $a^2-4b=2$.  \end{exmp}
+\begin{soln}  Assume for the sake of contradiction that there are integers $a,b$ that satisfy the above equation.  Rearranging the equation, we see that $a^2=2+4b=2(1+2b)$.  Therefore, $a$ must be even.  Let $a=2a_0$ for some $a_0$.  Substituting this back into the equation gives us $$(2a_0)^2=2(1+2b)\implies 4a_0^2=2+4b\implies 2a_0^2=1+2b$$
+However, $2a_0^2$ and $2b$ are both even, while $1$ is not, therefore the above equation is a contradiction mod $2$.  
+
+\textit{Note:}  Some more experienced problem solvers may have instantly noted that the above equation is a contradiction mod $4$ since the possible residues mod $4$ are $0,1$.  
+\end{soln}
+
+\begin{exmp}  Prove that $\sqrt{2}$ is irrational.  \end{exmp}
+\begin{soln}  Assume for the sake of contradiction that $\sqrt{2}$ is rational.  Therefore $\sqrt{2}=\frac{a}{b}$ for relatively prime $a,b$.  Squaring the equation and multiplying by $b^2$ on both sides gives us $a^2=2b^2$.  Therefore, $2\mid a$ and $a=2a_0$ for some $a_0$.  Substituting this back into the equation, we have $$4a_0^2=2b^2\implies 2a_0^2=b^2$$  Similarly, since the left hand side of the equation is even, $b$ must also be even and $b=2b_0$ for some $b_0$.  However, $\gcd(a,b)=2\gcd(a_0, b_0)$, contradicting the assumption that $a$ and $b$ were relatively prime.  Contradiction.  Therefore $\sqrt{2}$ is irrational.  \end{soln}
+
+\begin{exmp}  Prove that for $x\in [0, \frac{\pi}{2}]$, $\sin(x)+\cos(x)\ge 1$.  \end{exmp}
+\begin{soln}  Assume for the sake of contradiction that $\sin(x)+\cos(x)<1$.  Squaring this gives $$\left(\sin(x)+\cos(x)\right)^2<1\implies \sin^2(x)+\cos^2(x)+2\sin(x)\cos(x)<1\implies 2\sin(x)\cos(x)<0$$
+With the last step following from the Pythagorean Identity that $\sin^2(x)+\cos^2(x)=1$.  However, $x\in [0, \frac{\pi}{2}]$, therefore $2\sin(x)\cos(x)\ge 0$, contradiction.  Therefore for $x\in [0, \frac{\pi}{2}], \sin(x)+\cos(x)\ge 1$.  \end{soln}  
+
+\begin{exmp}  Prove the identity $1+2+2^2+\cdots +2^n=2^{n+1}-1$.  \end{exmp}
+\begin{soln}  
+\textbf{Base Case:}  When $n=1$, we get $1+2^1=2^{2}-1$, which is true.
+
+\textbf{Inductive Hypothesis:}  Assume that the problem statement holds for $n=k$.  We show that it then also holds for $n=k+1$.
+Notice that $$1+2+2^2+\cdots+2^{k+1}=\left(1+2+2^2+\cdots+2^k\right)+2^{k+1}$$
+Now, using the inductive hypothesis, $1+2+\cdots+2^k=2^{k+1}-1$.  Substituting this into the above equation gives us $$1+2+2^2+\cdots+2^{k+1}=\left(2^{k+1}-1\right)+2^{k+1}=2^{k+2}-1$$
+
+Our induction is complete, and $1+2+2^2+\cdots+2^n=2^{n+1}-1$ for all non-negative $n$.  \end{soln}
+
+\begin{exmp}  Prove that $1\cdot 1!+2\cdot 2!+3\cdot 3!+\cdots+n\cdot n!=(n+1)!-1$  \end{exmp}
+\begin{soln}
+\textbf{Base Case:}  When $n=1$, $1\cdot 1!=\left(1+1\right)!-1$, which is true.
+
+\textbf{Inductive Hypothesis:}  Assume that the problem statement holds for $n=k$.  We show that it holds for $n=k+1$.  Notice that $$1\cdot 1!+2\cdot 2!+\cdots+k\cdot k!+(k+1)\cdot (k+1)!=\left(1\cdot 1!+2\cdot 2!+3\cdot 3!+\cdots+k\cdot k!\right)+(k+1)\cdot (k+1)!$$
+
+Using the inductive hypothesis, $1\cdot 1!+2\cdot 2!+\cdots+k\cdot k!=(k+1)!-1$.  Substituting this into the above equation, \begin{eqnarray*} 1\cdot 1!+2\cdot 2!+3\cdot 3!+\cdots+(k+1)\cdot (k+1)!&=&(k+1)!-1+(k+1)\cdot (k+1)! \\ &=&(k+2)(k+1)!-1 \\ &=&(k+2)!-1 \end{eqnarray*}
+\end{soln}
+\begin{exmp}  Show that if $n$ is a positive integer greater than $2$, then $$\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}>\frac{3}{5}$$  \end{exmp}
+\begin{soln}  Notice that the problem statement says for $n$ being a positive integer \textbf{greater than 2}, therefore the base case is $3$ rather than $1$ (\textit{in the formal definition of induction given above,  } $n_0=3$).  
+
+\textbf{Base Case:}  When $n=3$, $$\frac{1}{4}+\frac{1}{5}+\frac{1}{6}=\frac{37}{60}>\frac{36}{60}=\frac{3}{5}$$
+
+\textbf{Inductive Hypothesis:}  Assume the statement holds for $n=k$.  Then, we show that it also holds for $n=k+1$.  
+
+Notice that 
+$$\frac{1}{k+2}+\frac{1}{k+3}+\cdots+\frac{1}{2k+2}=\frac{1}{k+1}+\frac{1}{k+2}+\cdots+\frac{1}{2k}+\left(\frac{1}{2k+1}+\frac{1}{2k+2}-\frac{1}{k+1}\right)$$
+Using the Inductive Hypothesis, $\frac{1}{k+1}+\frac{1}{k+2}+\cdots+\frac{1}{2k}>\frac{3}{5}$, therefore, substituting this into the above equation gives us \begin{eqnarray*} \frac{1}{k+2}+\frac{1}{k+3}+\cdots+\frac{1}{2k+2}&>&\frac35+\frac{1}{2k+1}+\frac{1}{2k+2}-\frac{1}{k+1} \\ &=& \frac35+\frac{1}{2k+1}-\frac{2}{2k+2}+\frac{1}{2k+2} \\ &=& \frac35+\frac{1}{2k+1}-\frac{1}{2k+2} \\ &=& \frac35+\frac{1}{(2k+1)(2k+2)} \end{eqnarray*}
+
+Now, using the fact that $\frac{1}{(2k+1)(2k+1)}>0$, we get $$\frac{1}{k+2}+\frac{1}{k+3}+\cdots+\frac{1}{2k+2}>\frac35+\frac{1}{(2k+1)(2k+2)}>\frac35$$
+
+We are done by induction.  \end{soln}
+
+\begin{exmp}  The Fibonacci sequence is defined by $F_{1}=F_2=1$, and $F_n=F_{n-1}+F_{n-2}$ for all $n\ge 3$.  Prove that every positive integer $N$ can be represented by $$N=F_{a_1}+F_{a_2}+\cdots+F_{a_m}$$ for some integers $a_1, a_2, \cdots, a_m$ satisfying $2\le a_1<a_2<\cdots<a_m$.  \end{exmp}
+\begin{soln}  The base case of $N=1=F_2$ is trivial.  To get a feel for the problem, consider the number $N=79$.  How would we go about representing this as a sum of Fibonacci numbers?  Well, the smallest Fibonacci number less than $79$ is $55$.  Subtract gives $79-55=24$.  We then repeat this procedure.  The smallest Fibonacci number less than $24$ is $21$.  Subtracting yields $24-21=3$.  Finally, $3=2+1=F_3+F_2$.  Therefore, $79=55+21+3+1=F_{10}+F_8+F_3+F_2$.  
+
+We think of how to generalize this method.  In a regular induction problem, we would assume that it holds for $N=K$ and show that it holds for $N=K+1$. However, in the above example, once we subtract $55$ we are left with a number close to $K$ but less than it.  This therefore queues for us to use strong induction.  
+
+\textbf{Inductive Hypothesis:}  Assume that the problem statement holds for all positive integers from $1$ to $K$.  We show that the problem statement holds for $K+1$.
+
+Let $F_a$ be the largest Fibonacci number with $F_a\le K+1$.  If $F_a=K+1$, then we are clearly done.  Otherwise, $F_a<K+1<F_{a+1}$, therefore $$0<(K+1)-F_a<F_{a+1}-F_a=F{a-1}$$
+
+Now, by our inductive hypothesis, $(K+1)-F_a=F_{b_1}+F_{b_2}+\cdots+F_{b_m}$.  Furthermore, since $(K+1)-F_a<F_{a-1}$, we have that $2\le b_1<b_2<\cdots<b_m<a$.  Therefore, $K+1=F_a+F_{b_1}+F_{b_2}+\cdots+F_{b_m}$ satisfies the desired condition.  \end{soln}
+
+
+\section{Problems for the Reader}
+
+\begin{prob}  Prove that $\sqrt[3]{3}$ is irrational.  \end{prob}
+\begin{prob}  Prove that there are infinitely many primes of the form $4k+3$.  \end{prob}
+\begin{prob}  Prove that if $a^2-2a+7$ is even, then $a$ must be odd.  \end{prob}
+\begin{prob}  Prove that the product of $5$ consecutive integers is divisible by $120$.  \end{prob}
+\begin{prob}  Prove that the number $\log_{2}3$ is irrational.  \end{prob}
+\begin{prob}  Prove that if $4\mid (a^2+b^2)$ and $a$ and $b$ are both positive integers, then $a$ and $b$ cannot both be odd. \end{prob}  
+\begin{prob}  Prove that there are no rational roots to the equation $x^3+x+1=0$.  \end{prob}  
+\begin{prob}  Prove that there are no $(x,y)\in \mathbb{Q}^2$ (\textit{meaning x and y are rational}) such that $x^2+y^2-3=0$.  \end{prob}
+\begin{prob}  Prove that if $a,b,c$ are odd integers, then the equation $ax^2+bx+c=0$ does not have any integer roots.  \end{prob}
+\begin{prob}  Prove that the sum of the first $n$ positive integers is $\frac{n(n+1)}{2}$.  \end{prob}
+\begin{prob}  Prove that $$\frac{m!}{0!}+\frac{(m+1)!}{1!}+\frac{(m+2)!}{2!}+\cdots+\frac{(m+n)!}{n!}=\frac{(m+n+1)!}{n!(m+1)}$$ \end{prob}  
+\begin{prob}  The $k$th triangular number is equivalent to $\frac{k(k+1)}{2}$.  Prove that the sum of the first $n$ triangular numbers is $\frac{n(n+1)(n+2)}{6}$.  \end{prob}
+\begin{prob}  Show that if $n$ is a positive integer, then $1+\frac{1}{\sqrt2}+\frac{1}{\sqrt3}+\cdots+\frac{1}{\sqrt{n}}<2\sqrt{n}$.  \end{prob}
+\begin{prob}  Use induction and/or telescoping sums to prove that $\frac{1}{1\cdot 3}+\frac{1}{3\cdot 5}+\frac{1}{5\cdot 7}+\cdots +\frac{1}{(2n-1)(2n+1)}=\frac{n}{2n+1}$.  \end{prob}
+\begin{prob}  The sequence $x_1, x_2, x_3, \cdots$ is defined by $x_1=2$ and $x_{k+1}=x_k^2-x_k+1$ for all $k\ge 1$.  Find $\displaystyle \sum_{k=1}^{\infty} \frac{1}{x_k}$.  \end{prob}  
+\begin{prob}  Prove that $n^4\le 4^n$ for all positive integers $n$ greater than $3$.  \end{prob}  
+\begin{prob}  Let $x+\frac{1}{x}=a$, for some integer $a$.  Prove that $x^n+\frac{1}{x^n}$ is an integer for all $n\ge 0$.  \end{prob}  
+\begin{prob}  Show that the $n$th Fibonacci number, $F_n=\binom{n-1}{0}+\binom{n-1}{1}+\cdots$ \end{prob}
+\begin{prob}  On a large, flat field $n$ people are positioned so that for each person the distances to all the other people are different.  Each person holds a water pistol and at a given signal fires and hits the person who is closest.  When $n$ is odd show that there is at least one person left dry.  Is this always true when $n$ is even?  \end{prob}
+\begin{prob}  Prove that for all natural $n$, that $\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots+\frac{1}{n^2}<2$.  \end{prob}  
+
+
+
+\end{document}
