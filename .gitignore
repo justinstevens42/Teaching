@@ -2,3 +2,8 @@
 *.log
 *.out
 *.synctex.gz
+*.toc
+placeholder.jpg
+sample.bib
+*.bbl
+*.blg
