@@ -1,0 +1,226 @@
+\input{HEADER.tex}
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
+\newcommand*{\runninghead}{AMC Number Theory Day 1} % Running head displayed on almost all slides
+\newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
+\newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
+\newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+% Title slide - you may have to tweak a few of the numbers if you wish to make changes to the layout
+\thispagestyle{empty} % No slide header and footer
+\begin{tikzpicture}[remember picture,overlay] % Background box
+\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+\end{tikzpicture}
+% Text within the box
+\begin{flushright}
+\vspace{0.6cm}
+\color{white}\sffamily
+{\bfseries\Large\mytitle\par} % Title
+\vspace{0.5cm}
+\normalsize
+\myauthor\par % Author name
+\mydate\par % Date
+\vfill
+\end{flushright}
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
+% To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+Welcome to A-Star Winter Math Camp 2016!  This is my fourth A-Star camp.  
+\begin{itemize}
+	\item  I've attended once as a student before in 2013.
+	\item  I've taught the AMC class twice before in the summer of 2015 and 2016.
+	\item Number Theory is my favourite subject to teach :).   
+\end{itemize}
+
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Schedule}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		\textbf{Time} & \textbf{Subject} \\
+		\midrule
+		9-10:30 AM & Number Theory \\
+		10:45AM-12:15PM & Algebra \\ 
+		1:45-3:15PM & Geometry \\
+		3:30-5:00PM & Counting \\
+		\bottomrule
+	\end{tabular}
+	\caption{A-Star Teaching Schedule}
+\end{table}
+
+
+%\textit{Sed iaculis} dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum.
+
+%\begin{multicols}{2} % Divide text into multiple columns
+%\mygreen{Sed diam enim, sagittis nec} condimentum sit amet, ullamcorper sit amet libero. \mybrown{Aliquam vel dui orci}, a porta odio. \myred{Nullam id suscipit} ipsum. \myblue{Aenean lobortis} commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+%\end{multicols}
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Bullet Points and Numbered Lists}
+
+\begin{itemize}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
+\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
+\end{itemize}
+
+\begin{enumerate}
+\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
+\item Nam cursus est eget velit posuere pellentesque
+\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\end{enumerate}
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Verbatim}
+
+How to include a theorem in this presentation:
+\begin{verbatim}
+\mybox{0.8\textwidth}{
+\begin{theorem}[Murphy (1949)]
+Anything that can go wrong, will go wrong.
+\end{theorem}
+}
+\end{verbatim}
+
+\clearpage
+
+%------------------------------------------------
+
+
+\section{Displaying Information}
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Figure}
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.4\linewidth]{placeholder}
+\end{figure}
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Theorem}
+
+The most common definition of \mygreen{Murphy's Law} is as follows.
+
+\mybox{0.8\textwidth}{ % Example of encapsulating text in a colored box
+\begin{theorem}[Murphy (1949)]
+Anything that can go wrong, will go wrong.
+\end{theorem}
+}
+
+\begin{proof}
+A special case of this theorem is proven in the textbook.
+\end{proof}
+
+\begin{remark}
+This is a remark.
+\end{remark}
+
+\begin{algorithm}
+This is an algorithm.
+\end{algorithm}
+
+\clearpage
+
+%------------------------------------------------
+
+\section{Citations}
+
+An example of the \texttt{\textbackslash cite} command to cite within the presentation:
+
+This statement requires citation \cite{Smith:2012qr}.
+
+\clearpage
+
+%------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\bibliographystyle{unsrt}
+\bibliography{sample}
+
+\clearpage
+
+%------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\begin{tikzpicture}[remember picture,overlay] % Background box
+\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+\end{tikzpicture}
+% Text within the box
+\begin{flushright}
+\vspace{0.6cm}
+\color{white}\sffamily
+{\bfseries\LARGE Questions?\par} % Request for questions text
+\vfill
+\end{flushright}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
