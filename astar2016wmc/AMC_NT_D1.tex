@@ -187,7 +187,7 @@ The topic for today is divisibility and prime factorization.  %more intro to the
 
 \subsection*{Lucky Seven}
 
-Choose \textbf{one} number below and determine if it is divisible by $7$!
+Choose \textbf{one} number below and determine if it is divisible by $7$.
 \begin{itemize}
 	\item $1729$
 	\item $2,718,281$
@@ -235,13 +235,36 @@ Hence, $16180339$ \textbf{is} divisible by $7$.
 
 $31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
 
+\begin{center} \Huge \href{https://github.com/musichead42/Teaching/blob/master/astar2016wmc/programs/Seven.ipynb}{Seven.ipynb} \end{center}
+\normalsize
 
+\clearpage
 
 \begin{figure}[h]
 	\centering\includegraphics[width=1\linewidth]{images/seven.png}
 \end{figure}
 \clearpage
 
+\subsection{Explanation of the Magic}
+
+Let the number that we want to determine its divisibility by $7$ be $N$.  Let the last digit of $N$ be $x$.  Then, we can represent $N$ as $$N=10a+x.$$  
+
+Note that we want to prove that if $7$ divides $N$, then $7$ also divides $a-2x$.  
+
+To do so, we will multiply $N$ by some integer.
+\clearpage
+\subsection*{Magic Continued}
+
+The magic integer is $5$. If $7$ divides $N$, then $7$ should also divide $5N$.  From the expression above for $N$, we have $$5N=50a+5x.$$  Now, the question is, how do we get $a-2x$ out of this?  
+
+\subsection*{Moving Around}
+
+We think to take the difference between $5N$ and $a-2x$.  Since we know that $5N$ is divisible by $7$ if the difference is divisible by $7$, then $a-2x$ must also be divisible by $7$.
+
+Using the expression for $5N$ we found on the previous slide, \begin{eqnarray*} 5N-(a-2x) &=& 50a+5x-(a-2x) \\ &=& 49a+7x. \end{eqnarray*}
+
+This is clearly a multiple of $7$, therefore, our proof is complete!  
+\clearpage
 
 \subsection{Bullet Points and Numbered Lists}
 
