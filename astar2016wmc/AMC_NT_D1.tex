@@ -56,7 +56,7 @@
 
 Welcome to A-Star Winter Math Camp 2016!  This is my fourth A-Star camp.  
 \begin{itemize}
-	\item  I've attended once as a student before in 2013.
+	\item  I've attended once as a student before.
 	\item  I've taught the AMC class twice before in the summer of 2015 and 2016.
 	\item Number Theory is my favourite subject to teach :).   
 \end{itemize}
@@ -166,15 +166,82 @@ Good luck guessing which one is my lie.
 \clearpage  
 
 \section{Math Time}
-%\textit{Sed iaculis} dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum.
 
-%\begin{multicols}{2} % Divide text into multiple columns
-%\mygreen{Sed diam enim, sagittis nec} condimentum sit amet, ullamcorper sit amet libero. \mybrown{Aliquam vel dui orci}, a porta odio. \myred{Nullam id suscipit} ipsum. \myblue{Aenean lobortis} commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
-%\end{multicols}
+The topic for today is divisibility and prime factorization.  %more intro to the topic and its importance  
 
 \clearpage
 
-%------------------------------------------------
+\subsection{Divisibility Rules}
+
+\begin{itemize}
+\item  2 - Last digit is even.
+\item  3 - Sum of the digits is divisible by 3.
+\item 4  - Number formed by last two digits is divisible by 4.
+\item 5 - Last digit is either $0$ or $5$.
+\item 6 -  Divisibility rules for both $2$ and $3$ hold.
+\item 7  - Take the last digit of the number and double it.  Subtract this from the rest of the number.  Repeat the process if necessary.  Check to see if the final number obtained is divisible by $7$.
+\end{itemize}
+
+
+\clearpage
+
+\subsection*{Lucky Seven}
+
+Choose \textbf{one} number below and determine if it is divisible by $7$!
+\begin{itemize}
+	\item $1729$
+	\item $2,718,281$
+	\item $16,180,339$
+	\item $31,415,926,535$
+\end{itemize}
+
+\subsection*{Taxicab Number}
+
+``It is a very interesting number; it is the smallest number expressible as the sum of two positive cubes in two different ways." -  Srinivasa Ramanujan (1919)
+\begin{eqnarray*}
+	1729 &\to& 172-2\cdot 9=154 \\ 
+	154 &\to& 15-2\cdot 4=7
+\end{eqnarray*}
+Therefore, $1729$ \textbf{is} divisible by $7$.
+
+
+\clearpage
+
+\subsection*{Euler's Number}
+
+\begin{eqnarray*}  
+	2718281 &\to& 271828-2\cdot 1=271826 \\ 
+	271826 &\to& 27182-2\cdot 6=27170 \\
+	27170 &\to& 2717-2\cdot 0=2717 \\ 2717 &\to& 271-2\cdot 7=257 \\ 257 &\to& 25-2\cdot 7=11
+\end{eqnarray*}
+
+Therefore, $2718281$ is \textbf{not} divisible by $7$.
+
+More on Euler's number ($e$) during Algebra lectures!  
+
+\clearpage
+
+\subsection*{The Golden Ratio - $\phi=\frac{1+\sqrt{5}}{2}=1.6180339\cdots$}
+
+\begin{eqnarray*}
+	16180339 &\to& 1618033-2\cdot 9=1618015 \\ 1618015 &\to& 161801-2\cdot 5=161791 \\ 161791 &\to& 16179-2\cdot 1=16177 \\ 16177 &\to& 1617-2\cdot 7=1603 \\ 1603 &\to& 160-2\cdot 3=154 \\ 154 &\to& 15-2\cdot 4=7
+\end{eqnarray*}  
+
+Hence, $16180339$ \textbf{is} divisible by $7$.
+
+\clearpage
+
+\subsection*{Pi}
+
+$31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
+
+
+
+\begin{figure}[h]
+	\centering\includegraphics[width=1\linewidth]{images/seven.png}
+\end{figure}
+\clearpage
+
 
 \subsection{Bullet Points and Numbered Lists}
 
