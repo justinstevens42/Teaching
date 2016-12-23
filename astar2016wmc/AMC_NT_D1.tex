@@ -4,7 +4,7 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
-\newcommand*{\runninghead}{AMC Number Theory Day 1} % Running head displayed on almost all slides
+\newcommand*{\runninghead}{AMC Number Theory} % Running head displayed on almost all slides
 \newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
 \newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
 \newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
@@ -165,13 +165,13 @@ Good luck guessing which one is my lie.
 
 \clearpage  
 
-\section{Math Time}
+\subsection{Math Time}
 
 The topic for today is divisibility and prime factorization.  %more intro to the topic and its importance  
 
 \clearpage
 
-\subsection{Divisibility Rules}
+\section{Divisibility Rules}
 
 \begin{itemize}
 \item  2 - Last digit is even.
@@ -181,6 +181,8 @@ The topic for today is divisibility and prime factorization.  %more intro to the
 \item 6 -  Divisibility rules for both $2$ and $3$ hold.
 \item 7  - Take the last digit of the number and double it.  Subtract this from the rest of the number.  Repeat the process if necessary.  Check to see if the final number obtained is divisible by $7$.
 \end{itemize}
+
+
 
 
 \clearpage
@@ -255,7 +257,9 @@ To do so, we will multiply $N$ by some integer.
 \clearpage
 \subsection*{Magic Continued}
 
-The magic integer is $5$. If $7$ divides $N$, then $7$ should also divide $5N$.  From the expression above for $N$, we have $$5N=50a+5x.$$  Now, the question is, how do we get $a-2x$ out of this?  
+The magic integer is $5$. The reason is because $5$ and $-2$ leave the same remainder when dividing by $7$.
+
+If $7$ divides $N$, then $7$ should also divide $5N$.  From the expression above for $N$, we have $$5N=50a+5x.$$  Now, the question is, how do we get $a-2x$ out of this?  
 
 \subsection*{Moving Around}
 
@@ -264,24 +268,98 @@ We think to take the difference between $5N$ and $a-2x$.  Since we know that $5N
 Using the expression for $5N$ we found on the previous slide, \begin{eqnarray*} 5N-(a-2x) &=& 50a+5x-(a-2x) \\ &=& 49a+7x. \end{eqnarray*}
 
 This is clearly a multiple of $7$, therefore, our proof is complete!  
+
+
+
+
+
 \clearpage
 
-\subsection{Bullet Points and Numbered Lists}
+\subsection{More Divisibility Rules}
 
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
+	\item  8 - The numbers formed by the last three digits are divisible by $8$.
+	\item 9 - The sum of the digits is divisible by $9$.
+	\item 10 - The number ends in $0$.
+	\item 11 - Let $E$ be the sum of the digits in an even place. Let $O$ be the sum of the digits in an odd place. $11$ must divide the difference $E-O$ for the number to be divisible by $11$.
+	\item 12 - Combination of divisibility rules for $3$ and $4$.
+	\item 13 -  Same as the divisibility rule for $7$, except replace $-2x$ with $+4x$.  
 \end{itemize}
 
-\begin{enumerate}
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-\end{enumerate}
+\section{Factorials}
+
+One of my favourite problems in number theory has to do with factorials. The factorial of a positive integer $n$ is defined as the product of all the natural numbers less than or equal to $n$. In other words, $$n!=n\times (n-1)\times (n-2)\times \cdots 1.$$  For instance, $6!=6\times 5\times 4\times 3\times 2\times 1=720$.
+
+\subsection{Zeros at the end of a Factorial}
+
+Note that $6!=720$ ends in one factorial.  The number $$25!=15511210043330985984000000$$ ends in $6$ zeros. 
+
+\mybox{0.8\textwidth}{\begin{prob} How many zeros does $100!$ end in?  \end{prob}}
+\clearpage 
+
+\subsection*{How Does Zero Work?}
+
+Zeros at the end of a number come from powers of $10$.  For instance, we can rewrite $$25!=15511210043330985984\times 10^6.$$  
+Therefore, the problem is equivalent to finding the largest power of $10$ that divides $100!$.  One way to mathematically write this is $v_{10}(100!)$.  
+
+Since $10=2\cdot 5$, the largest power of $10$ that divides $100!$ is the \textbf{minimum} of $v_2(100!)$ and $v_5(100!)$.  
+
+\subsection*{V for Vendetta}
+
+We begin by calculating $v_2(100!)$. We write out $$100!=100\cdot 99\cdot 98\cdot 97\cdots 3\cdot 2\cdot 1.$$  Consider all the numbers in the product above. 
+
+How many of them are multiples of 2?  Multiples of 4?  Multiples of 8?  Multiples of 16?  Multiples of 32?  Multiples of 64?  
+
+\clearpage 
+
+\subsection*{Floor Function}
+
+The number of multiples of $2$ in $100!$ is simply the number of even numbers in the product. Half of the numbers are even, therefore, there are $\frac{100}{2}=50$ multiples of $2$.  
+
+For other powers of $2$ that do not evenly divide into $100$, we must introduce the floor function.  
+
+\begin{defi} The floor function of a real number $x$ is defined as the largest integer less than or equal to $x$. In other words, it is the result of truncating $x$. For instance, $\lfloor 3.14159 \rfloor=3$ and $\lfloor -16.3 \rfloor=-17$. \end{defi}
 
 \clearpage
 
-%------------------------------------------------
+Using our new friend, the floor function, we answer the question about multiples.
+\begin{itemize}  
+	\item  There are $\lfloor \frac{100}{2} \rfloor=50$ multiples of $2$.
+	\item  There are $\lfloor \frac{100}{4} \rfloor=25$ multiples of $4$.
+	\item  There are $\lfloor \frac{100}{8} \rfloor=12$ multiples of $8$.
+	\item  There are $\lfloor \frac{100}{16} \rfloor=6$ multiples of $16$.
+	\item  There are $\lfloor \frac{100}{32} \rfloor=3$ multiples of $32$.
+	\item  There are $\lfloor \frac{100}{64} \rfloor=1$ multiple of $64$.  
+\end{itemize}
+
+\subsection*{How Much Power Does 2 Have?}
+
+I claim that the number of powers of $2$ in $100!$ is the sum of all the numbers above: $$50+25+12+6+3+1=97.$$  
+
+For the numbers in the product $100!$ that have a highest power of $2^{1}$, we have counted them once in the number $50$. 
+
+For those that have a highest power of $2^{2}$, they contribute a total of $2$ to the product $100!$. We have counted them \textit{once already} in the number $50$ since they are also multiples of $2$. Since they should contribute a total of $2$ to the product, we add them one time more in the number $25$.  
+\clearpage
+
+Similarly, for the numbers that have a highest power of $2^3$, they should contribute a total of $3$ to the product $100!$. They have been counted once in the number $50$ and once in the number $25$, therefore, we should add them one time more in the number $12$.
+
+This logic extends to the powers $2^4, 2^5$, and $2^6$.  
+
+Hence, $v_2(100!)=97$.  Are we done now?
+
+\clearpage
+
+\subsection*{Forgot About Magic 5}
+
+Nope! We also must compute $v_5(100!)$. We use the same method as above to determine that:
+\begin{itemize}
+	\item There are $\lfloor \frac{100}{5} \rfloor=20$ multiples of $5^1$.
+	\item There are $\lfloor \frac{100}{25} \rfloor=4$ multiples of $5^2$.
+\end{itemize} 
+
+Therefore, $v_5(100!)=20+4=24$.  
+
+\clearpage
 
 \subsection{Verbatim}
 
@@ -338,7 +416,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 The most common definition of \mygreen{Murphy's Law} is as follows.
 
 \mybox{0.8\textwidth}{ % Example of encapsulating text in a colored box
-\begin{theorem}[Murphy (1949)]
+\begin{theorem}[Murphy (1949)] \cite{a:1}
 Anything that can go wrong, will go wrong.
 \end{theorem}
 }
@@ -359,20 +437,15 @@ This is an algorithm.
 
 %------------------------------------------------
 
-\section{Citations}
 
-An example of the \texttt{\textbackslash cite} command to cite within the presentation:
 
-This statement requires citation \cite{Smith:2012qr}.
-
-\clearpage
 
 %------------------------------------------------
 
 \thispagestyle{empty} % No slide header and footer
 
 \bibliographystyle{unsrt}
-\bibliography{sample}
+\bibliography{numbertheory}
 
 \clearpage
 
