@@ -10,14 +10,51 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       762,         33]
-NotebookOptionsPosition[       561,         21]
-NotebookOutlinePosition[       902,         36]
-CellTagsIndexPosition[       859,         33]
+NotebookDataLength[      1954,         82]
+NotebookOptionsPosition[      1435,         58]
+NotebookOutlinePosition[      1776,         73]
+CellTagsIndexPosition[      1733,         70]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{"42", ",", " ", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.691544436900128*^9, 3.6915444394429073`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox[
+   SubscriptBox["\<\"101010\"\>", "\<\"2\"\>"],
+   42,
+   Editable->False],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{3.6915444397276793`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"8", "^", "4"}]], "Input",
+ CellChangeTimes->{{3.691545319556589*^9, 3.6915453199907074`*^9}}],
+
+Cell[BoxData["4096"], "Output",
+ CellChangeTimes->{3.6915453202463875`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"2016", "/", "512"}]], "Input",
+ CellChangeTimes->{{3.6915453691996*^9, 3.69154537101644*^9}}],
+
+Cell[BoxData[
+ FractionBox["63", "16"]], "Output",
+ CellChangeTimes->{3.6915453713593187`*^9}]
+}, Open  ]]
 },
 WindowSize->{766, 772},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -35,9 +72,19 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 158, 3, 31, "Input"],
+Cell[741, 27, 195, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[973, 39, 117, 2, 31, "Input"],
+Cell[1093, 43, 75, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1205, 49, 117, 2, 31, "Input"],
+Cell[1325, 53, 94, 2, 79, "Output"]
+}, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

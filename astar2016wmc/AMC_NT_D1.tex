@@ -206,6 +206,7 @@ Choose \textbf{one} number below and determine if it is divisible by $7$.
 \end{eqnarray*}
 Therefore, $1729$ \textbf{is} divisible by $7$.
 
+Can you find the two ways Ramanujan referenced?  
 
 \clearpage
 
@@ -400,6 +401,166 @@ Furthermore, $100=400_5$. The sum of the digits is $s_5(100)=4$. Therefore, $$v_
 
 \clearpage
 
+\section{Euclid's Elements}
+
+Around the time of 300 BC, a great Greek mathematician rose from Alexandria by the name of Euclid. He wrote a series of 13 books known as \textit{Elements}. Elements is thought by many to be the most successful and influential textbook ever written. It has been published the second most of any book, next to the Bible. \cite{wiki:el}
+
+The book covers both Euclidean geometry and elementary number theory. This chapter will focus solely on \textbf{Book VII, Proposition 1.}
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.30\linewidth]{images/euclid.jpg}
+	\caption{``Frontispiece of Sir Henry Billingsley's first English version of Elements in 1570" - Source:  Wikipedia \cite{wiki:el}}
+\end{figure}
+
+\clearpage
+
+\subsection{Division Algorithm} 
+The way division is commonly introduced in primary school is seen in the picture below:
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.25\linewidth]{images/divisionparts.png}
+	\caption{Source:  CalculatorSoup}
+\end{figure}
+
+\clearpage
+
+The division algorithm rigorizes this process. In the integers, $\mathbb{Z}$, the statement of the division algorithm is below:
+
+\mybox{0.8\textwidth}{\begin{theorem} For every integer pair $a,b$, there exists distinct integer quotients and remainders, $q$ and $r$, that satisfy \begin{eqnarray*} a=bq+r &|& 0\le r<|b|. \end{eqnarray*} \end{theorem}}
+
+The proof of this comes from either the well-ordering principle or induction.
+
+\subsection{Proof of Division Algorithm}
+
+We consider the case when $b$ is positive for simplicity.  Consider the set \begin{eqnarray*} S=\{a-bq &|& q \in \mathbb{Z}^{+},\:a-bq>0\}. \end{eqnarray*}  
+In other words, this set consists of the positive integer values of $a-bq$ for $q$ also being a positive integer.  In order to continue with the proof, we must cite a famous Lemma from set theory.  
+
+\mybox{0.8\textwidth}{\begin{lemma}[Well-ordering principle]  Every non-empty subset of positive integers has a least element.  \end{lemma}} 
+\clearpage
+
+Therefore, the set $S$ has a \textit{minimum element}, say when $q=q_1$ and $r=r_1$. I will prove that $0\le r_1<b.$  
+
+Assume for the sake of contradiction otherwise and that \begin{eqnarray} a-bq_1=r_1\ge b. \label{eqn: div} \end{eqnarray} However, then I claim that $a-b(q_1+1)$ is a smaller member of set $S$. 
+
+Indeed, since $q_1+1\in \mathbb{Z}^{+}$, the first condition is satisfied.
+
+Furthermore, using \ref{eqn: div}, $a-b(q_1+1)=a-bq_1-b\ge 0$. Therefore, both conditions are satisfied, and we have found a smaller member of set $S$. This contradicts the minimality of $q_1$ and $r_1$.  Hence, $0\le r_1<b$.  
+
+\clearpage
+
+
+
+\section{$\star$ Division in Other Domains}
+
+While the statement of the division algorithm may now seem like a mere formality, it is actually very vital to our number system. Without the division algorithm, we would not have unique prime factorization amongst the integers.
+
+Furthermore, it is applicable when considering domains other than the integers, such as $\mathbb{Z}[i]$ (Gaussian integers) and $\mathbb{Z}[\omega]$ (Eisenstein integers).  
+
+
+\subsection*{With Respect to Gauss}
+
+The Gaussian integers are lattice points in the complex plane. \cite{iurie}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.21\linewidth]{images/gauss.png}
+	\caption{Source:  Wikipedia}
+\end{figure}
+
+Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \mathbb{Z}\}. \end{eqnarray*}  
+
+\clearpage
+
+\subsection{Gaussian Division Problem \cite{div:1}}
+
+\mybox{0.8\textwidth}{\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
+
+To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
+
+\clearpage
+
+Here are some examples of possible pairs $(q,r)$:
+
+\begin{itemize}
+	\item $-1+4i=(1+2i)(1)+(-2+2i)$, therefore, $(q,r)=(1, -2+2i)$.
+	\item $-1+4i=(1+2i)(2)+(-3)$, therefore, $(q,r)=(2, -3)$.
+	\item $-1+4i=(1+2i)(i)+(1+3i)$, therefore, $(q,r)=(i, 1+3i)$.
+	\item $-1+4i=(1+2i)(-i)+(-3+5i)$, therefore, $(q,r)=(-i, -3+5i)$.
+	\item $-1+4i=(1+2i)(1+i)+i$, therefore, $(q,r)=(1+i, i)$.
+\end{itemize}
+
+\clearpage
+
+\subsection*{Summarizing in a Table}
+
+\begin{table}[h] 
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		Quotient & Remainder \\
+		\midrule
+		$1$ & $-2+2i$ \\
+		$2$ & $-3$ \\ 
+		$i$ & $1+3i$ \\
+		$-i$ & $-3+5i$ \\
+		$1+i$ & $i$ \\ 
+		\bottomrule
+		
+	\end{tabular}
+	
+	\caption{Division Algorithm applied to $z=-1+4i$ divided by $w=1+2i$.}
+	\label{tab:div}
+\end{table}
+
+\subsection*{Magnitude} 
+
+Now the question lies on which remainder is best. When we worked with integers, we simply had the condition $0\le r<|b|$. However, how do we compare the values of two imaginary numbers such as $-2+2i$ and $-3$?  
+
+In order to do this, we recall the magnitude of a complex number $z=a+bi$. By definition, $$|z|=\sqrt{z\bar{z}}=\sqrt{a^2+b^2},$$ where $\bar{z}$ is the complex conjugate.  
+
+The magnitude was also equivalent to the Euclidean distance between a point in the complex plane and the origin.
+
+\subsection{Norms}
+
+Since with Euclidean Domains, we want to work with integers, we define the \textbf{norm} of a complex number $z=a+bi$ to be $$N(a+bi)=z\bar{z}=a^2+b^2.$$  
+The norm function is used in comparing lengths of Gaussian Integers when using the division algorithm.  
+
+Note that the norm function over $\mathbb{Z}$ was $N(b)=|b|$.  
+
+\clearpage
+
+\subsection*{Making the Table Normal}
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l }
+		\toprule
+		Quotient & Remainder & Norm \\
+		\midrule
+		$1$ & $-2+2i$ & $8$ \\
+		$2$ & $-3$ & $9$  \\ 
+		$i$ & $1+3i$ & $10$ \\
+		$-i$ & $-3+5i$ & $34$\\
+		$1+i$ & $i$ & $\framebox{1}$ \\ 
+		\bottomrule
+	\end{tabular}
+	\caption{Extension of Table \ref{tab:div} with Norms}
+\end{table}
+
+\clearpage
+
+We therefore see that the best way to divide $z=-1+4i$ by $w=1+2i$ of the quotients attempted is $$z=-1+4i=(1+2i)(1+i)+i=wq+r.$$  Note that $$N(r)=1<N(w)=5.$$  This property is unique to the quotient and remainder pair we've found.  
+
+In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existance and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*}  
+
+\subsection{Visualizing Division in Gaussian Integers}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.5\linewidth]{images/kitchings.jpg}
+	\caption{Source:  Clay Kitchings \cite{div:1}}
+\end{figure}
 
 \section{Base Numbers}
 
@@ -434,56 +595,8 @@ We begin by listing powers of $8$:  $$8, 64, 512, 4096, \cdots.$$
 
 The largest power of $8$ that is less than $2016$ is $512$. We wish to divide $2016$ by $512$ to see what the quotient and remainder are. To do this, we introduce the division algorithm.
 
-\subsection{Division Algorithm}  
-
-The way division is commonly introduced in primary school is seen in the picture below:
-
-\begin{figure}[h]
-	\centering\includegraphics[width=0.25\linewidth]{images/divisionparts.png}
-	\caption{Source:  CalculatorSoup}
-\end{figure}
 
 \clearpage
-
-The division algorithm rigorizes this process. In the integers, $\mathbb{Z}$, the statement of the division algorithm is below:
-
-\mybox{0.8\textwidth}{\begin{theorem} For every integer pair $a,b$, there exists distinct integer quotients and remainders, $q$ and $r$, that satisfy \begin{eqnarray*} a=bq+r &|& 0\le r<b. \end{eqnarray*} \end{theorem}}
-
-The proof of this comes from either the well-ordering principle or induction.
-
-\clearpage
-
-\subsection{$\star$ Division in Other Domains}
-
-While the statement of the division algorithm may now seem like a mere formality, it is actually very vital to our number system. Without the division algorithm, we would not have unique prime factorization amongst the integers.
-
-Furthermore, it is applicable when considering domains other than the integers, such as $\mathbb{Z}[i]$ (Gaussian integers) and $\mathbb{Z}[\omega]$ (Eisenstein integers).  
-
-
-\subsection*{With Respect to Gauss}
-
-The Gaussian integers are lattice points in the complex plane. \cite{iurie}
-
-\begin{figure}[H]
-	\centering\includegraphics[width=0.21\linewidth]{images/gauss.png}
-	\caption{Source:  Wikipedia}
-\end{figure}
-
-Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \mathbb{Z}\}. \end{eqnarray*}  
-
-\clearpage
-
-\subsection*{Gaussian Division Problem\cite{div:1}}
-
-\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}
-
-To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
-
-
-
-
-\clearpage
-
 \thispagestyle{empty} % No slide header and footer
 \textcolor{white}{\cite{a:1}, \cite{me:1}}
 \bibliographystyle{unsrt}

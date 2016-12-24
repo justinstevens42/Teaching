@@ -1,28 +1,31 @@
 \begin{thebibliography}{1}
 
+\bibitem{div:1}
+Clay Kitchings.
+\newblock {\em Gaussian Integers \& Division Algorithm Project}.
+
 \bibitem{a:1}
 A-Star.
 \newblock {\em A-Star Winter Math Camp AMC 10/12 Handout}.
 \newblock Star League, 2015.
 
-\bibitem{aops:1}
-Matthew Crawford.
-\newblock {\em Introduction to Number Theory}.
-\newblock Art of Problem Solving, 2nd edition.
+\bibitem{wiki:el}
+Wikipedia.
+\newblock Euclid's elements.
 
 \bibitem{iurie}
 Iurie Boreico.
 \newblock {\em A-Star Summer Math Camp USAMO Number Theory}.
 \newblock Star League, 2013.
 
+\bibitem{aops:1}
+Matthew Crawford.
+\newblock {\em Introduction to Number Theory}.
+\newblock Art of Problem Solving, 2nd edition.
+
 \bibitem{me:1}
 Justin Stevens.
 \newblock {\em Olympiad Number Theory Through Challenging Problems}.
 \newblock AoPS Featured Articles, 3rd edition, 2016.
-
-\bibitem{div:1}
-Clay Kitchings
-\newblock {Gaussian Integers \& Division Algorithm Project}
-
 
 \end{thebibliography}

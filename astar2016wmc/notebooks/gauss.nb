@@ -1,0 +1,163 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3755,        153]
+NotebookOptionsPosition[      3011,        121]
+NotebookOutlinePosition[      3354,        136]
+CellTagsIndexPosition[      3311,        133]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "1"}], "+", 
+   RowBox[{"4", "I"}]}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"2", "I"}]}], ")"}], "*", 
+    RowBox[{"(", 
+     RowBox[{"-", "I"}], ")"}]}], "+", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "3"}], "+", 
+     RowBox[{"5", "I"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6915515663712807`*^9, 3.6915515704919004`*^9}, {
+  3.6915516298604283`*^9, 3.6915516375774508`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.691551570833922*^9, 3.691551637856585*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"I", "*", "I"}]], "Input",
+ CellChangeTimes->{{3.6915515729147654`*^9, 3.6915515738735733`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{3.691551574127448*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "1"}], "+", 
+   RowBox[{"4", "I"}]}], "==", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"2", "I"}]}], ")"}], "*", "I"}], "+", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"3", "I"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6915515759485097`*^9, 3.691551625614583*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.691551581477477*^9, {3.691551622902956*^9, 3.6915516259179296`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    RowBox[{"4", "I"}]}], "\[Equal]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{"2", "I"}]}], ")"}], "*", "1"}], "+", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "2"}], "+", 
+      RowBox[{"2", "I"}]}], ")"}]}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.691551582917158*^9, 3.691551589356361*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.691551589783969*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "1"}], "+", 
+   RowBox[{"4", "I"}]}], "==", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"2", "I"}]}], ")"}], "*", "2"}], "+", 
+   RowBox[{"(", 
+    RowBox[{"-", "3"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6915515909036107`*^9, 3.6915515995354557`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.6915515959640713`*^9, 3.6915515999398403`*^9}}]
+}, Open  ]]
+},
+WindowSize->{766, 772},
+WindowMargins->{{25, Automatic}, {Automatic, 31}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 497, 17, 31, "Input"],
+Cell[1080, 41, 95, 1, 64, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1212, 47, 119, 2, 31, "Input"],
+Cell[1334, 51, 87, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1458, 58, 369, 13, 31, "Input"],
+Cell[1830, 73, 124, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1991, 80, 442, 15, 52, "Input"],
+Cell[2436, 97, 73, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2546, 103, 345, 12, 31, "Input"],
+Cell[2894, 117, 101, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
