@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2928,        110]
-NotebookOptionsPosition[      2191,         78]
-NotebookOutlinePosition[      2535,         93]
-CellTagsIndexPosition[      2492,         90]
+NotebookDataLength[      5293,        201]
+NotebookOptionsPosition[      4014,        149]
+NotebookOutlinePosition[      4356,        164]
+CellTagsIndexPosition[      4313,        161]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -74,10 +74,81 @@ Cell[BoxData[
 
 Cell[BoxData["12"], "Output",
  CellChangeTimes->{3.691482435949097*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"50", "+", "25", "+", "12", "+", "6", "+", "3", "+", "1"}]], "Input",
+ CellChangeTimes->{{3.6914838881072464`*^9, 3.6914838901342793`*^9}}],
+
+Cell[BoxData["97"], "Output",
+ CellChangeTimes->{3.6914838903890357`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Factorial", "[", "100", "]"}]], "Input",
+ CellChangeTimes->{{3.691496400272374*^9, 3.691496403558112*^9}}],
+
+Cell[BoxData[\
+"93326215443944152681699238856266700490715968264381621468592963895217599993229\
+915608941463976156518286253697920827223758251185210916864000000000000000000000\
+000"], "Output",
+ CellChangeTimes->{3.691496403888033*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{"100", ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.691502038548793*^9, 3.691502043110924*^9}, {
+  3.6915021156948595`*^9, 3.6915021172329493`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox[
+   SubscriptBox["\<\"1100100\"\>", "\<\"2\"\>"],
+   100,
+   Editable->False],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{3.6915021177382917`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BaseForm", "[", 
+   RowBox[{"100", ",", "5"}], "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.691502248546444*^9, 3.691502250940053*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox[
+   SubscriptBox["\<\"400\"\>", "\<\"5\"\>"],
+   100,
+   Editable->False],
+  BaseForm[#, 5]& ]], "Output",
+ CellChangeTimes->{3.6915022514067483`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"100", "-", "4"}], ")"}], "/", "4"}]], "Input",
+ CellChangeTimes->{{3.6915022913955593`*^9, 3.6915022924683037`*^9}}],
+
+Cell[BoxData["24"], "Output",
+ CellChangeTimes->{3.6915022926402636`*^9}]
 }, Open  ]]
 },
 WindowSize->{766, 772},
-WindowMargins->{{Automatic, -63}, {Automatic, 20}},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
 FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -110,7 +181,27 @@ Cell[1816, 63, 95, 1, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1948, 69, 153, 3, 31, "Input"],
-Cell[2104, 74, 71, 1, 64, "Output"]
+Cell[2104, 74, 71, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2212, 80, 162, 2, 31, "Input"],
+Cell[2377, 84, 73, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2487, 90, 130, 2, 31, "Input"],
+Cell[2620, 94, 233, 4, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2890, 103, 205, 4, 31, "Input"],
+Cell[3098, 109, 197, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3332, 121, 189, 4, 52, "Input"],
+Cell[3524, 127, 193, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3754, 139, 168, 4, 31, "Input"],
+Cell[3925, 145, 73, 1, 64, "Output"]
 }, Open  ]]
 }
 ]

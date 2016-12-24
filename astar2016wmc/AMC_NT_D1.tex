@@ -58,7 +58,7 @@ Welcome to A-Star Winter Math Camp 2016!  This is my fourth A-Star camp.
 \begin{itemize}
 	\item  I've attended once as a student before.
 	\item  I've taught the AMC class twice before in the summer of 2015 and 2016.
-	\item Number Theory is my favourite subject to teach :).   
+	\item Number Theory and Geometry are my favourite subjects to teach :).   
 \end{itemize}
 
 
@@ -174,12 +174,12 @@ The topic for today is divisibility and prime factorization.  %more intro to the
 \section{Divisibility Rules}
 
 \begin{itemize}
-\item  2 - Last digit is even.
+\item  2 - Last digit is even. 
 \item  3 - Sum of the digits is divisible by 3.
 \item 4  - Number formed by last two digits is divisible by 4.
 \item 5 - Last digit is either $0$ or $5$.
 \item 6 -  Divisibility rules for both $2$ and $3$ hold.
-\item 7  - Take the last digit of the number and double it.  Subtract this from the rest of the number.  Repeat the process if necessary.  Check to see if the final number obtained is divisible by $7$.
+\item 7  - Take the last digit of the number and double it.  Subtract this from the rest of the number.  Repeat the process if necessary.  Check to see if the final number obtained is divisible by $7$. \cite{a:1} 
 \end{itemize}
 
 
@@ -240,6 +240,8 @@ $31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
 \begin{center} \Huge \href{https://github.com/musichead42/Teaching/blob/master/astar2016wmc/programs/Seven.ipynb}{Seven.ipynb} \end{center}
 \normalsize
 
+It \textbf{is} divisible by $7$.
+
 \clearpage
 
 \begin{figure}[h]
@@ -251,7 +253,7 @@ $31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
 
 Let the number that we want to determine its divisibility by $7$ be $N$.  Let the last digit of $N$ be $x$.  Then, we can represent $N$ as $$N=10a+x.$$  
 
-Note that we want to prove that if $7$ divides $N$, then $7$ also divides $a-2x$.  
+Note that we want to prove that $7$ divides $N$ implies that $7$ also divides $a-2x$.  
 
 To do so, we will multiply $N$ by some integer.
 \clearpage
@@ -361,89 +363,129 @@ Therefore, $v_5(100!)=20+4=24$.
 
 \clearpage
 
-\subsection{Verbatim}
+\subsection*{Finishing the Problem}
 
-How to include a theorem in this presentation:
-\begin{verbatim}
-\mybox{0.8\textwidth}{
-\begin{theorem}[Murphy (1949)]
-Anything that can go wrong, will go wrong.
-\end{theorem}
-}
-\end{verbatim}
+Therefore, $5^{24}\pmid 100!$ and $2^{97}\pmid 100!$.  Hence, the largest power of $10$ that divides $100!$ is $24$ and the number of zeros at the end of $100!$ is $\framebox{24}$.   
 
-\clearpage
+We indeed verify through the use of Mathematica that
 
-%------------------------------------------------
-
-
-\section{Displaying Information}
+$100!=\seqsplit{%9332621544394415268
+				10699238856266700490715 96826438162146859296389
+				52175999932299156089414
+				6397615651828625369792082
+				7223758251185210916864
+				000000000000000000000000.}$
 
 \clearpage
 
-%------------------------------------------------
+\subsection{Legendre's Formula}
 
-\subsection{Table}
+Adrien-Marie Legendre (1752-1833) generalized this problem.  
 
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
+\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor.$$   \end{theorem}}
 
 \clearpage
 
-%------------------------------------------------
+\subsection*{Summation Symbol}
 
-\subsection{Figure}
+The $\sum$ symbol represents a summation. The $k$ at the bottom is the variable that is being summed over. The $1$ and $\infty$ are the ranges for the sum. For instance, $$\sum_{k=1}^{4}(k^2)=1^2+2^2+3^2+4^2.$$  
+In the case of the sum above, $$\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
+
+\clearpage 
+
+Define $s_p(n)$ to be the sum of the digits when the number $n$ is expressed in base $p$. Then, an alternative way of writing Legendre's Formula is $$v_p(n!)=\frac{n-s_p(n)}{p-1}.$$  
+
+For instance, $100$ in base $2$ is $100=1100100_2$. The sum of the digits is $s_2(100)=3$. Therefore, $$v_2(100!)=\frac{100-3}{1}=97.$$ 
+Furthermore, $100=400_5$. The sum of the digits is $s_5(100)=4$. Therefore, $$v_5(100!)=\frac{100-4}{4}=24.$$
+
+\clearpage
+
+
+\section{Base Numbers}
+
+Base numbers are the heart of computers with both binary and hexadecimal. Binary can refer to the $2$ states of a switch - on or off. Hexadecimal can be used to describe locations in computer memory or colours with HTML.  
+
+\begin{defi} When we write numbers using the first $b$ whole numbers (i.e. $0, 1, 2, \cdots, b-1$), this is a base $b$ system.  \cite{aops:1} \end{defi}
+
+We can think of base conversions as different ways of \textit{grouping numbers}.
+\clearpage
+
+\subsection{Binary}
+
+The most common and applicable base is binary. In binary, the only two usable digits are $0$ and $1$. Therefore, we have to write every number as a sum of powers of $2$. 
+
+For instance, to write $19$ in binary, we would write $$19=16+2+1=2^4+2^1+2^0=10011_2.$$  
+
+Similarly, to convert from binary to decimal, we find the power of $2$ that each $1$ corresponds with: $$101010_2=2^5+2^3+2^1=32+8+2=42.$$  
+
+\subsection*{2016 Problems}
+
+When working with bases that are not binary, things get slightly more complicated. If we want to convert the positive number $n$ into base $b$, we use a similar algorithm to binary.  
+
+We attempt to find the highest power of the base $b$ that goes into the number $n$. We then subtract this from the number $n$ and repeat until we get to the units digit. 
+
+\mybox{0.8\textwidth}{\begin{prob} Convert $2016$ into base $8$.  \end{prob}}
+
+\clearpage
+
+\subsection*{Magic 8 Ball}
+
+We begin by listing powers of $8$:  $$8, 64, 512, 4096, \cdots.$$  
+
+The largest power of $8$ that is less than $2016$ is $512$. We wish to divide $2016$ by $512$ to see what the quotient and remainder are. To do this, we introduce the division algorithm.
+
+\subsection{Division Algorithm}  
+
+The way division is commonly introduced in primary school is seen in the picture below:
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.25\linewidth]{images/divisionparts.png}
+	\caption{Source:  CalculatorSoup}
+\end{figure}
+
+\clearpage
+
+The division algorithm rigorizes this process. In the integers, $\mathbb{Z}$, the statement of the division algorithm is below:
+
+\mybox{0.8\textwidth}{\begin{theorem} For every integer pair $a,b$, there exists distinct integer quotients and remainders, $q$ and $r$, that satisfy \begin{eqnarray*} a=bq+r &|& 0\le r<b. \end{eqnarray*} \end{theorem}}
+
+The proof of this comes from either the well-ordering principle or induction.
+
+\clearpage
+
+\subsection{$\star$ Division in Other Domains}
+
+While the statement of the division algorithm may now seem like a mere formality, it is actually very vital to our number system. Without the division algorithm, we would not have unique prime factorization amongst the integers.
+
+Furthermore, it is applicable when considering domains other than the integers, such as $\mathbb{Z}[i]$ (Gaussian integers) and $\mathbb{Z}[\omega]$ (Eisenstein integers).  
+
+
+\subsection*{With Respect to Gauss}
+
+The Gaussian integers are lattice points in the complex plane. \cite{iurie}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.21\linewidth]{images/gauss.png}
+	\caption{Source:  Wikipedia}
+\end{figure}
+
+Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \mathbb{Z}\}. \end{eqnarray*}  
+
+\clearpage
+
+\subsection*{Gaussian Division Problem\cite{div:1}}
+
+\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}
+
+To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
+
 
 
 
 \clearpage
-
-%------------------------------------------------
-
-\subsection{Theorem}
-
-The most common definition of \mygreen{Murphy's Law} is as follows.
-
-\mybox{0.8\textwidth}{ % Example of encapsulating text in a colored box
-\begin{theorem}[Murphy (1949)] \cite{a:1}
-Anything that can go wrong, will go wrong.
-\end{theorem}
-}
-
-\begin{proof}
-A special case of this theorem is proven in the textbook.
-\end{proof}
-
-\begin{remark}
-This is a remark.
-\end{remark}
-
-\begin{algorithm}
-This is an algorithm.
-\end{algorithm}
-
-\clearpage
-
-%------------------------------------------------
-
-
-
-
-%------------------------------------------------
 
 \thispagestyle{empty} % No slide header and footer
-
+\textcolor{white}{\cite{a:1}, \cite{me:1}}
 \bibliographystyle{unsrt}
 \bibliography{numbertheory}
 
@@ -451,18 +493,8 @@ This is an algorithm.
 
 %------------------------------------------------
 
-\thispagestyle{empty} % No slide header and footer
 
-\begin{tikzpicture}[remember picture,overlay] % Background box
-\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
-\end{tikzpicture}
-% Text within the box
-\begin{flushright}
-\vspace{0.6cm}
-\color{white}\sffamily
-{\bfseries\LARGE Questions?\par} % Request for questions text
-\vfill
-\end{flushright}
+
 
 %----------------------------------------------------------------------------------------
 
