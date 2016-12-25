@@ -234,7 +234,7 @@ Hence, $16180339$ \textbf{is} divisible by $7$.
 
 \clearpage
 
-\subsection*{Pi}
+\subsection{Pi-ython Program}
 
 $31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
 
@@ -492,15 +492,13 @@ We have established that the two sets of common divisors are equivalent, therefo
 
 \clearpage
 
-
 \begin{theorem}[Euclidean Algorithm]  For two natural $a,b$, $a>b$, to find $\gcd(a,b)$ we use the division algorithm repeatedly  \begin{eqnarray*}  a&=&bq_1+r_1 \\ b&=&r_1q_2+r_2 \\ r_1&=&r_2q_3+r_3 \\ \cdots \\ r_{n-2}&=&r_{n-1}q_n+r_n \\ r_{n-1}&=&r_nq_{n+1}. \end{eqnarray*}  
 	Then we have $\gcd(a, b)=\gcd(b, r_1)=\cdots=\gcd(r_{n-1}, r_n)=r_n.$  \end{theorem}
 \clearpage
 
 \subsection*{Examples of Euclidean Algorithm}
 
-Calculate the greatest common divisors below.
-
+Note that the greatest common divisor is the last non-zero remainder. 
 \begin{itemize}
 		\item Find $\gcd(301, 603)$.  
 		\item  Find $\gcd(110, 490)$.
@@ -536,6 +534,7 @@ Therefore $\gcd(110, 490)=\framebox{10}$.  \end{proof}
 \mybox{0.8\textwidth}{\begin{prob}  Find $\gcd(153, 289)$.  \end{prob}}
 
 \begin{proof}[Solution]
+	We repeatedly use the division algorithm as follows:
 		\begin{eqnarray*}  289 &=& 153\times 1+136 \\ 153 &=& 136\times 1+\framebox{17} \\ 136&=& 17\times 8+0. \end{eqnarray*}
 Therefore $\gcd(153, 289)=\framebox{17}$.  \end{proof}
 
@@ -555,16 +554,76 @@ Therefore $\gcd(481, 2627)=\framebox{37}$.
 
 \clearpage
 
+\subsection{Mathematica Function: QuotientRemainder}
+
 \mybox{0.8\textwidth}{\begin{prob} 	Find $\gcd(1558, 8774)$. \end{prob}}
 
 \begin{proof}[Solution]
 	
-Because the numbers have become larger, I'm going to use Mathematica to aid me. On Mathematica, I can compute the quotient and remainder with the command \begin{center} QuotientRemainder(8774, 1558). \end{center}
+I'm going to use Mathematica to assist me. On Mathematica, I can compute the quotient and remainder with the command \begin{center} QuotientRemainder(8774, 1558). \end{center}
+
+The output of this command is \{5, 984\}. Here, $q=5$ and $r=984$.  
+
+Therefore, $8774=1558\times 5+984.$
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.7\linewidth]{images/quotient.png}
+\end{figure}
+
+From this image, can you determine what $\gcd(1558, 8774)$ is?
 
 \end{proof} 
 
+\clearpage
 
+\section{Contest Style Euclidean Algorithm Problems}
+\mybox{0.9\textwidth}{\begin{prob}[AIME 1986] What is the largest positive integer $n$ such that $n^3+100$ is divisible by $n+10$? \end{prob} \begin{prob}[AIME 1985]  The numbers in the sequence $101, 104, 109, 116, \dots$ are of the form $a_n = 100 + n^2$, where $n = 1, 2, 3, \dots$.  For each $n$, let $d_n$ be the greatest common divisor of $a_n$ and $a_{n + 1}$.  Find the maximum value of $d_n$ as $n$ ranges through the positive integers.  \end{prob}}
+
+\subsection{AIME 1986 \#5}
+
+\begin{proof}[Solution] We desire to find out when $n+10$ divides $n^3+100$. To get a good sense for the problem, we attempt to divide $n^3+100$ by $n+10$ using unknown coefficients: \begin{eqnarray*}  n^3+100&=&\left(n+10\right)\left(n^2+an+b\right)+c \\ &=&n^3+n^2\left(10+a\right)+n\left(b+10a\right)+10b+c. \end{eqnarray*}
+
+Next, we must equate coefficients on the two sides in order to find the quotient and remainder. 
 \clearpage 
+Equating coefficients yields 
+\begin{eqnarray*}
+		10+a&=&0 \\ 
+		b+10a&=&0 \\ 
+		10b+c&=&100. \end{eqnarray*} Solving this system of equations gives $a=-10, b=100, c=-900$.  
+Therefore, $$n^3+100=(n+10)(n^2-10n+100)-900.$$
+
+\clearpage
+
+If $n+10$ divides $n^3+100$, then we must have $\gcd(n^3+100, n+10)=n+10$. By the Euclidean Algorithm, $\gcd(n^3+100, n+10)=\gcd(900, n+10)$. Therefore, equating the two, we must have $$\gcd(900, n+10)=n+10.$$ Hence, the largest possible value of $n$ is when $n=\framebox{890}$. \end{proof}  
+
+\clearpage
+
+\subsection{AIME 1985 \#13}
+
+\begin{prob} The numbers in the sequence $101, 104, 109, 116, \dots$ are of the form $a_n = 100 + n^2$, where $n = 1, 2, 3, \dots$.  For each $n$, let $d_n$ be the greatest common divisor of $a_n$ and $a_{n + 1}$.  Find the maximum value of $d_n$ as $n$ ranges through the positive integers.  \end{prob}
+
+\begin{proof}[Solution] We begin by writing $d_n$ as the greatest common divisor of $a_n$ and $a_{n+1}$: $$d_n=\gcd(a_n, a_{n+1})=\gcd(n^2+100, (n+1)^2+100).$$  
+
+\clearpage
+
+If $d_n$ divides both $a_n$ and $a_{n+1}$, then it must divide their difference: \begin{eqnarray*} &d_n&\mid \left((n+1)^2+100\right)-\left(n^2+100\right) \\ &d_n&\mid 2n+1. \end{eqnarray*} Hence, $d_n=\gcd(n^2+100, 2n+1)$. 
+
+Since $2n+1$ is odd, $d_n$ must also be odd. Therefore, we can multiply $n^2+100$ by $4$ without affecting the greatest common divisor: $$d_n=\gcd(4n^2+400, 2n+1).$$ 
+
+Can you think of how to simplify the expression from here?
+
+\clearpage
+
+We use difference of squares to observe $4n^2-1=(2n+1)(2n-1)$. 
+
+We add $401$ to both sides of the equation to get $4n^2+400$: $$4n^2+400=(2n+1)(2n-1)+401.$$ 
+
+Therefore, by the Euclidean algorithm, $d_n=\gcd(2n+1, 401)$. 
+
+This is maximized when $n=200$ and $d_n=\framebox{401}$.
+\end{proof}
 \section{$\star$ Division in Other Domains}
 
 While the statement of the division algorithm may now seem like a mere formality, it is actually very vital to our number system. Without the division algorithm, we would not have unique prime factorization amongst the integers.
@@ -587,7 +646,7 @@ Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \m
 
 \subsection{Gaussian Division Problem \cite{div:1}}
 
-\mybox{0.8\textwidth}{\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
+\mybox{0.9\textwidth}{\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
 
 To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
 
@@ -692,7 +751,7 @@ For instance, to write $19$ in binary, we would write $$19=16+2+1=2^4+2^1+2^0=10
 
 Similarly, to convert from binary to decimal, we find the power of $2$ that each $1$ corresponds with: $$101010_2=2^5+2^3+2^1=32+8+2=42.$$  
 
-\subsection*{2016 Problems}
+\subsection{Base Conversion Problem}
 
 When working with bases that are not binary, things get slightly more complicated. If we want to convert the positive number $n$ into base $b$, we use a similar algorithm to binary.  
 
@@ -702,11 +761,31 @@ We attempt to find the highest power of the base $b$ that goes into the number $
 
 \clearpage
 
-\subsection*{Magic 8 Ball}
+\subsection{Subtracting Powers of 8}
 
 We begin by listing powers of $8$:  $$8, 64, 512, 4096, \cdots.$$  
 
-The largest power of $8$ that is less than $2016$ is $512$. We wish to divide $2016$ by $512$ to see what the quotient and remainder are. To do this, we introduce the division algorithm.
+The largest power of $8$ that is less than $2016$ is $512$. We divide $2016$ by $512$ using the division algorithm:
+$$2016=512\times 3+480.$$  
+
+\clearpage
+
+We then repeat the process by finding the largest power of $8$ less than $480$, $64$. We divide $480$ by $64$ using the division algorithm: $$480=64\times 7+32.$$ 
+Finally, we write $32=8\times 4$.  Therefore, $$2016=3\times 512+7\times 64+4\times 8=3740_8.$$ To verify using Mathematica, we use the command BaseForm[2016,8]. 
+
+\clearpage  
+
+\subsection{Magic 8 Ball}
+
+Instead of subtracting off powers of $8$, another method exists to convert $2016$ to base $8$. We can repeatedly divide by $8$ until the quotient is $0$ and look at the remainders: \begin{eqnarray*}  2016=8\cdot 252+&\textbf{0}& \\ 252=31\cdot 8+&\textbf{4}& \\ 31=8\cdot 3+&\textbf{7}& \\ 3=8\cdot 0+&\textbf{3}& \end{eqnarray*}
+
+We append each of the remainders in \textit{backwards order} to determine $2016=3740_8$.
+
+\clearpage
+
+\section{Contest Style Base Number Problems}  
+
+
 
 \section{A Famous Puzzle}
 
