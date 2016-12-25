@@ -1,0 +1,810 @@
+\input{HEADER.tex}
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
+\newcommand*{\runninghead}{AMC Number Theory} % Running head displayed on almost all slides
+\newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
+\newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
+\newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+% Title slide - you may have to tweak a few of the numbers if you wish to make changes to the layout
+\thispagestyle{empty} % No slide header and footer
+\begin{tikzpicture}[remember picture,overlay] % Background box
+\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+\end{tikzpicture}
+% Text within the box
+\begin{flushright}
+\vspace{0.6cm}
+\color{white}\sffamily
+{\bfseries\Large\mytitle\par} % Title
+\vspace{0.5cm}
+\normalsize
+\myauthor\par % Author name
+\mydate\par % Date
+\vfill
+\end{flushright}
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
+% To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+Welcome to A-Star Winter Math Camp 2016!  This is my fourth A-Star camp.  
+\begin{itemize}
+	\item  I've attended once as a student before.
+	\item  I've taught the AMC class twice before in the summer of 2015 and 2016.
+	\item Number Theory and Geometry are my favourite subjects to teach :).   
+\end{itemize}
+
+
+\clearpage
+
+%------------------------------------------------
+
+\subsection{Schedule}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		\textbf{Time} & \textbf{Subject} \\
+		\midrule
+		9-10:30 AM & Number Theory \\
+		10:45AM-12:15PM & Algebra \\ 
+		1:45-3:15PM & Geometry \\
+		3:30-5:00PM & Counting \\
+		\bottomrule
+	\end{tabular}
+	\caption{A-Star Teaching Schedule}
+\end{table}
+
+\clearpage 
+\subsection{Icebreaker Activity}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.5\linewidth]{images/icebreaker.jpg}
+\end{figure}
+
+\clearpage
+
+\subsection*{Three Truths and a Lie}
+
+Write down three truths and one lie about yourself on your piece of paper.  I'll guess which one is the lie!  
+Good luck guessing which one is my lie.
+
+\begin{itemize}
+	\item I've seen over 100 different bands live in concert.
+	\item I've programmed a human sized robot.  
+	\item My family has 2 cats.  
+	\item I've competed in and won a crib race.  
+\end{itemize}
+
+\clearpage
+
+\subsection*{Concerts:  \color{green} Truth}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.23\linewidth]{images/concert1.jpg}
+\end{figure}
+
+\clearpage
+
+\subsection*{Robot:  \color{green}  Truth}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.4\linewidth]{images/robot.jpg}
+\end{figure}
+
+\clearpage
+
+\subsection*{Cats:  \color{red}  (Deceptive) Lie!}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.4\linewidth]{images/lie.jpg}
+\end{figure}
+
+\clearpage
+
+\subsection*{We have 5...}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.5\linewidth]{images/creampuff.jpg}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.6\linewidth]{images/kittens.jpg}
+\end{figure}
+
+\clearpage
+
+%different picture of cupcake?
+\begin{figure}[h]
+	\centering\includegraphics[width=0.6\linewidth]{images/cupcake.jpg}
+\end{figure}
+
+\clearpage 
+\subsection*{Crib Race??:  \color{green}  Truth}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.32\linewidth]{images/crib.jpg}
+\end{figure}
+
+\clearpage
+\subsection*{Celebration!}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.32\linewidth]{images/crib2.jpg}
+\end{figure}
+
+\clearpage  
+
+\subsection{Math Time}
+
+The topic for today is divisibility and prime factorization.  %more intro to the topic and its importance  
+
+\clearpage
+
+\section{Divisibility Rules}
+
+\begin{itemize}
+\item  2 - Last digit is even. 
+\item  3 - Sum of the digits is divisible by 3.
+\item 4  - Number formed by last two digits is divisible by 4.
+\item 5 - Last digit is either $0$ or $5$.
+\item 6 -  Divisibility rules for both $2$ and $3$ hold.
+\item 7  - Take the last digit of the number and double it.  Subtract this from the rest of the number.  Repeat the process if necessary.  Check to see if the final number obtained is divisible by $7$. \cite{a:1} 
+\end{itemize}
+
+
+
+
+\clearpage
+
+\subsection*{Lucky Seven}
+
+Choose \textbf{one} number below and determine if it is divisible by $7$.
+\begin{itemize}
+	\item $1729$
+	\item $2,718,281$
+	\item $16,180,339$
+	\item $31,415,926,535$
+\end{itemize}
+
+\subsection*{Taxicab Number}
+
+``It is a very interesting number; it is the smallest number expressible as the sum of two positive cubes in two different ways." -  Srinivasa Ramanujan (1919)
+\begin{eqnarray*}
+	1729 &\to& 172-2\cdot 9=154 \\ 
+	154 &\to& 15-2\cdot 4=7
+\end{eqnarray*}
+Therefore, $1729$ \textbf{is} divisible by $7$.
+
+Can you find the two ways Ramanujan referenced?  
+
+\clearpage
+
+\subsection*{Euler's Number}
+
+\begin{eqnarray*}  
+	2718281 &\to& 271828-2\cdot 1=271826 \\ 
+	271826 &\to& 27182-2\cdot 6=27170 \\
+	27170 &\to& 2717-2\cdot 0=2717 \\ 2717 &\to& 271-2\cdot 7=257 \\ 257 &\to& 25-2\cdot 7=11
+\end{eqnarray*}
+
+Therefore, $2718281$ is \textbf{not} divisible by $7$.
+
+More on Euler's number ($e$) during Algebra lectures!  
+
+\clearpage
+
+\subsection*{The Golden Ratio - $\phi=\frac{1+\sqrt{5}}{2}=1.6180339\cdots$}
+
+\begin{eqnarray*}
+	16180339 &\to& 1618033-2\cdot 9=1618015 \\ 1618015 &\to& 161801-2\cdot 5=161791 \\ 161791 &\to& 16179-2\cdot 1=16177 \\ 16177 &\to& 1617-2\cdot 7=1603 \\ 1603 &\to& 160-2\cdot 3=154 \\ 154 &\to& 15-2\cdot 4=7
+\end{eqnarray*}  
+
+Hence, $16180339$ \textbf{is} divisible by $7$.
+
+\clearpage
+
+\subsection{Pi-ython Program}
+
+$31,415,926,535$ is too big of a number.  Therefore, I wrote a computer program!
+
+\begin{center} \Huge \href{https://github.com/musichead42/Teaching/blob/master/astar2016wmc/programs/Seven.ipynb}{Seven.ipynb} \end{center}
+\normalsize
+
+It \textbf{is} divisible by $7$.
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=1\linewidth]{images/seven.png}
+\end{figure}
+\clearpage
+
+\subsection{Explanation of the Magic}
+
+Let the number that we want to determine its divisibility by $7$ be $N$.  Let the last digit of $N$ be $x$.  Then, we can represent $N$ as $$N=10a+x.$$  
+
+Note that we want to prove that $7$ divides $N$ implies that $7$ also divides $a-2x$.  
+
+To do so, we will multiply $N$ by some integer.
+\clearpage
+\subsection*{Magic Continued}
+
+The magic integer is $5$. The reason is because $5$ and $-2$ leave the same remainder when dividing by $7$.
+
+If $7$ divides $N$, then $7$ should also divide $5N$.  From the expression above for $N$, we have $$5N=50a+5x.$$  Now, the question is, how do we get $a-2x$ out of this?  
+
+\subsection*{Moving Around}
+
+We think to take the difference between $5N$ and $a-2x$.  Since we know that $5N$ is divisible by $7$ if the difference is divisible by $7$, then $a-2x$ must also be divisible by $7$.
+
+Using the expression for $5N$ we found on the previous slide, \begin{eqnarray*} 5N-(a-2x) &=& 50a+5x-(a-2x) \\ &=& 49a+7x. \end{eqnarray*}
+
+This is clearly a multiple of $7$, therefore, our proof is complete!  
+
+
+
+
+
+\clearpage
+
+\subsection{More Divisibility Rules}
+
+\begin{itemize}
+	\item  8 - The numbers formed by the last three digits are divisible by $8$.
+	\item 9 - The sum of the digits is divisible by $9$.
+	\item 10 - The number ends in $0$.
+	\item 11 - Let $E$ be the sum of the digits in an even place. Let $O$ be the sum of the digits in an odd place. $11$ must divide the difference $E-O$ for the number to be divisible by $11$.
+	\item 12 - Combination of divisibility rules for $3$ and $4$.
+	\item 13 -  Same as the divisibility rule for $7$, except replace $-2x$ with $+4x$.  
+\end{itemize}
+
+\section{Factorials}
+
+One of my favourite problems in number theory has to do with factorials. The factorial of a positive integer $n$ is defined as the product of all the natural numbers less than or equal to $n$. In other words, $$n!=n\times (n-1)\times (n-2)\times \cdots 1.$$  For instance, $6!=6\times 5\times 4\times 3\times 2\times 1=720$.
+
+\subsection{Zeros at the end of a Factorial}
+
+Note that $6!=720$ ends in one factorial.  The number $$25!=15511210043330985984000000$$ ends in $6$ zeros. 
+
+\mybox{0.8\textwidth}{\begin{prob} How many zeros does $100!$ end in?  \end{prob}}
+\clearpage 
+
+\subsection*{How Does Zero Work?}
+
+Zeros at the end of a number come from powers of $10$.  For instance, we can rewrite $$25!=15511210043330985984\times 10^6.$$  
+Therefore, the problem is equivalent to finding the largest power of $10$ that divides $100!$.  \begin{defi}  Define $v_p(n)$ to be the integer $e$ such that $p^e\mid n$, but $p^{e+1}\nmid n$. Another way to write this is $p^e\pmid n$. \end{defi} 
+
+\clearpage
+
+
+
+\subsection*{V for Vendetta}
+
+We desire to find $v_{10}(100!)$.  Since $10=2\cdot 5$, the largest power of $10$ that divides $100!$ is the \textbf{minimum} of $v_2(100!)$ and $v_5(100!)$.  
+
+We begin by calculating $v_2(100!)$. We write out $$100!=100\cdot 99\cdot 98\cdot 97\cdots 3\cdot 2\cdot 1.$$  Consider all the numbers in the product above. 
+
+How many of them are multiples of 2?  Multiples of 4?  Multiples of 8?  Multiples of 16?  Multiples of 32?  Multiples of 64?  
+
+\clearpage 
+
+\subsection*{Floor Function}
+
+The number of multiples of $2$ in $100!$ is simply the number of even numbers in the product. Half of the numbers are even, therefore, there are $\frac{100}{2}=50$ multiples of $2$.  
+
+For other powers of $2$ that do not evenly divide into $100$, we must introduce the floor function.  
+
+\begin{defi} The floor function of a real number $x$ is defined as the largest integer less than or equal to $x$. In other words, it is the result of truncating $x$. For instance, $\lfloor 3.14159 \rfloor=3$ and $\lfloor -16.3 \rfloor=-17$. \end{defi}
+
+\clearpage
+
+Using our new friend, the floor function, we answer the question about multiples.
+\begin{itemize}  
+	\item  There are $\lfloor \frac{100}{2} \rfloor=50$ multiples of $2$.
+	\item  There are $\lfloor \frac{100}{4} \rfloor=25$ multiples of $4$.
+	\item  There are $\lfloor \frac{100}{8} \rfloor=12$ multiples of $8$.
+	\item  There are $\lfloor \frac{100}{16} \rfloor=6$ multiples of $16$.
+	\item  There are $\lfloor \frac{100}{32} \rfloor=3$ multiples of $32$.
+	\item  There are $\lfloor \frac{100}{64} \rfloor=1$ multiple of $64$.  
+\end{itemize}
+
+\subsection*{How Much Power Does 2 Have?}
+
+I claim that the number of powers of $2$ in $100!$ is the sum of all the numbers above: $$50+25+12+6+3+1=97.$$  
+
+For the numbers in the product $100!$ that have a highest power of $2^{1}$, we have counted them once in the number $50$. 
+
+For those that have a highest power of $2^{2}$, they contribute a total of $2$ to the product $100!$. We have counted them \textit{once already} in the number $50$ since they are also multiples of $2$. Since they should contribute a total of $2$ to the product, we add them one time more in the number $25$.  
+\clearpage
+
+Similarly, for the numbers that have a highest power of $2^3$, they should contribute a total of $3$ to the product $100!$. They have been counted once in the number $50$ and once in the number $25$, therefore, we should add them one time more in the number $12$.
+
+This logic extends to the powers $2^4, 2^5$, and $2^6$.  
+
+Hence, $v_2(100!)=97$.  Are we done now?
+
+\clearpage
+
+\subsection*{Forgot About Magic 5}
+
+Nope! We also must compute $v_5(100!)$. We use the same method as above to determine that:
+\begin{itemize}
+	\item There are $\lfloor \frac{100}{5} \rfloor=20$ multiples of $5^1$.
+	\item There are $\lfloor \frac{100}{25} \rfloor=4$ multiples of $5^2$.
+\end{itemize} 
+
+Therefore, $v_5(100!)=20+4=24$.  
+
+\clearpage
+
+\subsection*{Finishing the Problem}
+
+Therefore, $5^{24}\pmid 100!$ and $2^{97}\pmid 100!$.  Hence, the largest power of $10$ that divides $100!$ is $24$ and the number of zeros at the end of $100!$ is $\framebox{24}$.   
+
+We indeed verify through the use of Mathematica that
+
+$100!=\seqsplit{%9332621544394415268
+				10699238856266700490715 96826438162146859296389
+				52175999932299156089414
+				6397615651828625369792082
+				7223758251185210916864
+				000000000000000000000000.}$
+
+\clearpage
+
+\subsection{Legendre's Formula}
+
+Adrien-Marie Legendre (1752-1833) generalized this problem.  
+
+\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor.$$   \end{theorem}}
+
+\clearpage
+
+\subsection*{Summation Symbol}
+
+The $\sum$ symbol represents a summation. The $k$ at the bottom is the variable that is being summed over. The $1$ and $\infty$ are the ranges for the sum. For instance, $$\sum_{k=1}^{4}(k^2)=1^2+2^2+3^2+4^2.$$  
+In the case of the sum above, $$\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
+
+\clearpage 
+
+Define $s_p(n)$ to be the sum of the digits when the number $n$ is expressed in base $p$. Then, an alternative way of writing Legendre's Formula is $$v_p(n!)=\frac{n-s_p(n)}{p-1}.$$  
+
+For instance, $100$ in base $2$ is $100=1100100_2$. The sum of the digits is $s_2(100)=3$. Therefore, $$v_2(100!)=\frac{100-3}{1}=97.$$ 
+Furthermore, $100=400_5$. The sum of the digits is $s_5(100)=4$. Therefore, $$v_5(100!)=\frac{100-4}{4}=24.$$
+
+\clearpage
+
+\section{Euclid's Elements}
+
+Around the time of 300 BC, a great Greek mathematician rose from Alexandria by the name of Euclid. He wrote a series of 13 books known as \textit{Elements}. Elements is thought by many to be the most successful and influential textbook ever written. It has been published the second most of any book, next to the Bible. \cite{wiki:el}
+
+The book covers both Euclidean geometry and elementary number theory. This chapter will focus solely on \textbf{Book VII, Proposition 1.}
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.30\linewidth]{images/euclid.jpg}
+	\caption{``Frontispiece of Sir Henry Billingsley's first English version of Elements in 1570" - Source:  Wikipedia \cite{wiki:el}}
+\end{figure}
+
+\clearpage
+
+\subsection{Division Algorithm} 
+The way division is commonly introduced in primary school is seen in the picture below:
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.25\linewidth]{images/divisionparts.png}
+	\caption{Source:  CalculatorSoup}
+\end{figure}
+
+\clearpage
+
+The division algorithm rigorizes this process. In the integers, $\mathbb{Z}$, the statement of the division algorithm is below:
+
+\mybox{0.8\textwidth}{\begin{theorem} For every integer pair $a,b$, there exists distinct integer quotients and remainders, $q$ and $r$, that satisfy \begin{eqnarray*} a=bq+r &|& 0\le r<|b|. \end{eqnarray*} \end{theorem}}
+
+The proof of this comes from either the well-ordering principle or induction. We show the proof involving the well-ordering principle.
+
+\begin{proof}
+
+We consider the case when $b$ is positive for simplicity.  Consider the set \begin{eqnarray*} S=\{a-bq &|& q \in \mathbb{Z}^{+},\:a-bq>0\}. \end{eqnarray*}  
+In other words, this set consists of the positive integer values of $a-bq$ for $q$ also being a positive integer.  In order to continue with the proof, we must cite a famous Lemma from set theory.  \cite{me:1} 
+
+\mybox{0.8\textwidth}{\begin{lemma}[Well-ordering principle]  Every non-empty subset of positive integers has a least element.  \end{lemma}} 
+
+\clearpage
+
+Therefore, the set $S$ has a \textit{minimum element}, say when $q=q_1$ and $r=r_1$. I will prove that $0\le r_1<b.$  
+
+Assume for the sake of contradiction otherwise and that \begin{eqnarray} a-bq_1=r_1\ge b. \label{eqn: div} \end{eqnarray} However, then I claim that $a-b(q_1+1)$ is a smaller member of set $S$. 
+
+Indeed, since $q_1+1\in \mathbb{Z}^{+}$, the first condition is satisfied.
+
+Furthermore, using \ref{eqn: div}, $a-b(q_1+1)=a-bq_1-b\ge 0$. Therefore, both conditions are satisfied, and we have found a smaller member of set $S$. This contradicts the minimality of $q_1$ and $r_1$.  Hence, $0\le r_1<b$.   \end{proof}
+
+\clearpage
+
+\subsection*{Examples of Division Algorithm}
+
+When $a=102$ and $b=18$, applying the division algorithm gives $$102=18\times 5+12,$$ therefore $q=5$ and $r=12$. 
+
+\mybox{0.8\textwidth}{\begin{exmp}  Find $q$ and $r$ when $a=2016$ and $b=37$.  \end{exmp}}
+\clearpage
+
+
+\begin{defi}  We define the \textbf{greatest common divisor} of two integers to be the largest positive integer that divides both of the numbers.  \end{defi}
+
+Note that in the previous example, $\gcd(a,b)=\gcd(102, 18)=6$. Similarly, $\gcd(b, r)=\gcd(18, 12)=6$. 
+
+In the other example, we have $2016=37\cdot 54+18$. Hence, $q=54$ and $r=18$. Furthermore, $\gcd(a,b)=\gcd(2016, 37)=1$ and $\gcd(b,r)=\gcd(37, 18)=1$. 
+
+Therefore, we conjecture that in general, $\gcd(a,b)=\gcd(b,r).$ 
+\clearpage
+
+\subsection{Book VII, Proposition 1}
+
+``When two unequal numbers are set out, and the less is continually subtracted in turn from the greater, if the number which is left never measures the one before it until a unit is left, then the original numbers are relatively prime." - Euclid  
+
+\mybox{0.8\textwidth}{\begin{theorem}  Given naturals $a,b$, upon using the division algorithm to obtain a quotient and remainder, $q,r$, one has that $\gcd(a,b)=\gcd(b,r)$. \end{theorem}}
+
+\clearpage
+
+\begin{proof}
+
+I claim that the set of common divisors between $a$ and $b$ is the same as the set of common divisors between $b$ and $r$.  
+
+If $d$ is a common divisor of $a$ and $b$, then since $d$ divides both $a$ and $b$, $d$ divides all linear combinatinations of $a$ and $b$.  Therefore, $d\mid a-bq=r$, meaning that $d$ is also a common divisor of $b$ and $r$.  
+
+Conversely, if $d$ is a common divisor of $b$ and $r$, then $d$ is a common divisor of all linear combinations of $b$ and $r$, therefore, $d\mid bq+r=a$.  Hence, $d$ is also a common divisor of $a$ and $b$.  
+
+We have established that the two sets of common divisors are equivalent, therefore, the greatest common divisor must be equivalent.  \end{proof}
+
+\clearpage
+
+\begin{theorem}[Euclidean Algorithm]  For two natural $a,b$, $a>b$, to find $\gcd(a,b)$ we use the division algorithm repeatedly  \begin{eqnarray*}  a&=&bq_1+r_1 \\ b&=&r_1q_2+r_2 \\ r_1&=&r_2q_3+r_3 \\ \cdots \\ r_{n-2}&=&r_{n-1}q_n+r_n \\ r_{n-1}&=&r_nq_{n+1}. \end{eqnarray*}  
+	Then we have $\gcd(a, b)=\gcd(b, r_1)=\cdots=\gcd(r_{n-1}, r_n)=r_n.$  \end{theorem}
+\clearpage
+
+\subsection*{Examples of Euclidean Algorithm}
+
+Note that the greatest common divisor is the last non-zero remainder. 
+\begin{itemize}
+		\item Find $\gcd(301, 603)$.  
+		\item  Find $\gcd(110, 490)$.
+		\item  Find $\gcd(153, 289)$.
+		\item  Find $\gcd(481, 2627)$. 
+\end{itemize}
+\begin{itemize}[label=$\star$]
+		\item Find $\gcd(1558, 8774)$. 
+\end{itemize} 
+
+We'll discuss our findings in a few minutes!
+
+\clearpage
+
+\mybox{0.8\textwidth}{\begin{prob} Find $\gcd(301, 603)$. \end{prob}}
+
+\begin{proof}[Solution]  
+Note that $$603=301\times 2+1.$$  Therefore, by the Euclidean Algorithm, we have $$\gcd(603, 301)=\gcd(1, 301)=\framebox{1}.$$ 
+
+\end{proof}
+
+\clearpage
+
+\mybox{0.8\textwidth}{\begin{prob}  Find $\gcd(110, 490)$.  \end{prob}}
+
+\begin{proof}[Solution]
+	 We repeatedly use the division algorithm as follows: 
+	 \begin{eqnarray*} 490&=&110\times 4+50 \\ 110&=&50\times 2+\framebox{10} \\ 50&=&10\times 5.\end{eqnarray*} 
+Therefore $\gcd(110, 490)=\framebox{10}$.  \end{proof} 
+
+\clearpage
+
+\mybox{0.8\textwidth}{\begin{prob}  Find $\gcd(153, 289)$.  \end{prob}}
+
+\begin{proof}[Solution]
+	We repeatedly use the division algorithm as follows:
+		\begin{eqnarray*}  289 &=& 153\times 1+136 \\ 153 &=& 136\times 1+\framebox{17} \\ 136&=& 17\times 8+0. \end{eqnarray*}
+Therefore $\gcd(153, 289)=\framebox{17}$.  \end{proof}
+
+\clearpage
+
+\mybox{0.8\textwidth}{\begin{prob} Find $\gcd(481, 2627)$. \end{prob}}
+
+\begin{proof}[Solution]
+We repeatedly use the division algorithm as follows: 
+	\begin{eqnarray*}  
+	2627 &=& 481\times 5+222 \\
+	481 &=& 222\times 2+\framebox{37} \\
+	222 &=& 37\times 6+0 
+	\end{eqnarray*}
+Therefore $\gcd(481, 2627)=\framebox{37}$. 
+\end{proof}
+
+\clearpage
+
+\subsection{Mathematica Function: QuotientRemainder}
+
+\mybox{0.8\textwidth}{\begin{prob} 	Find $\gcd(1558, 8774)$. \end{prob}}
+
+\begin{proof}[Solution]
+	
+I'm going to use Mathematica to assist me. On Mathematica, I can compute the quotient and remainder with the command \begin{center} QuotientRemainder(8774, 1558). \end{center}
+
+The output of this command is \{5, 984\}. Here, $q=5$ and $r=984$.  
+
+Therefore, $8774=1558\times 5+984.$
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.7\linewidth]{images/quotient.png}
+\end{figure}
+
+From this image, can you determine what $\gcd(1558, 8774)$ is?
+
+\end{proof} 
+
+\clearpage
+
+\section{Contest Style Euclidean Algorithm Problems}
+\mybox{0.9\textwidth}{\begin{prob}[AIME 1986] What is the largest positive integer $n$ such that $n^3+100$ is divisible by $n+10$? \end{prob} \begin{prob}[AIME 1985]  The numbers in the sequence $101, 104, 109, 116, \dots$ are of the form $a_n = 100 + n^2$, where $n = 1, 2, 3, \dots$.  For each $n$, let $d_n$ be the greatest common divisor of $a_n$ and $a_{n + 1}$.  Find the maximum value of $d_n$ as $n$ ranges through the positive integers.  \end{prob}}
+
+\subsection{AIME 1986 \#5}
+
+\begin{proof}[Solution] We desire to find out when $n+10$ divides $n^3+100$. To get a good sense for the problem, we attempt to divide $n^3+100$ by $n+10$ using unknown coefficients: \begin{eqnarray*}  n^3+100&=&\left(n+10\right)\left(n^2+an+b\right)+c \\ &=&n^3+n^2\left(10+a\right)+n\left(b+10a\right)+10b+c. \end{eqnarray*}
+
+Next, we must equate coefficients on the two sides in order to find the quotient and remainder. 
+\clearpage 
+Equating coefficients yields 
+\begin{eqnarray*}
+		10+a&=&0 \\ 
+		b+10a&=&0 \\ 
+		10b+c&=&100. \end{eqnarray*} Solving this system of equations gives $a=-10, b=100, c=-900$.  
+Therefore, $$n^3+100=(n+10)(n^2-10n+100)-900.$$
+
+\clearpage
+
+If $n+10$ divides $n^3+100$, then we must have $\gcd(n^3+100, n+10)=n+10$. By the Euclidean Algorithm, $\gcd(n^3+100, n+10)=\gcd(900, n+10)$. Therefore, equating the two, we must have $$\gcd(900, n+10)=n+10.$$ Hence, the largest possible value of $n$ is when $n=\framebox{890}$. \end{proof}  
+
+\clearpage
+
+\subsection{AIME 1985 \#13}
+
+\begin{prob} The numbers in the sequence $101, 104, 109, 116, \dots$ are of the form $a_n = 100 + n^2$, where $n = 1, 2, 3, \dots$.  For each $n$, let $d_n$ be the greatest common divisor of $a_n$ and $a_{n + 1}$.  Find the maximum value of $d_n$ as $n$ ranges through the positive integers.  \end{prob}
+
+\begin{proof}[Solution] We begin by writing $d_n$ as the greatest common divisor of $a_n$ and $a_{n+1}$: $$d_n=\gcd(a_n, a_{n+1})=\gcd(n^2+100, (n+1)^2+100).$$  
+
+\clearpage
+
+If $d_n$ divides both $a_n$ and $a_{n+1}$, then it must divide their difference: \begin{eqnarray*} &d_n&\mid \left((n+1)^2+100\right)-\left(n^2+100\right) \\ &d_n&\mid 2n+1. \end{eqnarray*} Hence, $d_n=\gcd(n^2+100, 2n+1)$. 
+
+Since $2n+1$ is odd, $d_n$ must also be odd. Therefore, we can multiply $n^2+100$ by $4$ without affecting the greatest common divisor: $$d_n=\gcd(4n^2+400, 2n+1).$$ 
+
+Can you think of how to simplify the expression from here?
+
+\clearpage
+
+We use difference of squares to observe $4n^2-1=(2n+1)(2n-1)$. 
+
+We add $401$ to both sides of the equation to get $4n^2+400$: $$4n^2+400=(2n+1)(2n-1)+401.$$ 
+
+Therefore, by the Euclidean algorithm, $d_n=\gcd(2n+1, 401)$. 
+
+This is maximized when $n=200$ and $d_n=\framebox{401}$.
+\end{proof}
+\section{$\star$ Division in Other Domains}
+
+While the statement of the division algorithm may now seem like a mere formality, it is actually very vital to our number system. Without the division algorithm, we would not have unique prime factorization amongst the integers.
+
+Furthermore, it is applicable when considering domains other than the integers, such as $\mathbb{Z}[i]$ (Gaussian integers) and $\mathbb{Z}[\omega]$ (Eisenstein integers).  
+
+
+\subsection*{With Respect to Gauss}
+
+The Gaussian integers are lattice points in the complex plane. \cite{iurie}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.21\linewidth]{images/gauss.png}
+	\caption{Source:  Wikipedia}
+\end{figure}
+
+Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \mathbb{Z}\}. \end{eqnarray*}  
+
+\clearpage
+
+\subsection{Gaussian Division Problem \cite{div:1}}
+
+\mybox{0.9\textwidth}{\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
+
+To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
+
+\clearpage
+
+Here are some examples of possible pairs $(q,r)$:
+
+\begin{itemize}
+	\item $-1+4i=(1+2i)(1)+(-2+2i)$, therefore, $(q,r)=(1, -2+2i)$.
+	\item $-1+4i=(1+2i)(2)+(-3)$, therefore, $(q,r)=(2, -3)$.
+	\item $-1+4i=(1+2i)(i)+(1+3i)$, therefore, $(q,r)=(i, 1+3i)$.
+	\item $-1+4i=(1+2i)(-i)+(-3+5i)$, therefore, $(q,r)=(-i, -3+5i)$.
+	\item $-1+4i=(1+2i)(1+i)+i$, therefore, $(q,r)=(1+i, i)$.
+\end{itemize}
+
+\clearpage
+
+\subsection*{Summarizing in a Table}
+
+\begin{table}[h] 
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		Quotient & Remainder \\
+		\midrule
+		$1$ & $-2+2i$ \\
+		$2$ & $-3$ \\ 
+		$i$ & $1+3i$ \\
+		$-i$ & $-3+5i$ \\
+		$1+i$ & $i$ \\ 
+		\bottomrule
+		
+	\end{tabular}
+	
+	\caption{Division Algorithm applied to $z=-1+4i$ divided by $w=1+2i$.}
+	\label{tab:div}
+\end{table}
+
+\subsection*{Magnitude} 
+
+Now the question lies on which remainder is best. When we worked with integers, we simply had the condition $0\le r<|b|$. However, how do we compare the values of two imaginary numbers such as $-2+2i$ and $-3$?  
+
+In order to do this, we recall the magnitude of a complex number $z=a+bi$. By definition, $$|z|=\sqrt{z\bar{z}}=\sqrt{a^2+b^2},$$ where $\bar{z}$ is the complex conjugate.  
+
+The magnitude was also equivalent to the Euclidean distance between a point in the complex plane and the origin.
+
+\subsection{Norms}
+
+Since with Euclidean Domains, we want to work with integers, we define the \textbf{norm} of a complex number $z=a+bi$ to be $$N(a+bi)=z\bar{z}=a^2+b^2.$$  
+The norm function is used in comparing lengths of Gaussian Integers when using the division algorithm.  
+
+Note that the norm function over $\mathbb{Z}$ was $N(b)=|b|$.  
+
+\clearpage
+
+\subsection*{Making the Table Normal}
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l }
+		\toprule
+		Quotient & Remainder & Norm \\
+		\midrule
+		$1$ & $-2+2i$ & $8$ \\
+		$2$ & $-3$ & $9$  \\ 
+		$i$ & $1+3i$ & $10$ \\
+		$-i$ & $-3+5i$ & $34$\\
+		$1+i$ & $i$ & $\framebox{1}$ \\ 
+		\bottomrule
+	\end{tabular}
+	\caption{Extension of Table \ref{tab:div} with Norms}
+\end{table}
+
+\clearpage
+
+We therefore see that the best way to divide $z=-1+4i$ by $w=1+2i$ of the quotients attempted is $$z=-1+4i=(1+2i)(1+i)+i=wq+r.$$  Note that $$N(r)=1<N(w)=5.$$  This property is unique to the quotient and remainder pair we've found.  
+
+In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existance and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*}  
+
+\subsection{Visualizing Division in Gaussian Integers}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.5\linewidth]{images/kitchings.jpg}
+	\caption{Source:  Clay Kitchings \cite{div:1}}
+\end{figure}
+
+\section{Base Numbers}
+
+Base numbers are the heart of computers with both binary and hexadecimal. Binary can refer to the $2$ states of a switch - on or off. Hexadecimal can be used to describe locations in computer memory or colours with HTML.  
+
+\begin{defi} When we write numbers using the first $b$ whole numbers (i.e. $0, 1, 2, \cdots, b-1$), this is a base $b$ system.  \cite{aops:1} \end{defi}
+
+We can think of base conversions as different ways of \textit{grouping numbers}.
+\clearpage
+
+\subsection{Binary}
+
+The most common and applicable base is binary. In binary, the only two usable digits are $0$ and $1$. Therefore, we have to write every number as a sum of powers of $2$. 
+
+For instance, to write $19$ in binary, we would write $$19=16+2+1=2^4+2^1+2^0=10011_2.$$  
+
+Similarly, to convert from binary to decimal, we find the power of $2$ that each $1$ corresponds with: $$101010_2=2^5+2^3+2^1=32+8+2=42.$$  
+
+\subsection{Base Conversion Problem}
+
+When working with bases that are not binary, things get slightly more complicated. If we want to convert the positive number $n$ into base $b$, we use a similar algorithm to binary.  
+
+We attempt to find the highest power of the base $b$ that goes into the number $n$. We then subtract this from the number $n$ and repeat until we get to the units digit. 
+
+\mybox{0.8\textwidth}{\begin{prob} Convert $2016$ into base $8$.  \end{prob}}
+
+\clearpage
+
+\subsection{Subtracting Powers of 8}
+
+We begin by listing powers of $8$:  $$8, 64, 512, 4096, \cdots.$$  
+
+The largest power of $8$ that is less than $2016$ is $512$. We divide $2016$ by $512$ using the division algorithm:
+$$2016=512\times 3+480.$$  
+
+\clearpage
+
+We then repeat the process by finding the largest power of $8$ less than $480$, $64$. We divide $480$ by $64$ using the division algorithm: $$480=64\times 7+32.$$ 
+Finally, we write $32=8\times 4$.  Therefore, $$2016=3\times 512+7\times 64+4\times 8=3740_8.$$ To verify using Mathematica, we use the command BaseForm[2016,8]. 
+
+\clearpage  
+
+\subsection{Magic 8 Ball}
+
+Instead of subtracting off powers of $8$, another method exists to convert $2016$ to base $8$. We can repeatedly divide by $8$ until the quotient is $0$ and look at the remainders: \begin{eqnarray*}  2016=8\cdot 252+&\textbf{0}& \\ 252=31\cdot 8+&\textbf{4}& \\ 31=8\cdot 3+&\textbf{7}& \\ 3=8\cdot 0+&\textbf{3}& \end{eqnarray*}
+
+We append each of the remainders in \textit{backwards order} to determine $2016=3740_8$.
+
+\clearpage
+
+\section{Contest Style Base Number Problems}  
+
+
+
+\section{A Famous Puzzle}
+
+Do the light switch one  
+
+
+\clearpage
+\thispagestyle{empty} % No slide header and footer
+\textcolor{white}{\cite{a:1}, \cite{me:1}}
+\bibliographystyle{unsrt}
+\bibliography{numbertheory}
+
+\clearpage
+
+%------------------------------------------------
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
