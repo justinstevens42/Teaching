@@ -13,6 +13,11 @@ A-Star.
 Wikipedia.
 \newblock Euclid's elements.
 
+\bibitem{me:1}
+Justin Stevens.
+\newblock {\em Olympiad Number Theory Through Challenging Problems}.
+\newblock AoPS Featured Articles, 3rd edition, 2016.
+
 \bibitem{iurie}
 Iurie Boreico.
 \newblock {\em A-Star Summer Math Camp USAMO Number Theory}.
@@ -22,10 +27,5 @@ Iurie Boreico.
 Matthew Crawford.
 \newblock {\em Introduction to Number Theory}.
 \newblock Art of Problem Solving, 2nd edition.
-
-\bibitem{me:1}
-Justin Stevens.
-\newblock {\em Olympiad Number Theory Through Challenging Problems}.
-\newblock AoPS Featured Articles, 3rd edition, 2016.
 
 \end{thebibliography}

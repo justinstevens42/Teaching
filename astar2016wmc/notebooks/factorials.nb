@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5293,        201]
-NotebookOptionsPosition[      4014,        149]
-NotebookOutlinePosition[      4356,        164]
-CellTagsIndexPosition[      4313,        161]
+NotebookDataLength[      8280,        310]
+NotebookOptionsPosition[      6266,        232]
+NotebookOutlinePosition[      6610,        247]
+CellTagsIndexPosition[      6567,        244]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -145,10 +145,93 @@ Cell[BoxData[
 
 Cell[BoxData["24"], "Output",
  CellChangeTimes->{3.6915022926402636`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"37", "*", "13", " "}]], "Input",
+ CellChangeTimes->{{3.6916360367887793`*^9, 3.691636052639985*^9}}],
+
+Cell[BoxData["481"], "Output",
+ CellChangeTimes->{3.691636053109762*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"37", "*", "71"}]], "Input",
+ CellChangeTimes->{{3.6916360537731085`*^9, 3.6916360597248373`*^9}}],
+
+Cell[BoxData["2627"], "Output",
+ CellChangeTimes->{3.6916360602272773`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"2627", "/", "481"}]], "Input",
+ CellChangeTimes->{{3.691636609825674*^9, 3.6916366144122167`*^9}}],
+
+Cell[BoxData[
+ FractionBox["71", "13"]], "Output",
+ CellChangeTimes->{3.6916366147725215`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Divide", "[", 
+  RowBox[{"2627", ",", "481"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6916366209681683`*^9, 3.691636625978707*^9}}],
+
+Cell[BoxData[
+ FractionBox["71", "13"]], "Output",
+ CellChangeTimes->{3.6916366262456903`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DivideBy", "[", 
+  RowBox[{"2672", ",", " ", "481"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6916366277368126`*^9, 3.6916366322407107`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"DivideBy", "::", "rvalue"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"2672\\\"}]\\)\[NoBreak] is \
+not a variable with a value, so its value cannot be changed. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/rvalue\\\", \
+ButtonNote -> \\\"DivideBy::rvalue\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6916366325698643`*^9}],
+
+Cell[BoxData[
+ RowBox[{"2672", "/=", "481"}]], "Output",
+ CellChangeTimes->{3.691636632570366*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6916366334590783`*^9, 3.691636634148616*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"QuotientRemainder", "[", 
+  RowBox[{"2672", ",", "481"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6916366624274836`*^9, 3.691636665994721*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5", ",", "267"}], "}"}]], "Output",
+ CellChangeTimes->{3.691636666240052*^9}]
 }, Open  ]]
 },
 WindowSize->{766, 772},
-WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+WindowMargins->{{Automatic, -629}, {Automatic, 0}},
 FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -201,7 +284,33 @@ Cell[3524, 127, 193, 7, 45, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[3754, 139, 168, 4, 31, "Input"],
-Cell[3925, 145, 73, 1, 64, "Output"]
+Cell[3925, 145, 73, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4035, 151, 124, 2, 31, "Input"],
+Cell[4162, 155, 72, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4271, 161, 121, 2, 31, "Input"],
+Cell[4395, 165, 75, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4507, 171, 122, 2, 31, "Input"],
+Cell[4632, 175, 94, 2, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4763, 182, 155, 3, 31, "Input"],
+Cell[4921, 187, 94, 2, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5052, 194, 164, 3, 31, "Input"],
+Cell[5219, 199, 510, 10, 21, "Message"],
+Cell[5732, 211, 98, 2, 31, "Output"]
+}, Open  ]],
+Cell[5845, 216, 94, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[5964, 221, 166, 3, 31, "Input"],
+Cell[6133, 226, 117, 3, 64, "Output"]
 }, Open  ]]
 }
 ]
