@@ -311,7 +311,7 @@ Therefore, the problem is equivalent to finding the largest power of $10$ that d
 
 \subsection*{V for Vendetta}
 
-We desire to find $v_{10}(100!)$.  Since $10=2\cdot 5$, the largest power of $10$ that divides $100!$ is the \textbf{minimum} of $v_2(100!)$ and $v_5(100!)$.  
+We desire to find $v_{10}(100!)$.  Since $10=2\cdot 5$, the largest power of $10$ that divides $100!$ is the \textbf{minimum} of $v_2(100!)$ and $v_5(100!)$.   
 
 We begin by calculating $v_2(100!)$. We write out $$100!=100\cdot 99\cdot 98\cdot 97\cdots 3\cdot 2\cdot 1.$$  Consider all the numbers in the product above. 
 
@@ -498,7 +498,7 @@ We have established that the two sets of common divisors are equivalent, therefo
 
 \subsection*{Examples of Euclidean Algorithm}
 
-Note that the greatest common divisor is the last non-zero remainder. 
+Note that the greatest common divisor is the \textit{last non-zero remainder}. 
 \begin{itemize}
 		\item Find $\gcd(301, 603)$.  
 		\item  Find $\gcd(110, 490)$.
@@ -568,13 +568,11 @@ Therefore, $8774=1558\times 5+984.$
 
 \clearpage
 
-\begin{figure}[h]
-	\centering\includegraphics[width=0.7\linewidth]{images/quotient.png}
+From this image, can you determine what $\gcd(1558, 8774)$ is? \end{proof}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.8\linewidth]{images/quotient.png}
 \end{figure}
-
-From this image, can you determine what $\gcd(1558, 8774)$ is?
-
-\end{proof} 
 
 \clearpage
 
@@ -785,11 +783,108 @@ We append each of the remainders in \textit{backwards order} to determine $2016=
 
 \section{Contest Style Base Number Problems}  
 
+\mybox{0.9\textwidth}{\begin{prob} Funky base conversions. \begin{enumerate} \item Convert $25681_9$ to base $3$. \item Convert $11,101,001,111_2$ to base $8$. \end{enumerate} \end{prob} \begin{prob}[AIME 1986] The increasing sequence $1,3,4,9,10,12,13\cdots$ consists of all those positive integers which are exponent powers of $3$ or sums of distinct powers of $3$. Find the $100^{\mbox{th}}$ term of this sequence.\end{prob}}
+
+\subsection{Funky Base Conversions}
+
+\begin{proof}[Solution] 
+We begin by writing out \begin{eqnarray*} 25681_9&=&2\cdot 9^4+5\cdot 9^3+6\cdot 9^2+8\cdot 9^1+1\cdot 9^0 \\ &=& 2\cdot \left(3^2\right)^4+5\cdot \left(3^2\right)^3+6\cdot \left(3^2\right)^2+8\cdot \left(3^2\right)^1+1\cdot \left(3^2\right)^0 \\ &=& \textbf{2}\cdot 3^8+\textbf{5}\cdot 3^6+\textbf{6}\cdot 3^4+\textbf{8}\cdot 3^2+\textbf{1}\cdot 3^0. \end{eqnarray*}
+
+The problem we have is that in base 3, the only digits we are allowed to use are $0, 1, 2$. Therefore, what do we do about the $5, 6, 8$?  
+
+\clearpage
+
+We conver them all to base 3! $5=3\cdot 1+2, 6=3\cdot 2+0, 8=3\cdot 2+2$. We plug these in to the above equation: 
+\begin{eqnarray*}
+ 25681_9 &=& \textbf{2}\cdot 3^8+\textbf{5}\cdot 3^6+\textbf{6}\cdot 3^4+\textbf{8}\cdot 3^2+\textbf{1}\cdot 3^0 \\ 
+	&=& \textbf{2}\cdot 3^8+\left(3+2\right)\cdot 3^6+(3\cdot 2)\cdot 3^4+(3\cdot 2+2)\cdot 3^2+\textbf{1}\cdot 3^0 \\ 
+	&=& \textbf{2}\cdot 3^8+\textbf{1}\cdot 3^7+\textbf{2}\cdot 3^6+\textbf{2}\cdot 3^5+\textbf{2}\cdot 3^3+\textbf{2}\cdot 3^2+\textbf{1}\cdot 3^0 \\
+	&=& \boxed{212202201_3}.  \end{eqnarray*}
+
+A shortcut to doing this would be converting each digit directly to base $3$ and appending the digits: $$2=2_3,\: 5=12_3,\: 6=20_3,\: 8=22_3,\: 1=01_3.$$ 
+
+\clearpage
+
+For problem 2, inspired by our success in the previous problem, we manipulate the sum of powers of $2$. Since $8=2^3$, we have to group the numbers in groups of $3$: \begin{eqnarray*} 11,101,001,111_2 &=& 2^{10}+2^9+2^8+2^6+2^3+2^2+2^1+2^0 \\ &=& \left(2+1\right)2^9+\left(2^2+1\right)2^6+\textbf{1}\cdot 2^3+\left(2^2+2^1+2^0\right) \\ &=& \textbf{3}\cdot 8^3+\textbf{5}\cdot 8^2+\textbf{1}\cdot 8^1+\textbf{7}\cdot 8^0 \\ &=& \boxed{3517_8}. \end{eqnarray*}
+
+Note that as before, a shortcut exists! The commas are extra helpful here. $$11_2=3,\: 101_2=5,\: 001_2=1,\: 111_2=7.$$   \end{proof}
+\clearpage
+
+\subsection{AIME 1986}
+\begin{proof}[Solution]
+We begin by writing out the first few terms of the sequence as sums of distinct powers of $3$.  \begin{eqnarray*}\textbf{1}=3^0,\: \textbf{3}=3^1,\:\textbf{4}=3^1+3^0,\: \textbf{9}=3^2,\: \\ \textbf{10}=3^2+3^0,\: \textbf{12}=3^2+3^1,\: \textbf{13}=3^2+3^1+3^0,\: \cdots. \end{eqnarray*}
+
+Does anyone notice anything interesting about the powers of $3$ used?
+
+\clearpage
 
 
-\section{A Famous Puzzle}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l | r r r|}
+		\toprule
+		Number in Sequence & & &\\
+		                   & $3^2$ & $3^1$ & $3^0$ \\ 
+		\midrule
+		\textbf{1} & 0 & 0 & 1 \\
+		\textbf{3} & 0 & 1 & 0 \\
+		\textbf{4} & 0 & 1 & 1 \\
+		\textbf{9} & 1 & 0 & 0 \\
+		\textbf{10} & 1 & 0 & 1 \\
+		\textbf{12} & 1 & 1 & 0 \\
+		\textbf{13} & 1 & 1 & 1 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Coefficients of Powers of 3}
+	\label{tab-pow3}
+\end{table}
 
-Do the light switch one  
+
+\clearpage
+
+The numbers on the right hand of the table should look familiar!
+\newline
+\begin{defi}  A \textbf{bijection} is a function between two sets $X$ and $Y$ such that every element in $X$ is mapped to $Y$ and every element in $Y$ is mapped to $X$. Mathematically, we write this as $f:X\to Y$.  \end{defi}
+
+Where is there a bijection in this problem?  
+
+\clearpage
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|l | r r r|}
+		\toprule
+		Term \# & Number in Sequence & & &\\
+		& & $3^2$ & $3^1$ & $3^0$ \\ 
+		\midrule
+		1&\textbf{1} & 0 & 0 & 1 \\
+		2&\textbf{3} & 0 & 1 & 0 \\
+		3&\textbf{4} & 0 & 1 & 1 \\
+		4&\textbf{9} & 1 & 0 & 0 \\
+		5&\textbf{10} & 1 & 0 & 1 \\
+		6&\textbf{12} & 1 & 1 & 0 \\
+		7&\textbf{13} & 1 & 1 & 1 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Extension of Table \ref{tab-pow3} Adding the Term Number}
+\end{table}
+
+\clearpage
+
+There appears to be a bijection between the term number in the sequence on the left hand side and the decimal form of the binary numbers formed on the right hand side of the table!  Note that $7=111_2$ for instance. 
+
+Now, how do we find the $100$th term in the sequence? In order to do this, we first have to convert $100$ to binary: $$100=64+32+4=2^6+2^5+2^2=1100100_2.$$  
+
+Then, by the bijection established above, each of the $1$'s and $0$'s actually correspond to powers of $3$. Therefore, the $100$th term in the sequence is $$3^6+3^5+3^2=\boxed{981}.$$  \end{proof}
+
+
+
+\clearpage
+%\section{A Famous Puzzle}
+%Do the light switch one involving number of divisors
+
+%also include Fermat's Little Theorem section
+%and proof of Euler's Totient  
 
 
 \clearpage
