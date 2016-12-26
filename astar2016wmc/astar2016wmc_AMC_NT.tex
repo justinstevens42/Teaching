@@ -35,16 +35,7 @@
 \vfill
 \end{flushright}
 
-\clearpage
 
-%----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS
-%----------------------------------------------------------------------------------------
-
-\thispagestyle{empty} % No slide header and footer
-
-\small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
-% To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
 
 \clearpage
 
@@ -100,7 +91,7 @@ Good luck guessing which one is my lie.
 \begin{itemize}
 	\item I've seen over 100 different bands live in concert.
 	\item I've programmed a human sized robot.  
-	\item My family has 2 cats.  
+	\item My family has 2 dogs.
 	\item I've competed in and won a crib race.  
 \end{itemize}
 
@@ -122,7 +113,7 @@ Good luck guessing which one is my lie.
 
 \clearpage
 
-\subsection*{Cats:  \color{red}  (Deceptive) Lie!}
+\subsection*{Dogs:  \color{red}  Lie!}
 
 \begin{figure}[h]
 	\centering\includegraphics[width=0.4\linewidth]{images/lie.jpg}
@@ -130,7 +121,7 @@ Good luck guessing which one is my lie.
 
 \clearpage
 
-\subsection*{We have 5...}
+\subsection*{We have 5 cats though...}
 
 \begin{figure}[h]
 	\centering\includegraphics[width=0.5\linewidth]{images/creampuff.jpg}
@@ -165,9 +156,15 @@ Good luck guessing which one is my lie.
 
 \clearpage  
 
-\subsection{Math Time}
 
-The topic for today is divisibility and prime factorization.  %more intro to the topic and its importance  
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
+% To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
 
 \clearpage
 
@@ -387,14 +384,14 @@ $100!=\seqsplit{%9332621544394415268
 
 Adrien-Marie Legendre (1752-1833) generalized this problem.  
 
-\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor.$$   \end{theorem}}
+\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\left(\lfloor \frac{n}{p^k} \rfloor\right).$$   \end{theorem}}
 
 \clearpage
 
 \subsection*{Summation Symbol}
 
 The $\sum$ symbol represents a summation. The $k$ at the bottom is the variable that is being summed over. The $1$ and $\infty$ are the ranges for the sum. For instance, $$\sum_{k=1}^{4}(k^2)=1^2+2^2+3^2+4^2.$$  
-In the case of the sum above, $$\sum_{k=1}^{\infty}\lfloor \frac{n}{p^k} \rfloor=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
+In the case of the sum above, $$\sum_{k=1}^{\infty}\left(\lfloor \frac{n}{p^k} \rfloor\right)=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
 
 \clearpage 
 
@@ -885,6 +882,8 @@ Then, by the bijection established above, each of the $1$'s and $0$'s actually c
 
 %also include Fermat's Little Theorem section
 %and proof of Euler's Totient  
+
+%find number of ways for xyz=144.  
 
 
 \clearpage

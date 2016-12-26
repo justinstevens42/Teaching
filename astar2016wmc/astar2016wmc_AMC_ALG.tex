@@ -1,0 +1,90 @@
+\input{HEADER.tex}
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
+\newcommand*{\runninghead}{AMC Number Theory} % Running head displayed on almost all slides
+\newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
+\newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
+\newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+% Title slide - you may have to tweak a few of the numbers if you wish to make changes to the layout
+\thispagestyle{empty} % No slide header and footer
+\begin{tikzpicture}[remember picture,overlay] % Background box
+\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+\end{tikzpicture}
+% Text within the box
+\begin{flushright}
+\vspace{0.6cm}
+\color{white}\sffamily
+{\bfseries\Large\mytitle\par} % Title
+\vspace{0.5cm}
+\normalsize
+\myauthor\par % Author name
+\mydate\par % Date
+\vfill
+\end{flushright}
+
+
+
+\clearpage
+
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % No slide header and footer
+
+\small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
+% To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
+
+\clearpage
+
+\section{Algebraic Manipulation}
+
+In this section, we will explore several of my favourite problems involving algebraic manipulations.
+
+\mybox{0.8\textwidth}{\begin{prob}[2000 AMC 12]  If $x,y,$ and $z$ are positive numbers satisfying $$x+\frac{1}{y}=4\:, y+\frac{1}{z}=1\:, \text{and}\: z+\frac{1}{x}=\frac73,$$ find the value of $xyz$. \end{prob} \begin{prob}[AoPS Introduction to Algebra] Let $A=x+\frac{1}{x}$ and $B=x^2+\frac{1}{x^2}$. Note that $(x+\frac{1}{x})^2=x^2+2+\frac{1}{x^2}$, therefore, $B=A^2-2$. Find formulas for $$C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$$ in terms of $A$.  \end{prob}}
+
+\subsection{2000 AMC 12}
+\begin{proof}[Solution]
+In order to get the $xyz$ term, we are motivated to multiply the $3$ equations together: \begin{eqnarray*} \left(x+\frac{1}{y}\right)\left(y+\frac{1}{z}\right)\left(z+\frac{1}{x}\right)&=&xyz+\frac{1}{xyz}+\left(x+y+z\right)+\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right) \\ &=& \left(4\right)\left(1\right)\left(\frac73\right)=\frac{28}{3}. \end{eqnarray*}  
+
+What can we do now to simplify this further?
+\clearpage
+We also add all $3$ of the equations: \begin{eqnarray*} \left(x+\frac{1}{y}\right)+\left(y+\frac{1}{z}\right)+\left(z+\frac{1}{x}\right)&=&4+1+\frac{7}{3}=\frac{22}{3} \\ &=& \left(x+y+z\right)+\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right). \end{eqnarray*}  
+Therefore, plugging this in to the first equation gives \begin{eqnarray*} xyz+\frac{1}{xyz}+\left(x+y+z\right)+\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right) &=& xyz+\frac{1}{xyz}+\frac{22}{3} \\ &=&\frac{28}{3} \\ \implies \color{blue} xyz+\frac{1}{xyz} &=& \color{blue} 2. \end{eqnarray*}  
+
+What's $xyz$ equal to then?
+
+\clearpage
+
+Multiply the equation through by $xyz$ and simplify: $$(xyz)^2+1=2xyz\implies (xyz)^2-2\cdot xyz+1=(xyz-1)^2=0.$$  
+Therefore, $xyz=\boxed{1}$.  \end{proof}
+
+\subsection{Exponent Mayhem} 
+
+\begin{proof}[Solution]
+	
+We begin with $C$. Inspired by our method for computing $B$, we attempt to cube $x+\frac{1}{x}$: \begin{eqnarray*} (x+\frac{1}{x})^3&=&x^3+3\cdot x^2\cdot \frac{1}{x}+3\cdot x\cdot \frac{1}{x^2}+\frac{1}{x^3} \\ &=& x^3+3x+\frac{3}{x}+\frac{1}{x^3}. \end{eqnarray*} 
+\clearpage
+
+Therefore, \begin{eqnarray*} A^3&=&x^3+3\left(x+\frac{1}{x}\right)+\frac{1}{x^3} \:=\:C+3A \\ \implies \color{blue} C &=& \color{blue} A^3-3A. \end{eqnarray*}
+
+There are two methods for finding $D$. One of them involves taking $x+\frac{1}{x}$ to the fourth power. In order to continue with this method, however, I must introduce the binomial theorem and Pascal's triangle.  
+
+\end{proof}
+
+
+\end{document}  
