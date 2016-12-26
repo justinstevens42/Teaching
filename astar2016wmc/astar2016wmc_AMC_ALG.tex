@@ -4,7 +4,7 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
-\newcommand*{\runninghead}{AMC Number Theory} % Running head displayed on almost all slides
+\newcommand*{\runninghead}{AMC Algebra} % Running head displayed on almost all slides
 \newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
 \newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
 \newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
@@ -53,7 +53,10 @@
 
 \section{Algebraic Manipulation}
 
-In this section, we will explore several of my favourite problems involving algebraic manipulations.
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.7\linewidth]{images/joke.jpg}
+\end{figure}
 
 \mybox{0.8\textwidth}{\begin{prob}[2000 AMC 12]  If $x,y,$ and $z$ are positive numbers satisfying $$x+\frac{1}{y}=4\:, y+\frac{1}{z}=1\:, \text{and}\: z+\frac{1}{x}=\frac73,$$ find the value of $xyz$. \end{prob} \begin{prob}[AoPS Introduction to Algebra] Let $A=x+\frac{1}{x}$ and $B=x^2+\frac{1}{x^2}$. Note that $(x+\frac{1}{x})^2=x^2+2+\frac{1}{x^2}$, therefore, $B=A^2-2$. Find formulas for $$C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$$ in terms of $A$.  \end{prob}}
 
@@ -84,7 +87,62 @@ Therefore, \begin{eqnarray*} A^3&=&x^3+3\left(x+\frac{1}{x}\right)+\frac{1}{x^3}
 
 There are two methods for finding $D$. One of them involves taking $x+\frac{1}{x}$ to the fourth power. In order to continue with this method, however, I must introduce the binomial theorem and Pascal's triangle.  
 
-\end{proof}
+\clearpage
+\subsection{Pascal's Triangle}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.36\linewidth]{images/pascal.jpg}
+	\caption{Source:  iCoachMath.com}
+\end{figure}
+
+\clearpage
+
+\subsection{Binomial-theorem}
+The binomial theorem states that when we expand $x+y$ to the $n$th power, the coefficients will be the numbers in the $n$th row of Pascal's triangle. For instance, $$(x+y)^4=\textbf{1}x^4+\textbf{4}x^3y+\textbf{6}x^2y^2+\textbf{4}xy^3+\textbf{1}y^4.$$
+The numbers $1, 4, 6, 4, 1$ make up the $4$th row of Pascal's triangle. Furthermore, if you know binomial coefficients, note that $$\binom{4}{0}=1, \binom{4}{1}=4, \binom{4}{2}=6, \binom{4}{3}=4, \binom{4}{4}=1.$$
+
+\mybox{0.8\textwidth}{\begin{theorem}[Binomial Expansion] $$(x+y)^n=\displaystyle \sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}.$$ \end{theorem}}
+
+Using the expansion for $(x+y)^4$, we see that \begin{eqnarray*} (x+\frac{1}{x})^4&=&x^4+4\cdot \left(x^3\cdot \frac{1}{x}\right)+6\cdot \left(x^2\cdot \frac{1}{x^2}\right)+4\cdot \left(x\cdot \frac{1}{x^3}\right)+\frac{1}{x^4} \\ &=& \left(x^4+\frac{1}{x^4}\right)+4\left(x^2+\frac{1}{x^2}\right)+6. \end{eqnarray*}
+We substitute the formula $B=x^2+\frac{1}{x^2}=A^2-2$ to get: $$\color{blue} D=x^4+\frac{1}{x^4}=A^4-4(A^2-2)-6=A^4-4A^2+2.$$ 
+
+\clearpage
+
+A simpler method exists for computing $D$ without the use of the binomial theorem. Note that if we multiply $A$ by $C$, we get the desired $x^4$ and $\frac{1}{x^4}$ terms: $$AC=\left(x+\frac{1}{x}\right)\left(x^3+\frac{1}{x^3}\right)=x^4+\left(x^2+\frac{1}{x^2}\right)+\frac{1}{x^4}.$$  
+
+From above, we found $C=A^3-3A$. Furthermore, $B=x^2+\frac{1}{x^2}=A^2-2$. Substituting these both in give $$D=x^4+\frac{1}{x^4}=A(A^3-3A)-(A^2-2)=A^4-4A^2+2.$$ Note this matches the answer above.  
+
+\clearpage
+
+We attempt our new method for computing $E$. Note that if we multiply $A$ by $D$, we get the desired $x^5$ and $\frac{1}{x^5}$ terms: $$AD=\left(x+\frac{1}{x}\right)\left(x^4+\frac{1}{x^4}\right)=x^5+\left(x^3+\frac{1}{x^3}\right)+\frac{1}{x^5}.$$  
+We substitute $D=A^4-4A^2+2$ and $C=x^3+\frac{1}{x^3}=A^3-3A$ into the above equation: $$\color{blue} E=x^5+\frac{1}{x^5}=A\left(A^4-4A^2+2\right)-\left(A^3-3A\right)=A^5-5A^3+5A.$$In general, if $x_n=x^n+\frac{1}{x^n}$, then we can recursively find the next term using the identity $$x_1x_{n-1}=x_n+x_{n-2}\implies x_n=x_1x_{n-1}-x_{n-2}.$$  \end{proof}
+
+\clearpage
+
+
+\subsection*{Exponent Mayhem in NIMO}
+
+The identity above was a key motivator in a 2015 National Internet Math Olympiad (NIMO) challenge problem I cowrote with Evan Chen! 
+
+\begin{prob}[Justin Stevens and Evan Chen]  Let $a$, $b$, $c$ be reals and $p$ be a prime number. Assume that \[ a^n(b+c)+b^n(a+c)+c^n(a+b)\equiv 8\pmod{p} \] for each nonnegative integer $n$. Let $m$ be the remainder when $a^p+b^p+c^p$ is divided by $p$, and $k$ the remainder when $m^p$ is divided by $p^4$. Find the maximum possible value of $k$. \end{prob}
+
+The solution involves finding similar recursion relations with some number theory tricks as well. The answer is $399$; try to figure out why after finishing this course!
+
+\clearpage
+
+\section{Functions}
+
+\mybox{0.8\textwidth}{\begin{prob}[2000 AMC 12]  Let $f$ be a function for which $f(x/3) = x^2 + x + 1$. Find the sum of all values of $z$ for which $f(3z) = 7$. \end{prob} \begin{prob}[Mandelbrot] Let $f$ be a function such that when $a+b=2^n$ for $a,b,n$ integers, then $f(a)+f(b)=n^2$. What is $f(2002)$? \end{prob} \begin{prob}[Mandelbrot] Let $f$ be a function which takes $2$ inputs as arguments.The value of $f$ is defined recursively: $f(x,y)=x+f(x-1, x-y)$. If $f(1,0)=5$, find $f(5,2)$. \end{prob}}
+
+\clearpage
+
+\section{Sequences and Series}
+\mybox{0.8\textwidth}{\begin{prob}[2003 AMC 10] The first four terms in an arithmetic sequence are $x+y, x-y, xy$ , and $\frac{x}{y}$, in that order. What is the fifth term? \end{prob} \begin{prob}[USAMTS] In an attempt to copy down a sequence of six positive integers in arithmetic progression, a student wrote down the five numbers $113, 137, 149, 155, 173$, accidentally omitting one. He later discovered that he also miscopied one of them. Can you help him recover the original sequence? \end{prob}}
+
+\clearpage \mybox{0.8\textwidth}{\begin{prob}[1986 AIME] The pages of a book are numbered $1_{}^{}$ through $n_{}^{}$. When the page numbers of the book were added, one of the page numbers was mistakenly added twice, resulting in an incorrect sum of $1986_{}^{}$. What was the number of the page that was added twice? \end{prob}\begin{prob}[1994 AHSME] Suppose $x,y,z$ is a geometric sequence with common ratio $r$ and $x \neq y$. If $x, 2y, 3z$ is an arithmetic sequence, then find the value of $r$. \end{prob}}
+
+
+
 
 
 \end{document}  
