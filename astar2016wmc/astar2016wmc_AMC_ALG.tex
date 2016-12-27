@@ -198,6 +198,20 @@ Note that we can simplify each of these expressions! For instance, $\frac{a+b}{a
 
 We continue by taking the reciprocal of the desired expression, $\frac{abc}{ab+bc+ca}$: $$\frac{ab+bc+ca}{abc}=\frac{1}{c}+\frac{1}{a}+\frac{1}{b}.$$ Aha! We've turned this into something we know how to work with. We sum up the three blue equatinos from the previous slide to get $$2\left(\frac1a+\frac1b+\frac1c\right)=\frac13+\frac14+\frac15=\frac{47}{60}.$$ Therefore, $\displaystyle \frac1a+\frac1b+\frac1c=\frac{47}{120}$. We have to take the reciprocal, however, to get $$\frac{abc}{ab+bc+ca}=\frac{1}{\frac1a+\frac1b+\frac1c}=\boxed{\frac{120}{47}}.$$
 
+\clearpage
+
+\subsection{HMMT 2013}
+The first thing which jumps out to me is the weirdness of this system. We have a bunch of terms of degrees $1$ and $2$ throughout. In the second equation, we see that the terms $xy$ and $x+y$ show up a lot. Furthermore, $(x+y)^2=x^2+y^2+2xy$. This motivations the \textit{substitutions}, $a=xy$ and $b=x+y$. The system then becomes: $$a^2+b^2=40\:,\: a+b=8.$$  
+We square the second equation to arrive at $(a+b)^2=a^2+2ab+b^2=64$. 
+
+Subtracting this from the first equation gives $2ab=64-40=24\implies ab=12.$
+
+Solving this sytem, we now see that $\color{blue} (a,b)=(2,6), (6,2)$.
+\clearpage
+
+If $(a,b)=(6,2)$, then we have $xy=6$ and $x+y=2$. We use the identity that $$(z-x)(z-y)=z^2-z(x+y)+xy$$ to create a quadratic equation with roots $z=x$ and $z=y$. The quadratic for this case is $z^2-2z+6$. This has \textit{discriminant} $\Delta=2^2-4\cdot 6=-20$, therefore, it does not have positive real solutions.
+
+On the other hand, when $(a,b)=(2,6)$, we have $xy=2$ and $x+y=6$. The quadratic for this case is $z^2-6z+2$. Completing the square, we can solve the quadratic: $$z^2-6z+2=(z-3)^2-7\implies z=3\pm \sqrt{7}.$$ Since $x>y$, we have $x=\boxed{3+\sqrt{7}}$.  
 
 
 
