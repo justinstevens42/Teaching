@@ -313,7 +313,7 @@ Therefore, the problem is equivalent to finding the largest power of $10$ that d
 
 
 
-\subsection*{V for Vendetta}
+\subsection{V for Vendetta}
 
 We desire to find $v_{10}(100!)$.  Since $10=2\cdot 5$, the largest power of $10$ that divides $100!$ is the \textbf{minimum} of $v_2(100!)$ and $v_5(100!)$.   
 
@@ -391,14 +391,14 @@ $100!=\seqsplit{%9332621544394415268
 
 Adrien-Marie Legendre (1752-1833) generalized this problem.  
 
-\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\left(\lfloor \frac{n}{p^k} \rfloor\right).$$   \end{theorem}}
+\mybox{0.8\textwidth}{\begin{theorem} The number of powers of a prime $p$ that divide into $n!$ is $$v_p(n!)=\sum_{k=1}^{\infty}\left(\left\lfloor \frac{n}{p^k} \right\rfloor\right).$$   \end{theorem}}
 
 \clearpage
 
 \subsection*{Summation Symbol}
 
 The $\sum$ symbol represents a summation. The $k$ at the bottom is the variable that is being summed over. The $1$ and $\infty$ are the ranges for the sum. For instance, $$\sum_{k=1}^{4}(k^2)=1^2+2^2+3^2+4^2.$$  
-In the case of the sum above, $$\sum_{k=1}^{\infty}\left(\lfloor \frac{n}{p^k} \rfloor\right)=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
+In the case of the sum above, $$\sum_{k=1}^{\infty}\left(\left\lfloor \frac{n}{p^k} \right\rfloor\right)=\lfloor \frac{n}{p^1}\rfloor+\lfloor \frac{n}{p^2}\rfloor+\lfloor \frac{n}{p^3} \rfloor+\lfloor \frac{n}{p^4} \rfloor+\cdots.$$  
 
 \clearpage 
 
