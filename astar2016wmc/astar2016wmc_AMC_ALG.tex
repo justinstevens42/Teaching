@@ -130,11 +130,83 @@ The solution involves finding similar recursion relations with some number theor
 
 \clearpage
 
-\section{Functions}
+\section{Symmetry in Systems of Equations}
+The topic of the next several problems will be \textbf{symmetry}.
+
+\mybox{0.8\textwidth}{\begin{prob}[Self] Solve the following system of equations in $a,b,c$: \begin{eqnarray*}7a+5b+c &=& 11 \\ a+4b+6c &=& 18 \\ 2a+b+3c &=& 21. \end{eqnarray*}\end{prob}}
+\clearpage
+
+\subsection{Let's Avoid Matrices!}
+\begin{proof}[Solution] The matrix version of this equation is \begin{eqnarray*} \begin{bmatrix}
+	7 & 5 & 1 \\ 
+	1 & 4 & 6 \\ 
+	2 & 1 & 3 \\ 
+\end{bmatrix} \begin{bmatrix} a \\ b \\ c \end{bmatrix} &=& \begin{bmatrix} 11 \\ 18 \\ 21 \end{bmatrix}. \end{eqnarray*}
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.3\linewidth]{images/xkcd.png}
+	\caption{Source: ``Matrix Transform", xkcd}
+\end{figure}
+
+Is there a simpler way to do this?
+
+\clearpage
+
+We note that the sum of each column in the matrix is $10$. Therefore, we think to sum up the equations: \begin{eqnarray*} 10a+10b+10c&=&11+18+21=50 \\ \implies \color{ForestGreen} a+b+c&\color{ForestGreen} =&\color{ForestGreen} 5. \end{eqnarray*} We now eliminate to solve for the variables $b$ and $c$. Subtracting the above relation from the second equation gives \begin{eqnarray*} \left(a+4b+6c\right)-\left(a+b+c\right)&=&18-5=13 \\ \color{blue} 3b+5c &\color{blue}=& \color{blue} 13.\end{eqnarray*} We also multiply the relation by $2$ to eliminate for $b$ and $c$ in the third equation: \begin{eqnarray*} \left(2a+2b+2c\right)-\left(2a+b+3c\right) &=& 2\cdot 5-21=-11 \\ \color{blue} b-c &\color{blue}=&\color{blue} -11. \end{eqnarray*}
+
+We multiply the second equation by $5$ and add: \begin{eqnarray*} \left(3b+5c\right)+\left(5b-5c\right)&=&13-5\cdot 11=-42 \\ 8b &=& -42. \end{eqnarray*}  Therefore, $\displaystyle b=\frac{-42}{8}=\color{orange} \frac{-21}{4}$. Substituting this into $b-c=-11$ gives $$c=11+b=11-\frac{21}{4}=\color{orange} \frac{23}{4}.$$ Finally, plugging both of these into the third equation gives $$2a=21-b-3c=21+\frac{21}{4}-3\cdot \frac{21}{4}=21-12=9.$$ Hence, $a=\color{orange} \frac92$ and $(a,b,c)=\boxed{(\frac{9}{2}, \frac{-21}{4}, \frac{23}{4})}.$ 
+
+\clearpage
+
+\subsection*{Verifying through Mathematica}
+
+The matrix version of the equation is useful to verify through the computer program, Mathematica.  I use the two lines of code: 
+
+\color{Lavender} m = \{\{7, 5, 1\}, \{1, 4, 6\}, \{2, 1, 3\}\} \\ LinearSolve[m, \{11, 18, 21\}]
+\color{black} 
+
+Output: \\ \color{ForestGreen} \{9/2, -(21/4), 23/4\}\color{black}
+ 
+This is the same as what we found above!
+
+\end{proof}
+
+\mybox{0.8\textwidth}{\begin{prob}[2014 Purple Comet] Let $x,y,z$ be positive real numbers satisfying the simultaneous equations \begin{eqnarray*} x(y^2+yz+z^2) &=& 3y+10z \\ y(z^2+zx+x^2) &=& 21z+24x \\ z(x^2+xy+y^2) &=& 7x+28y. \end{eqnarray*}  
+Find $xy+yz+zx$.  \end{prob}}
+\clearpage
+
+\subsection{2014 Purple Comet}
+\begin{proof}[Solution]
+We note that the equations on the left hand side are symmetric. We therefore think to \textbf{sum} up the equations. I claim that when we do so, the left hand side becomes $(x+y+z)(xy+xz+yz)$. \color{red} Why? \color{black}
+
+Expand out, group, and colour the $xyz$ terms: \begin{eqnarray*} (x+y+z)(xy+xz+yz)=\color{red}\left(x^2y+ x^2z\right)\color{black}+\color{ForestGreen}\left(y^2x+y^2z\right)\color{black}+\color{blue}\left(z^2y+z^2x\right)\color{black}+3xyz \end{eqnarray*} We distribute and colour the other terms: \begin{eqnarray*} x\left(y^2+yz+z^2\right)&=&\color{ForestGreen}y^2x\color{black}+xyz+\color{blue}z^2x \\ y\left(z^2+zx+x^2\right)&=&\color{blue}z^2y\color{black}+xyz+\color{red}x^2y \\ z\left(x^2+xy+y^2\right)&=&\color{red}x^2z\color{black}+xyz+\color{ForestGreen}y^2z. \end{eqnarray*}
+
+\clearpage
+
+Therefore, by proof by colouring, we have showed that summing up the left hand side gives $(x+y+z)(xy+xz+yz)$. Summing up the right hand side gives $$\left(3y+10z\right)+\left(21z+24x\right)+\left(7x+28y\right)=31\left(x+y+z\right).$$ We equate the two of them, and divide through by $x+y+z$ (since it is positive): $$(x+y+z)(xy+xz+yz)=31(x+y+z)\implies xy+xz+yz=\boxed{31}.$$ 
+
+How did I think of the factorization? The motivation behind it came from the problem statement asking to find $xy+yz+zx$! \end{proof}
+\clearpage
+
+We 
+
+
+\section{Weird Functions}
 
 \mybox{0.8\textwidth}{\begin{prob}[2000 AMC 12]  Let $f$ be a function for which $f(x/3) = x^2 + x + 1$. Find the sum of all values of $z$ for which $f(3z) = 7$. \end{prob} \begin{prob}[Mandelbrot] Let $f$ be a function such that when $a+b=2^n$ for $a,b,n$ integers, then $f(a)+f(b)=n^2$. What is $f(2002)$? \end{prob} \begin{prob}[Mandelbrot] Let $f$ be a function which takes $2$ inputs as arguments.The value of $f$ is defined recursively: $f(x,y)=x+f(x-1, x-y)$. If $f(1,0)=5$, find $f(5,2)$. \end{prob}}
 
+\subsection{2000 AMC 12}
+The function that we are given is somewhat strange. It takes as input $x/3$ and returns a value based upon this. We can modify the input, however, by setting \color{blue} $x=9y$ \color{black} for real $y$. Plugging this into the definition of the function gives $$f(3y)=(9y)^2+9y+1.$$ We want the sum of the values $z$ for which \begin{eqnarray*} f(3z)=(9z)^2+9y+1&=&7 \\ 81z^2+9z-6 &=& 0. \end{eqnarray*}
+
+If the roots of this quadratic are $r_1$ and $r_2$, then, we can rewrite with leading coefficient $81$ as: $$f(3z)=81(z-r_1)(z-r_2)=81z^2+9z-6.$$ Equating the $z$ coefficient gives $$81(-r_1-r_2)=9\implies r_1+r_2=\boxed{\frac{-1}{9}}.$$ 
+
+If you knew Vieta's formula, we could use the fact that the sum of the roots is $\displaystyle -\frac{b}{a}=-\frac{1}{9}$. If you don't know Vieta's formula, don't worry! We'll cover it shortly.  
+
 \clearpage
+
+\subsection{2002 Mandelbrot}
+
+The condition we're given again is odd. 
 
 \section{Sequences and Series}
 \mybox{0.8\textwidth}{\begin{prob}[2003 AMC 10] The first four terms in an arithmetic sequence are $x+y, x-y, xy$ , and $\frac{x}{y}$, in that order. What is the fifth term? \end{prob} \begin{prob}[USAMTS] In an attempt to copy down a sequence of six positive integers in arithmetic progression, a student wrote down the five numbers $113, 137, 149, 155, 173$, accidentally omitting one. He later discovered that he also miscopied one of them. Can you help him recover the original sequence? \end{prob}}

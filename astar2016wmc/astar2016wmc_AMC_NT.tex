@@ -186,6 +186,8 @@ Good luck guessing which one is my lie.
 
 \subsection*{Lucky Seven}
 
+\begin{defi} When $a$ divides $b$, we write $a\mid b$. Another way of saying this is that $b$ is a multiple of $a$. \end{defi}
+
 Choose \textbf{one} number below and determine if it is divisible by $7$.
 \begin{itemize}
 	\item $1729$
@@ -286,13 +288,18 @@ This is clearly a multiple of $7$, therefore, our proof is complete!
 	\item 13 -  Same as the divisibility rule for $7$, except replace $-2x$ with $+4x$.  
 \end{itemize}
 
+\subsection{Eleven}
+
+Let $N=1734579.$ We check to see if $N$ is divisible by $11$. We begin labeling the digits beginning by labeling $9$ as $0$. Why $0$? Think of how lists are stored in Python! Then, $7$ is labeled as $1$, $5$ is labeled as $2$, and so forth. We make all of the \color{red} even \color{black} digits red and all of the \color{blue} odd \color{black} digits blue.
+$$N=\color{red}1\color{blue}7\color{red}3\color{blue}4\color{red}5\color{blue}7\color{red}9.$$ Then, we calculate the sum of the even digits and odd digits: $$\color{red} E=1+3+5+9=18\:, \color{blue}O=7+4+7=18.$$ Note that $E-O=18-18=0$, which is divisible by $11$, therefore, $11$ divides $N$.  
+
 \section{Factorials}
 
 One of my favourite problems in number theory has to do with factorials. The factorial of a positive integer $n$ is defined as the product of all the natural numbers less than or equal to $n$. In other words, $$n!=n\times (n-1)\times (n-2)\times \cdots 1.$$  For instance, $6!=6\times 5\times 4\times 3\times 2\times 1=720$.
 
 \subsection{Zeros at the end of a Factorial}
 
-Note that $6!=720$ ends in one factorial.  The number $$25!=15511210043330985984000000$$ ends in $6$ zeros. 
+Note that $6!=720$ ends in one zero.  The number $$25!=15511210043330985984000000$$ ends in $6$ zeros. 
 
 \mybox{0.8\textwidth}{\begin{prob} How many zeros does $100!$ end in?  \end{prob}}
 \clearpage 
