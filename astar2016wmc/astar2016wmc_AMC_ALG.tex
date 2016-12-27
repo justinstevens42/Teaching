@@ -188,7 +188,17 @@ Therefore, by proof by colouring, we have showed that summing up the left hand s
 How did I think of the factorization? The motivation behind it came from the problem statement asking to find $xy+yz+zx$! \end{proof}
 \clearpage
 
-We 
+\subsection{Two More Tricky Symmetry Problems}
+\mybox{0.8\textwidth}{ \begin{prob}[Purple Comet 2012] Let $a,b,$ and $c$ be non-zero real numbers such that $$\frac{ab}{a+b}=3,\: \frac{bc}{b+c}=4,\: \text{and } \frac{ca}{c+a}=5.$$ Compute the value of $\displaystyle \frac{abc}{ab+bc+ca}$. \end{prob}\begin{prob}[HMMT 2013] Let $x$ and $y$ be real numbers with $x>y$. Find $x$ if $$x^2y^2+x^2+y^2+2xy=40 \text{ and }xy+x+y=8.$$ \end{prob}}
+
+\subsection{Purple Comet 2012}
+The expressions involving $a,b$ in the centered equation look familiar. Where have I seen them before, though? Since they involve fractions, I think to take the \textbf{reciprocal} of all of the equations: $$\frac{a+b}{ab}=\frac13\:,\:\: \frac{b+c}{bc}=\frac14\:,\:\: \text{and } \frac{c+a}{ca}=\frac15.$$ 
+Note that we can simplify each of these expressions! For instance, $\frac{a+b}{ab}=\frac{1}{b}+\frac{1}{a}$. Then, the system of equations becomes $$\color{blue}\frac{1}{b}+\frac{1}{a}=\frac13\:,\:\: \frac{1}{c}+\frac{1}{b}=\frac14\:,\:\: \text{and } \frac{1}{a}+\frac{1}{c}=\frac15.$$ 
+\clearpage
+
+We continue by taking the reciprocal of the desired expression, $\frac{abc}{ab+bc+ca}$: $$\frac{ab+bc+ca}{abc}=\frac{1}{c}+\frac{1}{a}+\frac{1}{b}.$$ Aha! We've turned this into something we know how to work with. We sum up the three blue equatinos from the previous slide to get $$2\left(\frac1a+\frac1b+\frac1c\right)=\frac13+\frac14+\frac15=\frac{47}{60}.$$ Therefore, $\displaystyle \frac1a+\frac1b+\frac1c=\frac{47}{120}$. We have to take the reciprocal, however, to get $$\frac{abc}{ab+bc+ca}=\frac{1}{\frac1a+\frac1b+\frac1c}=\boxed{\frac{120}{47}}.$$
+
+
 
 
 \section{Weird Functions}
@@ -209,7 +219,7 @@ If you knew Vieta's formula, we could use the fact that the sum of the roots is 
 The condition we're given again is odd. 
 
 \section{Sequences and Series}
-\mybox{0.8\textwidth}{\begin{prob}[2003 AMC 10] The first four terms in an arithmetic sequence are $x+y, x-y, xy$ , and $\frac{x}{y}$, in that order. What is the fifth term? \end{prob} \begin{prob}[USAMTS] In an attempt to copy down a sequence of six positive integers in arithmetic progression, a student wrote down the five numbers $113, 137, 149, 155, 173$, accidentally omitting one. He later discovered that he also miscopied one of them. Can you help him recover the original sequence? \end{prob}}
+\mybox{0.95\textwidth}{\begin{prob}[2003 AMC 10] The first four terms in an arithmetic sequence are $x+y, x-y, xy$, and $\frac{x}{y}$, in that order. What is the fifth term? \end{prob} \begin{prob}[USAMTS] In an attempt to copy down a sequence of six positive integers in arithmetic progression, a student wrote down the five numbers $113, 137, 149, 155, 173$, accidentally omitting one. He later discovered that he also miscopied one of them. Can you help him recover the original sequence? \end{prob}}
 
 \clearpage \mybox{0.8\textwidth}{\begin{prob}[1986 AIME] The pages of a book are numbered $1_{}^{}$ through $n_{}^{}$. When the page numbers of the book were added, one of the page numbers was mistakenly added twice, resulting in an incorrect sum of $1986_{}^{}$. What was the number of the page that was added twice? \end{prob}\begin{prob}[1994 AHSME] Suppose $x,y,z$ is a geometric sequence with common ratio $r$ and $x \neq y$. If $x, 2y, 3z$ is an arithmetic sequence, then find the value of $r$. \end{prob}}
 
