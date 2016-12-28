@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7405,        304]
-NotebookOptionsPosition[      5224,        219]
-NotebookOutlinePosition[      5566,        234]
-CellTagsIndexPosition[      5523,        231]
+NotebookDataLength[      8872,        364]
+NotebookOptionsPosition[      6256,        263]
+NotebookOutlinePosition[      6597,        278]
+CellTagsIndexPosition[      6554,        275]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -215,10 +215,54 @@ Cell[BoxData["18.0005`"], "Output",
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.6916234058197155`*^9, 3.691623412174835*^9}}]
+ CellChangeTimes->{{3.6916234058197155`*^9, 3.691623412174835*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"11", "*", "37"}]], "Input",
+ CellChangeTimes->{{3.6918103656420813`*^9, 3.6918103674599195`*^9}}],
+
+Cell[BoxData["407"], "Output",
+ CellChangeTimes->{3.6918103678280525`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"11", "*", "157689"}]], "Input",
+ CellChangeTimes->{{3.691810368249716*^9, 3.6918103715965786`*^9}}],
+
+Cell[BoxData["1734579"], "Output",
+ CellChangeTimes->{3.6918103719855995`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"13", "-", 
+  RowBox[{"5", "*", "11"}]}]], "Input",
+ CellChangeTimes->{{3.691818387562401*^9, 3.691818388650608*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "42"}]], "Output",
+ CellChangeTimes->{3.691818388956031*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"21", "+", 
+  RowBox[{"21", "/", "4"}], "-", 
+  RowBox[{"69", "/", "4"}]}]], "Input",
+ CellChangeTimes->{{3.691818725965207*^9, 3.6918187281598806`*^9}}],
+
+Cell[BoxData["9"], "Output",
+ CellChangeTimes->{3.6918187284661093`*^9}]
+}, Open  ]]
 },
-WindowSize->{636, 772},
-WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+WindowSize->{636, 561},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
 FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -299,13 +343,29 @@ Cell[4548, 190, 94, 2, 46, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[4679, 197, 100, 3, 46, "Input"],
-Cell[4782, 202, 90, 1, 64, "Output"]
+Cell[4782, 202, 90, 1, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[4909, 208, 122, 2, 31, "Input"],
 Cell[5034, 212, 77, 1, 31, "Output"]
 }, Open  ]],
-Cell[5126, 216, 94, 1, 31, "Input"]
+Cell[5126, 216, 94, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[5245, 221, 121, 2, 31, "Input"],
+Cell[5369, 225, 74, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5480, 231, 123, 2, 31, "Input"],
+Cell[5606, 235, 78, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5721, 241, 140, 3, 31, "Input"],
+Cell[5864, 246, 88, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5989, 253, 176, 4, 31, "Input"],
+Cell[6168, 259, 72, 1, 31, "Output"]
+}, Open  ]]
 }
 ]
 *)

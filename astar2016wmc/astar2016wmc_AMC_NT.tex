@@ -478,7 +478,7 @@ Therefore, we conjecture that in general, $\gcd(a,b)=\gcd(b,r).$
 
 \subsection{Book VII, Proposition 1}
 
-``When two unequal numbers are set out, and the less is continually subtracted in turn from the greater, if the number which is left never measures the one before it until a unit is left, then the original numbers are relatively prime." - Euclid  
+\begin{displayquote} ``When two unequal numbers are set out, and the less is continually subtracted in turn from the greater, if the number which is left never measures the one before it until a unit is left, then the original numbers are relatively prime." - Euclid \end{displayquote}
 
 \mybox{0.8\textwidth}{\begin{theorem}  Given naturals $a,b$, upon using the division algorithm to obtain a quotient and remainder, $q,r$, one has that $\gcd(a,b)=\gcd(b,r)$. \end{theorem}}
 
@@ -884,6 +884,123 @@ Then, by the bijection established above, each of the $1$'s and $0$'s actually c
 
 
 \clearpage
+
+
+
+\section{Fundamental Theorem of Arithmetic}
+
+In 1801, Gauss proved the Fundamental Theorem of Arithmetic in his book ``Disquisitiones Arithmeticae". 
+
+\mybox{0.8\textwidth}{\begin{theorem} Every integer at least $2$ is either prime itself or is the unique product of primes. \end{theorem}}
+
+This theorem is the reason $1$ is not a prime number; otherwise, the product would not be unique! Before proving the Fundamental Theorem of Arithmetic, we revisit our friend Euclid and learn about induction. 
+\clearpage
+
+\subsection{Euclid's Lemma}
+\begin{displayquote} ``If two numbers by multiplying one another make some number, and any prime number measure the product, it will also measure one of the original numbers." \\ - Euclid's Elements, Book VII, Proposition 30" \end{displayquote}
+In other words, if prime $p\mid ab$ for integers $a,b$, then $p\mid a$ or $p\mid b$. The proof of Euclid's Lemma requires Bezout's Theorem, which will come later in this course! 
+
+\clearpage
+Another key factor in the proof of the Fundamental Theorem of Arithmetic is the method of \textbf{mathematical induction}.
+	
+\begin{defi}[Induction] In order to prove a statement $P(x)$ is true for all positive integers $x\ge a$, it suffices to show this in two parts: \begin{enumerate}
+		\item \textit{The base case:} $P(a)$ is true.
+		\item \textit{The inductive step:} For all positive integers $k\ge a$, $P(k)$ being true implies $P(k+1)$ is also true.
+		\end{enumerate}  
+		This is a domino effect where one domino knocks down the next.
+\end{defi}
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.45\linewidth]{images/induction.jpg}
+	\caption{Source: Something Of That Ilk}
+\end{figure}
+\clearpage
+
+For instance, suppose I wish to show the identity $$1+2+3+\cdots+n=\frac{n(n+1)}{2}$$ holds for all $n\ge 1$.
+I begin by showing the identity holds for $n=1$: $1=\frac{1\cdot 2}{2}$. I then show that if the identity is true for $n=k$, then it is also true for $n=k+1$. The inductive \textit{hypothesis} is that $1+2+3+\cdots+k=\frac{k(k+1)}{2}$. We use this to show the identity holds for $n=k+1$. Indeed, note that \begin{eqnarray*} \left(1+2+3+\cdots+k\right)+k+1 &=& \frac{k(k+1)}{2}+k+1 \\ &=& (k+1)\left(\frac{k}{2}+1\right) \\ &=& \frac{(k+1)(k+2)}{2}. \end{eqnarray*}
+
+\clearpage
+\begin{defi}[Strong Induction] Replace the inductive step with: If $P(a), P(a+1), P(a+2), P(a+3), \cdots, P(k-1), P(k)$ being true \textit{implies} that $P(k+1)$ is also true.  \end{defi}
+While the notation may be confusing now, after we see strong induction in action, it will make more sense!
+
+\begin{theorem} Every integer at least $2$ is either prime itself or is the unique product of primes. \end{theorem}
+
+\begin{proof} We prove the Fundamental Theorem of Arithmetic. There are two parts for the proof: showing the existance of a prime factorization, and the uniqueness of the prime factorization. We begin with the \color{blue} existance part.  
+	
+\color{black} We use the method of strong induction. We desire to show that all positive integers greater than or equal to $2$ are either prime or can be expressed as the product of primes. To begin with, as a \color{ForestGreen} base case, \color{black} $2$ itself is prime. 
+
+Furthermore, using the \color{ForestGreen} strong induction hypothesis, \color{black} assume that we have proven the the existance of a prime factorization for all integers $y$ with $2\le y\le k$. We then prove the existance for $k+1$. We have two cases to consider: either $k+1$ is prime, or it is the product of two numbers $a,b$ with $2\le a,b<k+1$. 
+
+If $k+1$ itself is prime, then this satisfies the first condition of the Fundamental Theorem of Arithmetic. Otherwise, $k+1=ab$. 
+
+By the strong induction hypothesis, \color{black} both $a$ and $b$ are the product of primes. Therefore, $k+1$ is also the product of primes.
+
+By the method of strong induction, we have proved the existance of a prime factorization. We now go about proving uniqueness. 
+
+For the \color{blue} uniqueness part\color{black}, we again use the method of strong induction. As a \color{ForestGreen} base case, \color{black} $2$ indeed has a unique prime factorization. For the \color{ForestGreen} strong induction hypothesis, \color{black} assume that all integers $y$ with $2\le y\le k$ have a unique prime factorization. We then prove that $k+1$ also has a unique prime factorization. Assume for the sake of contradiction that it does not and that two possible prime factorizations exist: $$k+1=p_1p_2p_3\cdots p_s=q_1q_2q_3\cdots q_r.$$ I wil show that this is impossible.
+
+We see that $p_1\mid q_1q_2q_3\cdots q_r$. By Euclid's Lemma, we must have $p_1\mid q_j$ for some $1\le j\le r$. However, since they are primes, this implies that $p_1=q_j$. We cancel out this similar term to get $$\frac{k+1}{p_1}=p_2p_3\cdots p_s=q_1q_2q_3\cdots q_{j-1}q_{j+1}\cdots q_r.$$ 
+
+By the strong induction hypothesis, $\displaystyle \frac{k+1}{p_1}=\frac{k+1}{q_j}$ has a unique prime factorization. This implies that the two products above contain the same exact primes with the same multiplicity (although, they may be slightly rearranged)! Similarly, since $p_1=q_j$, the original two numbers are exactly identical, and $k+1$ has a unique prime factorization.  \end{proof}
+
+What does Gauss' proof of the Fundamental Theorem of Arithmetic imply? It allows us to write numbers in their prime factorization. For instance, $120=2^3\cdot 3\cdot 5$ and $182=2\cdot 7\cdot 13$. 
+
+\clearpage
+
+\subsection{Canonical Prime Factorization}
+
+The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}p_j^{e_j}=p_1^{e_1}p_2^{e_2}\cdots p_j^{e_j}.$$ 
+The $\prod$ symbol is similar to the $\sum$ symbol, except we multiply all the terms!
+
+Writing prime factorizations this way makes it easier to compute the greatest common divisor and least common multiple of two terms. It also allows us to do other problems involving least common multiples, sum of divisors, product of divisors, and number of divisors!  
+
+\section{Applications of the Fundamental Theorem of Arithmetic}
+
+\subsection{GCD and LCM}
+
+For two positive integers $a$ and $b$, we write out their prime factorizations: $$a=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}, b=p_1^{b_1}p_2^{b_2}\cdots p_k^{b_k}.$$ Then, \begin{eqnarray*} \gcd(a,b)&=&p_1^{\min(a_1, b_1)}p_2^{\min(a_2, b_2)}\cdots p_k^{\min(a_k, b_k)} \\ \lcm[a,b]&=&p_1^{\max(a_1, b_1)}p_2^{\max(a_2, b_2)}\cdots p_k^{\max(a_k, b_k)}. \end{eqnarray*}
+\clearpage
+
+For instance, when $a=2^6\cdot 3^5\cdot 7^2$ and $b=2^9\cdot 3^1$, then \begin{eqnarray*} \gcd(a,b)=2^{\min(6,9)}\cdot 3^{\min(5,1)}\cdot 7^{\min(2,0)}=2^6\cdot 3^1\cdot 7^0 \\ \lcm[a,b]=2^{\max(6,9)}\cdot 3^{\max(5,1)}\cdot 7^{\max(2,0)}=2^9\cdot 3^5\cdot 7^2. \end{eqnarray*}
+
+Note that $\gcd(a,b)\lcm[a,b]=2^{6+9}\cdot 3^{1+5}\cdot 7^2=ab$. This is true in general be cause $\min(a_j, b_j)+\max(a_j, b_j)=a_j+b_j$. 
+
+\clearpage
+
+\subsection{Jail Puzzle}
+
+\mybox{0.8\textwidth}{\begin{prob} The cells in a jail are numbered from $1$ to $100$ and their doors are activated from a central button.  The activation opens a closed door and closes an open door.  Starting with all the doors closed the button is pressed $100$ times.  When it is pressed the $k$-th time the doors that are multiples of $k$ are activated.  Which doors will be open at the end? \end{prob}}
+	
+
+
+\subsection{Least Common Multiple Problems}
+
+\mybox{0.8\textwidth}{\begin{prob}[AIME 1998]  For how many values of $k$ is $12^{12}$ the least common multiple of $6^6$, $8^8$, and $k$?  \end{prob} \begin{prob} Let $[r,s]$ denote the least common multiple of positive integers $r$ and $s$.  Find the number of ordered triples $a,b,c$ such that $[a,b]=1000, [b,c]=2000, [c,a]=2000$. \end{prob}}
+
+\subsection{AIME 1998}
+
+We find the prime factorizations of these numbers. We have $$12^{12}=2^{24}\cdot 3^{12}, 6^6=2^6\cdot 3^6 \text{ and } 8^8=2^{24}.$$ Let $k=2^{k_1}3^{k_2}$.  We then rewrite the equation as $$\lcm[2^6\cdot 3^6\:, 2^{24}\:, 2^{k_1}3^{k_2}]=2^{24}\cdot 3^{12}.$$ Since none of the first two terms have a factor of $3^{12}$, we must have $k_2=12$. 
+
+On the other hand, the second term has a factor of $2^{24}$. Therefore, we must have $0\le k_1\le 24$, giving $\boxed{25}$ possible values of $k$.  
+\subsection{AIME 1987}
+
+Notice that $1000=2^3\times 5^3, 2000=2^4\times 5^3$.  Since we are working with least common multiples, set $$a=2^{a_1}5^{a_2}, b=2^{b_1}5^{b_2}, c=2^{c_1}5^{c_2}.$$
+By looking at the exponent of $2$, we see that $v_2([a,b])=3$ and $v_2([b,c])=v_2([c,a])=4$.
+If $a_1$ or $b_1$ were greater than $3$, then the first equation would be false. Therefore, we must have $\color{blue} a_1, b_1\le 3$, and \color{ForestGreen} at least one of them must be equal to $3$. \color{black} Further, for the second two relations to be true, we must have $\color{blue} c_1=4$.  
+
+Now, we consider the powers of $5$. We note that $v_5([a,b])=3, v_5([a,c])=3, v_5([b,c])=3$. This gives us four separate cases, whena ll of the numbers are $3$ or when two of them are, while the third is less than $3$: $$(a_2, b_2, c_2)=(3,3,3), (3,3,x), (3,x, 3), (x,3,3).$$ We know that $0\le x\le 2$, therefore, there are $3$ possibilities for each of the $x$'s above. Hence, there are a total of $3\cdot 3+1=10$ possibilities for the power of $5$.
+
+In conclusion, there is a total of $7\cdot 10=\boxed{70}$ ordered triples $a,b,c$ which work.  
+\clearpage
+
+\section{Bezout's Identity}
+
+Bezout (1730-1783) was a French mathematician 
+\clearpage
+
+
 %\section{A Famous Puzzle}
 %Do the light switch one involving number of divisors
 
