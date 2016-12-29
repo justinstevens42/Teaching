@@ -290,7 +290,7 @@ This is clearly a multiple of $7$, therefore, our proof is complete!
 
 \subsection{Eleven}
 
-Let $N=1734579.$ We check to see if $N$ is divisible by $11$. We begin labeling the digits beginning by labeling $9$ as $0$. Why $0$? Think of how lists are stored in Python! Then, $7$ is labeled as $1$, $5$ is labeled as $2$, and so forth. We make all of the \color{red} even \color{black} digits red and all of the \color{blue} odd \color{black} digits blue.
+Let $N=1734579.$ We check to see if $N$ is divisible by $11$. We begin labeling the digits beginning by labeling $9$ as $0$. Why $0$? Think of how lists are stored in Python! Then $7$ is labeled as $1$, $5$ is labeled as $2$, and so forth. We make all of the \color{red} even \color{black} digits red and all of the \color{blue} odd \color{black} digits blue.
 $$N=\color{red}1\color{blue}7\color{red}3\color{blue}4\color{red}5\color{blue}7\color{red}9.$$ Then, we calculate the sum of the even digits and odd digits: $$\color{red} E=1+3+5+9=18\:, \color{blue}O=7+4+7=18.$$ Note that $E-O=18-18=0$, which is divisible by $11$, therefore, $11$ divides $N$.  
 
 \section{Factorials}
@@ -727,7 +727,7 @@ Note that the norm function over $\mathbb{Z}$ was $N(b)=|b|$.
 
 We therefore see that the best way to divide $z=-1+4i$ by $w=1+2i$ of the quotients attempted is $$z=-1+4i=(1+2i)(1+i)+i=wq+r.$$  Note that $$N(r)=1<N(w)=5.$$  
 
-In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existance and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*} 
+In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existence and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*} 
 
 \subsection{Visualizing Division in Gaussian Integers}
 
@@ -861,7 +861,7 @@ The numbers on the right hand of the table should look familiar!
 \newline
 \begin{defi}  A \textbf{bijection} is a function between two sets $X$ and $Y$ such that every element in $X$ is mapped to $Y$ and every element in $Y$ is mapped to $X$. Mathematically, we write this as $f:X\to Y$.  \end{defi}
 
-Where is there a bijection in this problem?  
+Where is there a bijection in this problem? As a hint, each term in the sequence can either have a specific power of $3$ or not have a power of $3$. 
 
 \clearpage
 
@@ -886,7 +886,7 @@ Where is there a bijection in this problem?
 
 \clearpage
 
-There appears to be a bijection between the term number in the sequence on the left hand side and the decimal form of the binary numbers formed on the right hand side of the table! The reason for this is because each term in the sequence can either have a specific power of $3$ or not have a power of $3$. 
+There appears to be a bijection between the term number in the sequence on the left hand side and the decimal form of the binary numbers formed on the right hand side of the table! 
 
 Now, how do we find the $100$th term in the sequence? In order to do this, we first have to convert $100$ to binary: $$100=64+32+4=2^6+2^5+2^2=1100100_2.$$  
 
@@ -947,19 +947,19 @@ While the notation may be confusing now, after we see strong induction in action
 
 \begin{theorem} Every integer at least $2$ is either prime itself or is the unique product of primes. \end{theorem}
 
-\begin{proof} We prove the Fundamental Theorem of Arithmetic. There are two parts for the proof: showing the existance of a prime factorization, and the uniqueness of the prime factorization. We begin with the \color{blue} existance part.  
+\begin{proof} We prove the Fundamental Theorem of Arithmetic. There are two parts for the proof: showing the existence of a prime factorization, and the uniqueness of the prime factorization. We begin with the \color{blue} existence part.  
 	
 \clearpage
 	
 \color{black} We use the method of strong induction. We desire to show that all positive integers greater than or equal to $2$ are either prime or can be expressed as the product of primes. To begin with, as a \color{ForestGreen} base case, \color{black} $2$ itself is prime. 
 
-Furthermore, using the \color{ForestGreen} strong induction hypothesis, \color{black} assume that we have proven the the existance of a prime factorization for all integers $y$ with $2\le y\le k$. We then prove the existance for $k+1$. We have two cases to consider: either $k+1$ is prime, or it is the product of two numbers $a,b$ greater than $1$.
+Furthermore, using the \color{ForestGreen} strong induction hypothesis, \color{black} assume that we have proven the the existence of a prime factorization for all integers $y$ with $2\le y\le k$. We then prove the existence for $k+1$. We have two cases to consider: either $k+1$ is prime, or it is the product of two numbers $a,b$ greater than $1$.
 
 If $k+1$ itself is prime, then this satisfies the first condition of the Fundamental Theorem of Arithmetic. Otherwise, $k+1=ab$. 
 
 By the strong induction hypothesis, since $2\le a,b<k+1$, \color{black} both $a$ and $b$ are the product of primes. Therefore, $k+1$ is also the product of primes.
 
-By the method of strong induction, we have proved the existance of a prime factorization. We now go about proving uniqueness. 
+By the method of strong induction, we have proved the existence of a prime factorization. We now go about proving uniqueness. 
 
 For the \color{blue} uniqueness part\color{black}, we use proof by contradiction. Consider the set $S$ of positive integers that do not have a unique prime factorization. I will show that $S$ must be empty by assuming for the sake of contradiction that $S$ is non-empty.
 
@@ -967,11 +967,11 @@ Then, using the well-ordering principle, $S$ must have a least element, say $n$.
 
 We see that $p_1\mid q_1q_2q_3\cdots q_r$. By Euclid's Lemma, we must have $p_1\mid q_j$ for some $1\le j\le r$. However, since they are primes, this implies that $p_1=q_j$. We cancel out this similar term to get $$\frac{n}{p_1}=\frac{n}{q_j}=p_2p_3\cdots p_s=q_1q_2q_3\cdots q_{j-1}q_{j+1}\cdots q_r.$$ 
 
-Therefore, we have showed that $\frac{n}{p_1}=\frac{n}{q_j}$ does not have a unique prime factorization! This contradicts the minimality of $n$, and the set $S$ must be empty.  \end{proof}
+Therefore, we have shown that $\frac{n}{p_1}=\frac{n}{q_j}$ does not have a unique prime factorization! This contradicts the minimality of $n$, and the set $S$ must be empty.  \end{proof}
 
 What does Gauss' proof of the Fundamental Theorem of Arithmetic imply? It allows us to write numbers in their prime factorization. For instance, $120=2^3\cdot 3\cdot 5$ and $182=2\cdot 7\cdot 13$. 
 
-While the proof may seem very complicated at first, seeing induction proofs are very important for higher level mathematics. For more information on proofs, see my lecture to Northern Nevada Math, \color{Orange}\href{https://numbertheoryguydotcom.files.wordpress.com/2016/03/intermediateproofs.pdf}{Intermediate Proofs.}
+While the proof may seem very complicated at first, seeing induction proofs is very important for higher level mathematics. The statement of induction and the well-ordering principle are actually equivalent! For more information on proofs, see my lecture to Northern Nevada Math, \color{Orange}\href{https://numbertheoryguydotcom.files.wordpress.com/2016/03/intermediateproofs.pdf}{Intermediate Proofs.}
 
 \clearpage
 
@@ -991,7 +991,7 @@ For two positive integers $a$ and $b$, we write out their prime factorizations: 
 
 For instance, when $a=2^6\cdot 3^5\cdot 7^2$ and $b=2^9\cdot 3^1$, then \begin{eqnarray*} \gcd(a,b)=2^{\min(6,9)}\cdot 3^{\min(5,1)}\cdot 7^{\min(2,0)}=2^6\cdot 3^1\cdot 7^0 \\ \lcm[a,b]=2^{\max(6,9)}\cdot 3^{\max(5,1)}\cdot 7^{\max(2,0)}=2^9\cdot 3^5\cdot 7^2. \end{eqnarray*}
 
-Note that $\gcd(a,b)\lcm[a,b]=2^{6+9}\cdot 3^{1+5}\cdot 7^2=ab$. This is true in general be cause $\min(a_j, b_j)+\max(a_j, b_j)=a_j+b_j$. 
+Note that $\gcd(a,b)\lcm[a,b]=2^{6+9}\cdot 3^{1+5}\cdot 7^2=ab$. This is true in general because $\min(a_j, b_j)+\max(a_j, b_j)=a_j+b_j$. 
 
 \clearpage
 
@@ -1085,7 +1085,7 @@ In the table, the jail cells are represented by the columns and the button press
 
 \clearpage
 
-Therefore, the jail cells which are open will be cells $1, 4, 9$. Note that these are all perfect squares! Furthermore, the bottom column appears to be the number of divisors of the jail cell. For instance, $\tau(6)=4$.  Why is this the case?
+Therefore the jail cells which are open will be cells $1, 4, 9$. Note that these are all perfect squares! Furthermore, the bottom column appears to be the number of divisors of the jail cell. For instance, $\tau(6)=4$.  Why is this the case?
 
 A jail cell $j$ will be activated when the button is pressed the $k$-th time if and only if $k$ divides $j$. Therefore, the number of times it is activated is equivalent to the number of positive divisors of $j$, or $\tau(j)$.
 
