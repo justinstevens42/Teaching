@@ -648,7 +648,7 @@ Rigorously, they are defined as the set \begin{eqnarray*}S=\{a+bi &|& a,b \in \m
 
 \subsection{Gaussian Division Problem \cite{div:1}}
 
-\mybox{0.9\textwidth}{\begin{prob}  Find the quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
+\mybox{0.9\textwidth}{\begin{prob}  Find a possible quotient and remainder when we divide $z=-1+4i$ by $w=1+2i$ in $\mathbb{Z}[i]$.  \end{prob}}
 
 To begin with, before I give a rigorous definition of division in $\mathbb{Z}[i]$, I want you to explore possible quotients and remainders. That is, with no restrictions other than sticking to the Gaussian integers, find a pair $q,r$ such that $$z=-1+4i=(1+2i)q+r=wq+r.$$   We'll discuss our findings in a few minutes!
 
@@ -725,9 +725,9 @@ Note that the norm function over $\mathbb{Z}$ was $N(b)=|b|$.
 
 \clearpage
 
-We therefore see that the best way to divide $z=-1+4i$ by $w=1+2i$ of the quotients attempted is $$z=-1+4i=(1+2i)(1+i)+i=wq+r.$$  Note that $$N(r)=1<N(w)=5.$$  This property is unique to the quotient and remainder pair we've found.  
+We therefore see that the best way to divide $z=-1+4i$ by $w=1+2i$ of the quotients attempted is $$z=-1+4i=(1+2i)(1+i)+i=wq+r.$$  Note that $$N(r)=1<N(w)=5.$$  
 
-In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existance and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*}  
+In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures the existance and uniqueness of a pair $(q,r)$ for which  \begin{eqnarray*} z=wq+r &|& N(r)<N(w). \end{eqnarray*} 
 
 \subsection{Visualizing Division in Gaussian Integers}
 
@@ -735,6 +735,17 @@ In general, the statement of the division algorithm over $\mathbb{Z}[i]$ ensures
 	\centering\includegraphics[width=0.5\linewidth]{images/kitchings.jpg}
 	\caption{Source:  Clay Kitchings \cite{div:1}}
 \end{figure}
+
+\subsection{Uniqueness} 
+
+Note that the solution pair for $(q,r)$ is not unique. If we look at the square of points around $z$ on the diagram above, we see that $q=1+2i$ and $q=2+i$ both work.
+\begin{itemize}
+	\item When $q_2=1+2i$, for instance, we have $$r_2=(-1+4i)-\left(1+2i\right)\left(1+2i\right)=(-1+4i)-\left(1+4i-4\right)=2.$$
+	\item When $q_3=2+i$, we have $$r_3=(-1+4i)-\left(1+2i\right)\left(2+i\right)=(-1+4i)-(2+5i-2)=-1-i.$$
+\end{itemize}
+Note that $N(r_2)=4<N(w)=5$ and $N(r_3)=2<N(w)=5$.
+
+\clearpage
 
 \section{Base Numbers}
 
@@ -779,7 +790,7 @@ Finally, we write $32=8\times 4$.  Therefore, $$2016=3\times 512+7\times 64+4\ti
 
 \subsection{Magic 8 Ball}
 
-Instead of subtracting off powers of $8$, another method exists to convert $2016$ to base $8$. We can repeatedly divide by $8$ until the quotient is $0$ and look at the remainders: \begin{eqnarray*}  2016=8\cdot 252+&\textbf{0}& \\ 252=31\cdot 8+&\textbf{4}& \\ 31=8\cdot 3+&\textbf{7}& \\ 3=8\cdot 0+&\textbf{3}& \end{eqnarray*}
+Instead of subtracting off powers of $8$, another method exists to convert $2016$ to base $8$. We can repeatedly divide by $8$ until the quotient is $0$ and look at the remainders: \begin{eqnarray*}  2016=8\cdot 252+&\textbf{0}& \\ 252=8\cdot 31+&\textbf{4}& \\ 31=8\cdot 3+&\textbf{7}& \\ 3=8\cdot 0+&\textbf{3}& \end{eqnarray*}
 
 We append each of the remainders in \textit{backwards order} to determine $2016=3740_8$.
 
@@ -875,7 +886,7 @@ Where is there a bijection in this problem?
 
 \clearpage
 
-There appears to be a bijection between the term number in the sequence on the left hand side and the decimal form of the binary numbers formed on the right hand side of the table!  Note that $7=111_2$ for instance. 
+There appears to be a bijection between the term number in the sequence on the left hand side and the decimal form of the binary numbers formed on the right hand side of the table! The reason for this is because each term in the sequence can either have a specific power of $3$ or not have a power of $3$. 
 
 Now, how do we find the $100$th term in the sequence? In order to do this, we first have to convert $100$ to binary: $$100=64+32+4=2^6+2^5+2^2=1100100_2.$$  
 
@@ -901,6 +912,7 @@ This theorem is the reason $1$ is not a prime number; otherwise, the product wou
 In other words, if prime $p\mid ab$ for integers $a,b$, then $p\mid a$ or $p\mid b$. The proof of Euclid's Lemma requires Bezout's Theorem, which will come later in this course! 
 
 \clearpage
+\subsection{$\star$ Induction}
 Another key factor in the proof of the Fundamental Theorem of Arithmetic is the method of \textbf{mathematical induction}.
 	
 \begin{defi}[Induction] In order to prove a statement $P(x)$ is true for all positive integers $x\ge a$, it suffices to show this in two parts: \begin{enumerate}
@@ -922,36 +934,50 @@ For instance, suppose I wish to show the identity $$1+2+3+\cdots+n=\frac{n(n+1)}
 I begin by showing the identity holds for $n=1$: $1=\frac{1\cdot 2}{2}$. I then show that if the identity is true for $n=k$, then it is also true for $n=k+1$. The inductive \textit{hypothesis} is that $1+2+3+\cdots+k=\frac{k(k+1)}{2}$. We use this to show the identity holds for $n=k+1$. Indeed, note that \begin{eqnarray*} \left(1+2+3+\cdots+k\right)+k+1 &=& \frac{k(k+1)}{2}+k+1 \\ &=& (k+1)\left(\frac{k}{2}+1\right) \\ &=& \frac{(k+1)(k+2)}{2}. \end{eqnarray*}
 
 \clearpage
-\begin{defi}[Strong Induction] Replace the inductive step with: If $P(a), P(a+1), P(a+2), P(a+3), \cdots, P(k-1), P(k)$ being true \textit{implies} that $P(k+1)$ is also true.  \end{defi}
+\begin{defi}[Strong Induction] Replace the inductive step with: If $P(a), P(a+1), P(a+2), P(a+3), \cdots, P(k-1), P(k)$ being true \textit{implies} that $P(k+1)$ is also true.  \end{defi} The way I visualize strong induction is below:
+\begin{eqnarray*} P(a)&\implies& P(a+1) \\ 
+				 P(a)\:, P(a+1) &\implies& P(a+2) \\
+				 P(a)\:, P(a+1), P(a+2) &\implies& P(a+3) \\
+				 \cdots
+\end{eqnarray*}
+It is a slightly more confusing domino effect! Knowing strong induction will be particularly useful when you take an analysis class down the road.
+\clearpage
+\subsection{$\star$ Proof}
 While the notation may be confusing now, after we see strong induction in action, it will make more sense!
 
 \begin{theorem} Every integer at least $2$ is either prime itself or is the unique product of primes. \end{theorem}
 
 \begin{proof} We prove the Fundamental Theorem of Arithmetic. There are two parts for the proof: showing the existance of a prime factorization, and the uniqueness of the prime factorization. We begin with the \color{blue} existance part.  
 	
+\clearpage
+	
 \color{black} We use the method of strong induction. We desire to show that all positive integers greater than or equal to $2$ are either prime or can be expressed as the product of primes. To begin with, as a \color{ForestGreen} base case, \color{black} $2$ itself is prime. 
 
-Furthermore, using the \color{ForestGreen} strong induction hypothesis, \color{black} assume that we have proven the the existance of a prime factorization for all integers $y$ with $2\le y\le k$. We then prove the existance for $k+1$. We have two cases to consider: either $k+1$ is prime, or it is the product of two numbers $a,b$ with $2\le a,b<k+1$. 
+Furthermore, using the \color{ForestGreen} strong induction hypothesis, \color{black} assume that we have proven the the existance of a prime factorization for all integers $y$ with $2\le y\le k$. We then prove the existance for $k+1$. We have two cases to consider: either $k+1$ is prime, or it is the product of two numbers $a,b$ greater than $1$.
 
 If $k+1$ itself is prime, then this satisfies the first condition of the Fundamental Theorem of Arithmetic. Otherwise, $k+1=ab$. 
 
-By the strong induction hypothesis, \color{black} both $a$ and $b$ are the product of primes. Therefore, $k+1$ is also the product of primes.
+By the strong induction hypothesis, since $2\le a,b<k+1$, \color{black} both $a$ and $b$ are the product of primes. Therefore, $k+1$ is also the product of primes.
 
 By the method of strong induction, we have proved the existance of a prime factorization. We now go about proving uniqueness. 
 
-For the \color{blue} uniqueness part\color{black}, we again use the method of strong induction. As a \color{ForestGreen} base case, \color{black} $2$ indeed has a unique prime factorization. For the \color{ForestGreen} strong induction hypothesis, \color{black} assume that all integers $y$ with $2\le y\le k$ have a unique prime factorization. We then prove that $k+1$ also has a unique prime factorization. Assume for the sake of contradiction that it does not and that two possible prime factorizations exist: $$k+1=p_1p_2p_3\cdots p_s=q_1q_2q_3\cdots q_r.$$ I wil show that this is impossible.
+For the \color{blue} uniqueness part\color{black}, we use proof by contradiction. Consider the set $S$ of positive integers that do not have a unique prime factorization. I will show that $S$ must be empty by assuming for the sake of contradiction that $S$ is non-empty.
 
-We see that $p_1\mid q_1q_2q_3\cdots q_r$. By Euclid's Lemma, we must have $p_1\mid q_j$ for some $1\le j\le r$. However, since they are primes, this implies that $p_1=q_j$. We cancel out this similar term to get $$\frac{k+1}{p_1}=p_2p_3\cdots p_s=q_1q_2q_3\cdots q_{j-1}q_{j+1}\cdots q_r.$$ 
+Then, using the well-ordering principle, $S$ must have a least element, say $n$. Let the two possible prime factorizations of $n$ be $$n=p_1p_2p_3\cdots p_s=q_1q_2q_3\cdots q_r.$$ I will show that there is a smaller value in $S$ than $n$, contradicting its minimality.  
 
-By the strong induction hypothesis, $\displaystyle \frac{k+1}{p_1}=\frac{k+1}{q_j}$ has a unique prime factorization. This implies that the two products above contain the same exact primes with the same multiplicity (although, they may be slightly rearranged)! Similarly, since $p_1=q_j$, the original two numbers are exactly identical, and $k+1$ has a unique prime factorization.  \end{proof}
+We see that $p_1\mid q_1q_2q_3\cdots q_r$. By Euclid's Lemma, we must have $p_1\mid q_j$ for some $1\le j\le r$. However, since they are primes, this implies that $p_1=q_j$. We cancel out this similar term to get $$\frac{n}{p_1}=\frac{n}{q_j}=p_2p_3\cdots p_s=q_1q_2q_3\cdots q_{j-1}q_{j+1}\cdots q_r.$$ 
+
+Therefore, we have showed that $\frac{n}{p_1}=\frac{n}{q_j}$ does not have a unique prime factorization! This contradicts the minimality of $n$, and the set $S$ must be empty.  \end{proof}
 
 What does Gauss' proof of the Fundamental Theorem of Arithmetic imply? It allows us to write numbers in their prime factorization. For instance, $120=2^3\cdot 3\cdot 5$ and $182=2\cdot 7\cdot 13$. 
+
+While the proof may seem very complicated at first, seeing induction proofs are very important for higher level mathematics. For more information on proofs, see my lecture to Northern Nevada Math, \color{Orange}\href{https://numbertheoryguydotcom.files.wordpress.com/2016/03/intermediateproofs.pdf}{Intermediate Proofs.}
 
 \clearpage
 
 \subsection{Canonical Prime Factorization}
 
-The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}p_j^{e_j}=p_1^{e_1}p_2^{e_2}\cdots p_j^{e_j}.$$ 
+\color{black} The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}\left(p_j^{e_j}\right)=p_1^{e_1}p_2^{e_2}\cdots p_j^{e_j}.$$ 
 The $\prod$ symbol is similar to the $\sum$ symbol, except we multiply all the terms!
 
 Writing prime factorizations this way makes it easier to compute the greatest common divisor and least common multiple of two terms. It also allows us to do other problems involving least common multiples, sum of divisors, product of divisors, and number of divisors!  
@@ -969,13 +995,92 @@ Note that $\gcd(a,b)\lcm[a,b]=2^{6+9}\cdot 3^{1+5}\cdot 7^2=ab$. This is true in
 
 \clearpage
 
+\subsection{Tau and Sigma}
+
+\begin{defi} Define $\tau(n)$ to be the number of positive divisors of $n$ and $\sigma(n)$ to be the sum of the positive divisors of $n$. For instance, for $n=12$, its divisors are $1, 2, 3, 4, 6, 12$. Therefore, $\tau(12)=6$ and $\sigma(12)=1+2+3+4+6+12=28$. \end{defi}
+
+\mybox{0.8\textwidth}{\begin{prob} If $n=144$, find the number of positive divisors of $n$ and the sum of the positive divisors of $n$. Is there a fast method? Compute $\tau(4800)$ and $\sigma(4800)$. What about general $n$? \end{prob}}
+
+\clearpage
+
+\begin{proof}[Solution]
+
+For $n=144$, we list the positive divisors: $$\{1, 2, 3, 4, 6, 8, 9, 12, 16, 18, 24, 36, 48, 72, 144\}.$$ We see that there are $\tau(144)=15$ divisors by counting. We can also take the sum of all the divisors by hand to get $\sigma(144)=403$. However, listing the divisors method will not work for larger values of $n$. 
+
+Therefore, we attempt to factorize $n$: $144=2^4\cdot 3^2$. Note that all divisors of $n$ must be of the form $d=2^{a}\cdot 3^{b}$. Remembering our $v$ notation, another way of writing this is $v_2(d)=a$ and $v_3(d)=b$.   
+
+\color{ForestGreen} We must have $0\le a\le 4$ and $0\le b\le 2$. \color{black} Otherwise, it wouldn't be possible for $d$ to divide into $n$, since there would either be too many $2$'s or $3$'s.  
+
+\clearpage
+
+Therefore, we have $4+1=5$ choices for $a$: $0,1,2,3,4$. Similarly, we have $2+1=3$ choices for $b$. Since our choices for $a$ and $b$ are independent of one another, there is a total of $\sigma(144)=5\cdot 3=\boxed{15}$ positive divisors. 
+
+What about the sum of the divisors of $144$? I claim that the product $(1+2+2^2+2^3+2^4)(1+3+3^2)$ is the sum of the divisors of $144$. One way to see this is multiplying the product: \color{red} \footnotesize \begin{eqnarray*}  1\left(1+3+3^2\right)+\:2\left(1+3+3^2\right)+\: 2^2\left(1+3+3^2\right)+\:2^3\left(1+3+3^2\right)+\:2^4\left(1+3+3^2\right) \end{eqnarray*} \normalsize\color{black} From this distribution, how do I get all possible divisors of $144$?  
+
+\clearpage
+\begin{eqnarray*} 1\left(1+3+3^2\right)&=& 1+3+9 \\ 2\left(1+3+3^2\right)&=& 2+6+18 \\ 2^2\left(1+3+3^2\right)&=&4+12+36 \\ 2^3\left(1+3+3^2\right)&=&8+24+72 \\ 2^4\left(1+3+3^2\right)&=&16+48+144. \end{eqnarray*}
+
+Our original list of divisors was $\{1, 2, 3, 4, 6, 8, 9, 12, 16, 18, 24, 36, 48, 72, 144\}$. We see that every divisor is included in the sum! 
+
+\clearpage
+
+A faster method to see this is to choose an arbitrary divisor of $144$, say $24$. Note that $24=2^3\cdot 3$. Therefore, we colour the two terms of the product which multiply to $24$. $$\left(1+2+2^2+\color{blue}2^3\color{black}+2^4\right)\left(1+\color{blue}3\color{black}+3^2\right).$$  
+Hence, by the distributive property, $24$ is a part of our sum.
+
+This logic extends to all divisors of $144$, since they are of the form $2^a3^b$ mentioned above! Note that $1+2+2^2+2^3+2^4=31$ and $1+3+3^2=13$, hence the sum of the positive divisors is $\sigma(144)=31\cdot 13=\boxed{403}$.
+
+Next, we compute $\tau(4800)$ and $\sigma(4800)$. Using the method we developed above, we begin by factorizing $4800$: $4800=2^6\cdot 3^1\cdot 5^2$. Therefore, all positive divisors are of the form \begin{eqnarray*}\{2^a\cdot 3^b\cdot 5^c &|& 0\le a\le 6,\:\: 0\le b\le 1,\:\: 0\le c\le 2\}. \end{eqnarray*}
+Therefore, we have $7$ choices for $a$, $2$ for $b$, and $3$ for $c$, for a total of $\tau(4800)=7\cdot 2\cdot 3=\boxed{42}$ divisors.
+
+To compute the sum of the divisors, we compute a similar product:  $$\sigma(4800)=(1+2+2^2+2^3+2^4+2^5+2^6)(1+3^1)(1+5+5^2)=\boxed{15,748}.$$ 
+\clearpage
+
+\mybox{0.95\textwidth}{\begin{theorem}[Tau and Sigma] If $n$ is a positive integer with $k$ prime factors and canonical prime factorization $\displaystyle n=\prod_{j=1}^{k}\left(p_j^{e_j}\right)=p_1^{e_1}p_2^{e_2}\cdots p_j^{e_j},$ then \begin{eqnarray*} \tau(n)&=&\prod_{j=1}^{k}\left(e_j+1\right) \\ \sigma(n)&=&\prod_{j=1}^{k}\left(p_j^0+p_j^1+p_j^2+\cdots+p_j^{e_j}\right)=\prod_{j=1}^{k}\left(\sum_{e=0}^{e_j}p_j^{e}\right),  \end{eqnarray*} where $\tau(n)$ is the number of positive divisors of $n$ and $\sigma(n)$ is the sum. \end{theorem}}
+
+\subsection*{Turning Symbols into Language}
+Remember that $\prod$ is the symbol for multiplying terms and $\sum$ is the symbol for adding terms. Therefore, the first expression is $$\tau(n)=\prod_{j=1}^{k}\left(e_j+1\right)=\left(e_1+1\right)\left(e_2+1\right)\cdots \left(e_k+1\right).$$ Since $\tau(n)$ counts the number of positive divisors of $n$, let $d$ be an arbitrary divisor. As established by our work above, for a prime $p_j$ in our prime factorization of $n$, $0\le v_{p_j}(d)\le e_j$. Therefore, there are $e_j+1$ choices for the exponent of $p_j$. We multiply these to determine our formula for $\tau(n)$. \end{proof}
+\clearpage
+
+  
 \subsection{Jail Puzzle}
 
 \mybox{0.8\textwidth}{\begin{prob} The cells in a jail are numbered from $1$ to $100$ and their doors are activated from a central button.  The activation opens a closed door and closes an open door.  Starting with all the doors closed the button is pressed $100$ times.  When it is pressed the $k$-th time the doors that are multiples of $k$ are activated.  Which doors will be open at the end? \end{prob}}
+
+\clearpage
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.9\linewidth]{images/jail.jpg}
+	\caption{Source: Knepfle.com}
+\end{figure}
+
+
 	
 
 
-\subsection{Least Common Multiple Problems}
+\section{Contest Style Fundamental Theorem Problems}
+
+\mybox{0.8\textwidth}{\begin{prob}[AHSME 1996] If $n$ is a positive integer such that $2n$ has $28$ positive divisors and $3n$ has $30$ positive divisors, then how many positive divisors does $6n$ have? \end{prob} \begin{prob} Find the number of positive integer solutions $(x,y,z)$ for which $xyz=480$. \end{prob}}
+
+\clearpage
+\subsection{AHSME 1996}
+\begin{proof}[Solution] We focus on the condition that $2n$ has $28$ positive divisors. For primes $p, q, r$, we write out possible prime factorizations of $2n$ based on its number of divisors: $2n= p^{27},\: p^{13}q,\: p^6q^3,\: p^6qr.$ We check to see when it's possible for $\tau(3n)=30$.
+
+\begin{itemize} 
+\item If $2n=p^{27}$, since $n$ must be a positive integer, we have $p=2$ and $n=2^{26}$. Then, $3n=2^{26}3^1\implies \tau(3n)=27\cdot 2=54.$ 
+
+\item If $2n=p^{13}q$, then we either have $p=2$ or $q=2$.\\ \color{blue} When $p=2$\color{black}, then $n=2^{12}q$, giving $$3n=2^{12}3^1q.$$ If $q=3$, then $\tau(3n)=\tau(2^{12}3^2)=(12+1)(2+1)=39$. \\ If $q\neq 3$, then $\tau(3n)=\tau(2^{12}3^1q)=(12+1)(1+1)(1+1)=52.$ \\ \\ \color{blue} When $q=2$\color{black}, we have $n=p^{13}$ and $3n=3^1p^{13}$. \\ If $p=3$, then $\tau(3n)=\tau(3^{14})=14+1=15$. \\ If $p\neq 3$, then $\tau(3n)=\tau(3^1p^{13})=(1+1)(13+1)=28$. 
+\clearpage
+
+\item If $2n=p^6q^3$, then once again, we divide this into the cases $p=2$ and $q=2$. \\  \color{blue} When $p=2$\color{black}, we have $n=2^5q^3$ and $3n=2^53^1q^3$. \\
+\color{ForestGreen} If $q=3$, then $\tau(3n)=\tau(2^5\cdot 3^4)=(5+1)(4+1)=30$. \\
+\color{black} If $p\neq 3$, then $\tau(3n)=\tau(2^53^1q^3)=(5+1)(1+1)(3+1)=48$.
+\end{itemize}
+We could continue on with the casework to verify that $n=2^53^3$ is the only solution, however, it's not particularly illuminating, therefore, I leave it as an exercise.
+
+To conclude the problem, $6n=2^63^4$, then $\tau(6n)=\left(6+1\right)\left(4+1\right)=\boxed{35}$. \end{proof}
+
+\clearpage
+
 
 \mybox{0.8\textwidth}{\begin{prob}[AIME 1998]  For how many values of $k$ is $12^{12}$ the least common multiple of $6^6$, $8^8$, and $k$?  \end{prob} \begin{prob} Let $[r,s]$ denote the least common multiple of positive integers $r$ and $s$.  Find the number of ordered triples $a,b,c$ such that $[a,b]=1000, [b,c]=2000, [c,a]=2000$. \end{prob}}
 
@@ -995,11 +1100,13 @@ Now, we consider the powers of $5$. We note that $v_5([a,b])=3, v_5([a,c])=3, v_
 In conclusion, there is a total of $7\cdot 10=\boxed{70}$ ordered triples $a,b,c$ which work.  
 \clearpage
 
-\section{Bezout's Identity}
-
-Bezout (1730-1783) was a French mathematician 
+\section{Fermat's Little Theorem}
 \clearpage
 
+\section{Euler's Totient Function}
+\clearpage
+
+\section{Euler's Totient Formula}  
 
 %\section{A Famous Puzzle}
 %Do the light switch one involving number of divisors
@@ -1012,7 +1119,6 @@ Bezout (1730-1783) was a French mathematician
 
 \clearpage
 \thispagestyle{empty} % No slide header and footer
-\textcolor{white}{\cite{a:1}, \cite{me:1}}
 \bibliographystyle{unsrt}
 \bibliography{numbertheory}
 
