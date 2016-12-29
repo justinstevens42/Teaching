@@ -97,7 +97,7 @@ Good luck guessing which one is my lie.
 
 \clearpage
 
-\subsection*{Concerts:  \color{green} Truth}
+\subsection*{Concerts:  \color{ForestGreen} Truth}
 
 \begin{figure}[h]
 	\centering\includegraphics[width=0.23\linewidth]{images/concert1.jpg}
@@ -105,7 +105,7 @@ Good luck guessing which one is my lie.
 
 \clearpage
 
-\subsection*{Robot:  \color{green}  Truth}
+\subsection*{Robot:  \color{ForestGreen}  Truth}
 
 \begin{figure}[h]
 	\centering\includegraphics[width=0.4\linewidth]{images/robot.jpg}
@@ -141,7 +141,7 @@ Good luck guessing which one is my lie.
 \end{figure}
 
 \clearpage 
-\subsection*{Crib Race??:  \color{green}  Truth}
+\subsection*{Crib Race??:  \color{ForestGreen}  Truth}
 
 \begin{figure}[h]
 	\centering\includegraphics[width=0.32\linewidth]{images/crib.jpg}
@@ -1053,13 +1053,56 @@ Remember that $\prod$ is the symbol for multiplying terms and $\sum$ is the symb
 	\caption{Source: Knepfle.com}
 \end{figure}
 
+\subsection*{Let's Press the Button!}
+\begin{proof}[Solution]
+One problem solving trick when we don't know how to begin a problem is to simplify the problem. The number $100$ seems arbitrary, therefore, we try the problem for a jail with $10$ cells. We create a table of which jail cells are activated each time we press the button.
+
+In the table, the jail cells are represented by the columns and the button pressing is represented by the rows. Note that a jail cell will be open at the end if it is activated an odd number of times, because it begins even. Therefore, we sum up the number of check marks for each jail cell in the button row, and if it is odd, we highlight it green.
+
+\clearpage
+
+\begin{table}[h]
+	\centering %nice job Justin!
+	\scalebox{0.9}{
+		\begin{tabular}{|l | r r r r r r r r r r|}
+			\toprule
+			Button \# & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+			\midrule
+			1 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+			2 & \x & \checkmark & \x & \checkmark & \x & \checkmark & \x & \checkmark & \x & \checkmark \\
+			3 & \x & \x & \checkmark & \x & \x & \checkmark & \x & \x & \checkmark & \x \\
+			4 & \x & \x & \x & \checkmark & \x & \x & \x & \checkmark & \x & \x \\
+			5 & \x & \x & \x & \x & \checkmark & \x & \x & \x & \x & \checkmark \\
+			6 & \x & \x & \x & \x & \x & \checkmark & \x & \x & \x & \x \\
+			7 & \x & \x & \x & \x & \x & \x & \checkmark & \x & \x & \x \\
+			8 & \x & \x & \x & \x & \x & \x & \x & \checkmark & \x & \x \\
+			9 & \x & \x & \x & \x & \x & \x & \x & \x & \checkmark & \x \\
+			10& \x & \x & \x & \x & \x & \x & \x & \x & \x & \checkmark \\ \midrule
+			 & \color{ForestGreen}1\color{black} & 2 & 2 & \color{ForestGreen}3\color{black} & 2 & 4 & 2 & 4 & \color{ForestGreen}3\color{black} & 4 \\ 
+			\midrule
+	\end{tabular}}
+\end{table}
+
+\clearpage
+
+Therefore, the jail cells which are open will be cells $1, 4, 9$. Note that these are all perfect squares! Furthermore, the bottom column appears to be the number of divisors of the jail cell. For instance, $\tau(6)=4$.  Why is this the case?
+
+A jail cell $j$ will be activated when the button is pressed the $k$-th time if and only if $k$ divides $j$. Therefore, the number of times it is activated is equivalent to the number of positive divisors of $j$, or $\tau(j)$.
+
+Hence, the problem reduces down to when $\tau(j)$ is odd!
+
+\clearpage
+
+If $j$ has a prime factorization of $j=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$, then by our formula, $\tau(j)=\prod (e_i+1)$. If $\tau(j)$ is odd, then each term in the product must be odd. Therefore, $e_i$ must be even! Hence, every exponent in the prime factorization of $j$ is even, and $j$ must be a perfect square.
+
+Therefore, for our original problem with $100$ doors, the doors that are open at the end are: $$1, 4, 9, 16, 25, 36, 49, 64, 81, 100.$$  \end{proof}
 
 	
 
 
 \section{Contest Style Fundamental Theorem Problems}
 
-\mybox{0.8\textwidth}{\begin{prob}[AHSME 1996] If $n$ is a positive integer such that $2n$ has $28$ positive divisors and $3n$ has $30$ positive divisors, then how many positive divisors does $6n$ have? \end{prob} \begin{prob} Find the number of positive integer solutions $(x,y,z)$ for which $xyz=480$. \end{prob}}
+\mybox{0.8\textwidth}{\begin{prob}[AHSME 1996] If $n$ is a positive integer such that $2n$ has $28$ positive divisors and $3n$ has $30$ positive divisors, then how many positive divisors does $6n$ have? \end{prob} \begin{prob} Find the number of ordered triples $(x,y,z)$ for which $xyz=2400$ over the positive integers.  \end{prob}}
 
 \clearpage
 \subsection{AHSME 1996}
@@ -1081,7 +1124,31 @@ To conclude the problem, $6n=2^63^4$, then $\tau(6n)=\left(6+1\right)\left(4+1\r
 
 \clearpage
 
+\subsection{Ordered triples with $xyz=2400$ over $\mathbb{Z}^{+}$.}
 
+We begin by prime factorizing $480=2^5\cdot 3^1\cdot 5^2$. We write $$x=2^{x_2}3^{x_3}5^{x_5};\: y=2^{y_2}3^{y_3}5^{y_5};\: z=2^{z_2}3^{z_3}5^{z_5}.$$ Since $xyz=480$, this is equivalent to having \begin{eqnarray*} x_2+y_2+z_2 &=& 5 \\ x_3+y_3+z_3&=&1 \\ x_5+y_5+z_5&=&2. \end{eqnarray*}
+How many integer triplets can you find for $(x_2, y_2, z_2)$?
+\clearpage
+
+We could begin listing possible triplets, but there are far too many to list. Therefore, we try to think of a clever method. We use a method in combinatorics known as \textbf{stars and bars}. We create a bijection between the number of ordered triplets $(x_2, y_2, z_2)$ and the rearrangement of stars and bars.
+
+We desire to distribute $5$ $1's$ to three variables. Therefore, we write out the $5$ $1's$ as such: $1\: 1\: 1\: 1\: 1.$ We desire to divide this into three groups, therefore, we place two dividers, which we symbolize by \color{blue} blue $x$'s: \color{black} $$\mathlarger{1}\:\color{blue}x\color{black}\: \mathlarger{1}\:\: \mathlarger{1}\:\color{blue}x\color{black}\: \mathlarger{1}\:\: \mathlarger{1}\:$$ What is $(x_2, y_2, z_2)$ with these dividers?
+\clearpage
+$$\mathlarger{1}\:\color{blue}x\color{black}\: \mathlarger{1}\:\: \mathlarger{1}\:\color{blue}x\color{black}\: \mathlarger{1}\:\: \mathlarger{1}\:$$In the above configuration, we have $(x_2, y_2, z_2)=(1,2,2)$, since there is one $1$ in the first group and two $1$'s in the other two groups. 
+
+In order to find the number of possible triplets $(x_2, y_2, z_2)$, we find the number of rearrangements of the objects above. The number of ways to order the $1$'s and $\color{blue} x\color{black}$'s is $\binom{7}{2}=\frac{7\cdot 6}{2}=\color{orange} 21$. \color{black}
+
+Since $x_3+y_3+z_3=1$, we note that there are \color{orange} $3$ \color{black} possible triplets for $(x_3, y_3, z_3)$, depending on which of the variables we choose to give the $1$ to.
+
+\clearpage
+
+Finally, for $(x_5, y_5, z_5)$, we use the stars and bars trick again. We have the same configuration as above, except, only two $1$'s: $$\mathlarger{1}\:\color{blue}x\color{black}\: \mathlarger{1}\:\: \color{blue}x\color{black}\:$$In the example above, $(x_5, y_5, z_5)=(1, 1, 0)$. There are $\binom{4}{2}=\color{orange}6\color{black}$ rearrangements.
+
+Therefore, in conclusion, there are $\color{orange} 21 \color{black}$ triplets for $(x_2, y_2, z_2)$, $\color{orange} 3 \color{black}$ triplets for $(x_3, y_3, z_3)$, and $\color{orange} 6 \color{black}$ triplets for $(x_5, y_5, z_5)$. Hence, the number of ordered triplets is $21\cdot 3\cdot 6=\boxed{378}$.
+
+\clearpage
+
+\subsection{Least Common Multiples}
 \mybox{0.8\textwidth}{\begin{prob}[AIME 1998]  For how many values of $k$ is $12^{12}$ the least common multiple of $6^6$, $8^8$, and $k$?  \end{prob} \begin{prob} Let $[r,s]$ denote the least common multiple of positive integers $r$ and $s$.  Find the number of ordered triples $a,b,c$ such that $[a,b]=1000, [b,c]=2000, [c,a]=2000$. \end{prob}}
 
 \subsection{AIME 1998}
@@ -1100,6 +1167,9 @@ Now, we consider the powers of $5$. We note that $v_5([a,b])=3, v_5([a,c])=3, v_
 In conclusion, there is a total of $7\cdot 10=\boxed{70}$ ordered triples $a,b,c$ which work.  
 \clearpage
 
+\section{Modular Arithmetic}
+\clearpage
+
 \section{Fermat's Little Theorem}
 \clearpage
 
@@ -1114,7 +1184,6 @@ In conclusion, there is a total of $7\cdot 10=\boxed{70}$ ordered triples $a,b,c
 %also include Fermat's Little Theorem section
 %and proof of Euler's Totient  
 
-%find number of ways for xyz=144.  
 
 
 \clearpage
