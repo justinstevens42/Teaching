@@ -1319,7 +1319,7 @@ The above discussion is very important to two theorems in number theory: Fermat'
 
 \subsection{Exploring Numbers}
 
-\mybox{0.85\textwidth}{\begin{prob} Begin with the set $\{1,2,3,4,5,6\}$. Multiply each number in the set by $3$ and reduce mod $7$. What is the new set that we get? What can we say about the products of the two sets? \\ \\ Try to do the same thing when we multiply the set $\{1,2, 3, 4, 5, 6, 7, 8, 9, 10\}$ by $5$ and reduce mod $11$. Can we generalize? \end{prob}}
+\mybox{0.85\textwidth}{\begin{prob} Begin with the set $\{1,2,3,4,5,6\}$. Multiply each number in the set by $3$ and reduce mod $7$. What is the new set that we get? What can we say about the products of each of the two sets? \\ \\ Try to do the same thing when we multiply the set $\{1,2, 3, 4, 5, 6, 7, 8, 9, 10\}$ by $5$ and reduce mod $11$. Can we generalize? Discuss at your tables! \end{prob}}
 \clearpage
 
 	\begin{table}[H]
@@ -1378,7 +1378,7 @@ The two sets are equivalent again! Therefore $$5\times \{1,2,3,4,5,6,7,8,9,10\}\
 	
 For the first part of the proof, note that each element of the left set is the product of $a$ and a member of the original set. Since no member of the original set is divisible by $p$ and $\gcd(a,p)=1$, no member of the new set is divisible by $p$.
 
-For the second part of the proof, assume for the sake of contradiction that we have \textcolor{blue}{two distinct elements} of the original set $x$ and $y$ that when mapped to the left set are the same mod $p$. Then $$ax\equiv ay\pmod{p}\implies p\mid a(x-y).$$ Using Euclid's Lemma, we have $p\mid a$ or $p\mid x-y$. The first is impossible since $\gcd(a,p)=1$, therefore, $p\mid x-y$, and $x$ and $y$ are not distinct.
+For the second part of the proof, assume for the sake of contradiction that we have \textcolor{blue}{two distinct elements} of the original set $x$ and $y$ that when mapped to the left set are the same mod $p$. Then $$ax\equiv ay\pmod{p}\implies p\mid a(x-y).$$ Using Euclid's Lemma, we have $p\mid a$ or $p\mid x-y$. The first is impossible since $\gcd(a,p)=1$, therefore, $p\mid x-y$, contradiction since $x$ and $y$ are not distinct.
 
 Therefore, since no member of the reduced left set is divisible by $p$ and its elements are distinct, it must be equal to the set on the right when reduced mod $p$. 
 \clearpage
@@ -1393,7 +1393,7 @@ Multiplying the condition by $a$ removes the restriction and generalizes the sta
 \mybox{0.82\textwidth}{\begin{prob}[AoPS Wiki] Find $ 2^{20} + 3^{30} + 4^{40} + 5^{50} + 6^{60}$ mod $7$. \end{prob} \begin{prob}[Brilliant.org] Find all prime numbers $p$ such that $29^p+1$ is a multiple of $p$.  \end{prob} \begin{prob}[1989 AIME] One of Euler's conjectures was disproved in the 1960s by three American mathematicians when they showed there was a positive integer such that $133^5+110^5+84^5+27^5=n^{5}$. Find the value of $n$. \end{prob}}
 \clearpage
 \subsection*{AoPS Wiki}
-Note that by Fermat's little theorem, $2^6\equiv 3^6\equiv 4^6\equiv 5^6\equiv 6^6\pmod{7}$. Therefore, \begin{eqnarray*} 2^{20}\equiv \left(2^6\right)^3\cdot 2^2&\equiv& 4\pmod{7} \\ 3^{30}\equiv \left(3^6\right)^5&\equiv& 1\pmod{7} \\ 4^{40}\equiv \left(4^6\right)^{6}\cdot 4^4\equiv 4^4\equiv 256&\equiv& 4\pmod{7} \\ 5^{50}\equiv \left(5^6\right)^{8}\cdot 5^2\equiv 25&\equiv& 4\pmod{7} \\ 6^{60} \equiv \left(6^6\right)^{10}&\equiv& 1\pmod{7}. \end{eqnarray*} 
+Note that by Fermat's little theorem, $2^6\equiv 3^6\equiv 4^6\equiv 5^6\equiv 6^6\equiv 1\pmod{7}$. Therefore, \begin{eqnarray*} 2^{20}\equiv \left(2^6\right)^3\cdot 2^2&\equiv& 4\pmod{7} \\ 3^{30}\equiv \left(3^6\right)^5&\equiv& 1\pmod{7} \\ 4^{40}\equiv \left(4^6\right)^{6}\cdot 4^4\equiv 4^4\equiv 256&\equiv& 4\pmod{7} \\ 5^{50}\equiv \left(5^6\right)^{8}\cdot 5^2\equiv 25&\equiv& 4\pmod{7} \\ 6^{60} \equiv \left(6^6\right)^{10}&\equiv& 1\pmod{7}. \end{eqnarray*} 
 \clearpage
 Summing these gives $4+1+4+4+1=14\equiv \boxed{0}\pmod{7}$. 
 \subsection*{Brilliant.org} To begin with, if $p=29$, then we have $29\nmid 29^p+1$. Therefore, we have $p\neq 29$, and we can use Fermat's little theorem. By FLT, $29^p\equiv 29\pmod{p}$. Therefore, $$29^p+1\equiv 29+1\equiv 30\equiv 0\pmod{p}.$$ It follows that $p\mid 30$ and hence $p=\boxed{2,3,5}$.
