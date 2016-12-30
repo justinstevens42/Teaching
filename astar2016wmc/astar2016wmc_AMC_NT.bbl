@@ -11,7 +11,7 @@ A-Star.
 
 \bibitem{wiki:el}
 Wikipedia.
-\newblock Euclid's \em Elements.
+\newblock Euclid's \textit{Elements}.
 
 \bibitem{me:1}
 Justin Stevens.
@@ -27,5 +27,9 @@ Iurie Boreico.
 Matthew Crawford.
 \newblock {\em Introduction to Number Theory}.
 \newblock Art of Problem Solving, 2nd edition.
+
+\bibitem{ox:1}
+The Oxford Math Center.
+\newblock Euler's Phi Function and the Chinese Remainder Theorem.
 
 \end{thebibliography}

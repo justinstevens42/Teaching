@@ -467,7 +467,7 @@ When $a=102$ and $b=18$, applying the division algorithm gives $$102=18\times 5+
 \clearpage
 
 
-\begin{defi}  We define the \textbf{greatest common divisor} of two integers to be the largest positive integer that divides both of the numbers.  \end{defi}
+\begin{defi}  We define the \textbf{greatest common divisor} of two integers to be the largest positive integer that divides both of the numbers. We define the \textbf{least common multiple} of two integers to be the smallest positive integer that is a multiple of both numbers.  \end{defi}
 
 Note that in the previous example, $\gcd(a,b)=\gcd(102, 18)=6$. Similarly, $\gcd(b, r)=\gcd(18, 12)=6$. 
 
@@ -982,16 +982,15 @@ While the proof may seem very complicated at first, seeing induction proofs is v
 \color{black} The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}\left(p_j^{e_j}\right)=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}.$$ 
 The $\prod$ symbol is similar to the $\sum$ symbol, except we multiply all the terms!
 
-Writing prime factorizations this way makes it easier to compute the greatest common divisor and least common multiple of two terms. It also allows us to do other problems involving least common multiples, sum of divisors, product of divisors, and number of divisors!  
+Writing prime factorizations in this form makes it easier to compute the gcd and lcm of two numbers. It also allows us to do many problems involving divisors!
 
 \section{Applications of the Fundamental Theorem of Arithmetic}
 
 \subsection{GCD and LCM}
-
 For two positive integers $a$ and $b$, we write out their prime factorizations: $$a=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}, b=p_1^{b_1}p_2^{b_2}\cdots p_k^{b_k}.$$ Then, \begin{eqnarray*} \gcd(a,b)&=&p_1^{\min(a_1, b_1)}p_2^{\min(a_2, b_2)}\cdots p_k^{\min(a_k, b_k)} \\ \lcm[a,b]&=&p_1^{\max(a_1, b_1)}p_2^{\max(a_2, b_2)}\cdots p_k^{\max(a_k, b_k)}. \end{eqnarray*}
 \clearpage
 
-For instance, when $a=2^6\cdot 3^5\cdot 7^2$ and $b=2^9\cdot 3^1$, then \begin{eqnarray*} \gcd(a,b)=2^{\min(6,9)}\cdot 3^{\min(5,1)}\cdot 7^{\min(2,0)}=2^6\cdot 3^1\cdot 7^0 \\ \lcm[a,b]=2^{\max(6,9)}\cdot 3^{\max(5,1)}\cdot 7^{\max(2,0)}=2^9\cdot 3^5\cdot 7^2. \end{eqnarray*}
+For instance, when $a=2^6\cdot 3^5\cdot 7^2$ and $b=2^9\cdot 3^1\cdot 7^0$, then \begin{eqnarray*} \gcd(a,b)=2^{\min(6,9)}\cdot 3^{\min(5,1)}\cdot 7^{\min(2,0)}=2^6\cdot 3^1\cdot 7^0 \\ \lcm[a,b]=2^{\max(6,9)}\cdot 3^{\max(5,1)}\cdot 7^{\max(2,0)}=2^9\cdot 3^5\cdot 7^2. \end{eqnarray*}
 
 Note that $\gcd(a,b)\lcm[a,b]=2^{6+9}\cdot 3^{1+5}\cdot 7^2=ab$. This is true in general because $\min(a_j, b_j)+\max(a_j, b_j)=a_j+b_j$. 
 
@@ -1104,7 +1103,7 @@ Therefore, for our original problem with $100$ doors, the doors that are open at
 
 \section{Contest Style Fundamental Theorem Problems}
 
-\mybox{0.8\textwidth}{\begin{prob}[AHSME 1996] If $n$ is a positive integer such that $2n$ has $28$ positive divisors and $3n$ has $30$ positive divisors, then how many positive divisors does $6n$ have? \end{prob} \begin{prob} Find the number of ordered triples $(x,y,z)$ for which $xyz=2400$ over the positive integers.  \end{prob}}
+\mybox{0.9\textwidth}{\begin{prob}[AHSME 1996] If $n$ is a positive integer such that $2n$ has $28$ positive divisors and $3n$ has $30$ positive divisors, then how many positive divisors does $6n$ have? \end{prob} \begin{prob} Find the number of ordered triples $(x,y,z)$ for which $xyz=2400$ over the positive integers.  \end{prob}}
 
 \clearpage
 \subsection{AHSME 1996}
@@ -1118,7 +1117,7 @@ Therefore, for our original problem with $100$ doors, the doors that are open at
 
 \item If $2n=p^6q^3$, then once again, we divide this into the cases $p=2$ and $q=2$. \\  \color{blue} When $p=2$\color{black}, we have $n=2^5q^3$ and $3n=2^53^1q^3$. \\
 \color{ForestGreen} If $q=3$, then $\tau(3n)=\tau(2^5\cdot 3^4)=(5+1)(4+1)=30$. \\
-\color{black} If $p\neq 3$, then $\tau(3n)=\tau(2^53^1q^3)=(5+1)(1+1)(3+1)=48$.
+\color{black} If $q\neq 3$, then $\tau(3n)=\tau(2^53^1q^3)=(5+1)(1+1)(3+1)=48$.
 \end{itemize}
 We could continue on with the casework to verify that $n=2^53^3$ is the only solution, however, it's not particularly illuminating, therefore, I leave it as an exercise.
 
@@ -1170,22 +1169,369 @@ In conclusion, there is a total of $7\cdot 10=\boxed{70}$ ordered triples $a,b,c
 \clearpage
 
 \section{Modular Arithmetic}
+
+Modular Arithmetic is incredibly powerful and is used in cryptography, computer science, chemistry, music, and many other places. In the below picture, if $45$ hours elapse, where would the hour hand be?
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.2\linewidth]{images/clock.jpg}
+	\caption{Source: Study.com}
+\end{figure}
+
+\clearpage
+After $12$ hours, we see the hour hand is in the same place. Therefore, we subtract $12$ from $45$ to get $45-12=33$ hours remaining. We repeat by subtracting off $12$ hours twice more to get $33-12=21$ hours and $21-12=\boxed{9}$ hours. The numbers that the clock hand pass through each cycle of $12$ are said to be \textbf{congurent} mod $12$.
+\begin{defi} We say that two integers $a$ and $b$ are equivalent modulo $n$ if and only if $n$ divides $a-b$. We write this as $a\equiv b\pmod{n}$. In the above example, $45\equiv 33\equiv 21\equiv 9\pmod{12}$. If $a\equiv b\pmod{n}$, then for positive integer $c$, several important properties are $$a+c\equiv b+c\pmod{n}, \: \:\:  \:\: \: ac\equiv bc\pmod{n}, \:\: \:  \:\:\: a-c\equiv b-c\pmod{n}.$$ 
+ \end{defi} 
 \clearpage
 
-\section{Fermat's Little Theorem}
+
+Note that in our discussion of the \color{blue}division algorithm\color{black}, $a=bq+r$ is equivalent to $a\equiv r\pmod{b}$. Furthermore, in our discussion of \color{blue} base numbers\color{black}, if $n=\left(a_ka_{k-1}\cdots a_1a_0\right)_b$, then $n\equiv a_0\pmod{b}$. 
+
+\begin{defi} We define the set of integers $\{0, 1, 2, 3, \cdots, n-1\}$ to be the \textit{least residue system modulo} $n$. Another way of writing this system is as $\mathbb{Z}_{n}$. \end{defi} 
+
+When a problem says to compute the value of $x$ mod $m$, we desire to find a value $y$ in our least residue system such that $x\equiv y\pmod{m}$. 
+
+For instance, if a problem says to compute $12$ mod $5$, the answer would be $2$.
+
 \clearpage
 
-\section{Euler's Totient Function}
+\subsection{Exponentiation}
+For integers $a, b$ with $a\equiv b\pmod{m}$ and positive integer $e$, we have $\color{blue} a^{e}\equiv b^{e}\pmod{m}\color{black}$. For instance, to compute $6^{100}\pmod{5}$, we use the fact that $6\equiv 1\pmod{5}$ to get $6^{100}\equiv 1^{100}\equiv 1\pmod{5}.$ 
+	
+In several exponentiation problems, it is useful to experiment a bit. For instance, if I desired to compute $2^{100}\pmod{7}$, I would begin by computing the first few powers of $2$ mod $7$. Notice that $2^1\equiv 2\pmod{7},\: 2^2\equiv 4\pmod{7},\: 2^3\equiv 8\equiv 1\pmod{7}.$ Therefore, $$2^{100}=\left(2^3\right)^{33}\cdot 2^1\equiv 1^{33}\cdot 2^1\equiv 2\pmod{7}.$$
+
+\clearpage
+\mybox{0.8\textwidth}{\begin{prob} Use the properties of mods to calculate the following: \begin{enumerate}
+			\item $\left(1+2+3+\cdots+102\right)\pmod{13}$.
+			\item $64\cdot 124\pmod{7}$.
+			\item $10^{100}\pmod{11}$.
+			\item The units digit of $8^{5^{24}}$.
+			\item $5^{70}\pmod{31}$.
+\end{enumerate}
+\begin{itemize}[label=$\star$]
+			\item $7^{50}\pmod{43}$. 
+\end{itemize}
+\end{prob}}
+
+\subsection{Solution to Examples}
+\begin{enumerate}
+	\item We begin by using the formula for the sum of the first $n$ positive integers: \begin{eqnarray*} 1+2+3+\cdots+102 &=& \frac{102\cdot 103}{2}=61\cdot 103. \end{eqnarray*}Next, note $51\equiv 12\equiv -1\pmod{13}$ and $103\equiv 12\equiv -1\pmod{13}$. 
+	Therefore, their product is $51\cdot 103\equiv (-1)(-1)\equiv 1\pmod{13}$. 
+	
+	Given the simplicity of our answer, we suspect that a faster method exists.
+\clearpage
+	We group the sum into sets with $13$ integers: $$\{1,2,3,\cdots, 13\}, \{14, 15, 16, \cdots, 26\}, \cdots, \{79,80,81,\cdots,91\}.$$The sum of each of these set are congruent mod $13$ since each set is the result of adding $13$ to the elements of the previous set. Furthermore, because $1+2+3+\cdots+13=\frac{13\cdot 14}{2}=13\cdot 7\equiv 0\pmod{13},$ each set has sum \color{ForestGreen} $0$ mod $13$. \color{black}
+	
+	The final set with $13$ elements should be $\{92, 93, 94, \cdots, 103, 104\}$, however, we are \color{blue} missing the terms $103$ and $104$ in our sum\color{black}. Since the sum of this final set is also $0$ mod $13$, we have $$1+2+3+\cdots+102\equiv 0-103-104\equiv 0-12\-0\equiv 1\pmod{13}.$$ 
+\clearpage
+	\item We note that $64\equiv 1\pmod{7}$ since $63=9\cdot 7$ and $124\equiv 5\pmod{7}$ since $119=7\cdot 17$. Therefore, $64\cdot 124\equiv 1\cdot 5\equiv \boxed{5}\pmod{7}.$
+	\item Note that $10^{100}\equiv \left(-1\right)^{100}\equiv 1\pmod{11}.$
+	\item Finding the units digit of $8^{24}$ is equivalent to calculating $8^{24}$ mod $10$. We try to find a pattern. We create a table, noting that $8^2=64\equiv 4\pmod{10}, 8^3=8^2\cdot 8\equiv 4\cdot 8\equiv 2\pmod{10}, \cdots$. We attempt to see if the powers of $8$ will cycle mod $10$.
+	\clearpage 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{l r}
+			\toprule
+			$n$ & $8^n$ mod $10$ \\
+			\midrule
+			1 & 8\\
+			2 & 4 \\ 
+			3 & 2 \\
+			4 & 6 \\
+			5 & 8 \\
+			6 & 4 \\
+			7 & 2 \\
+			$\vdots$ & $\vdots$  \\
+			\bottomrule
+		\end{tabular}
+		\caption{Powers of $8$ mod $10$.}
+	\end{table}
+	\clearpage
+	We see that the powers of $8$ cycle with \textbf{period} 4. Therefore, we must now compute the exponent mod $4$: $5^{24}\equiv 1^{24}\equiv 1\pmod{4}$. Therefore, in conclusion, $$8^{5^{24}}\equiv 8^{1}\equiv 8\pmod{10}.$$ 
+	\item We use the same method as before by computing the first few powers of $5$ mod $31$. Note that $5^2\equiv 25\pmod{31}$ and $5^3\equiv 125\equiv 1\pmod{31}$ since $125=31\cdot 4+1$. Therefore, $$5^{70}\equiv \left(5^3\right)^{23}\cdot 5^1\equiv 5^1\equiv \boxed{5}\pmod{31}.$$
+\end{enumerate}
+\begin{itemize}[label=$\star$]
+	\item The key insight in this problem is noting that $$7^3+1=344=43\cdot 8\equiv 0\pmod{43}.$$Hence, $7^3\equiv -1\pmod{43}$ and $7^6\equiv \left(7^3\right)^2\equiv (-1)^2\equiv 1\pmod{43}.$ We now use this for $7^{50}$: $$7^{50}\equiv \left(7^6\right)^8\cdot 7^2\equiv 49\equiv \boxed{6}\pmod{43}.$$
+\end{itemize}
+
+We have seen addition, multiplication, and subtraction with mods. However, what about division? If we wish to divide by $a$ in $\mathbb{Z}_{m}$ we must find the \textbf{inverse} of $a$ mod $m$. This is the value $x$ that solves the \textbf{linear congruence} $ax\equiv 1\pmod{m}$. In order to see when this condition can be satisfied, we look at multiplication tables. 
+\clearpage 
+\subsection{Multiplication Tables}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{l | l l l l l l l}
+		\toprule
+		$\times$ & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+		\midrule
+		0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		1 & 0 & 1 & 2 & 3 & 4 & 5 & 6\\ 
+		2 & 0 & 2 & 4 & 6 & 1 & 3 & 5\\
+		3 & 0 & 3 & 6 & 2 & 5 & 1 & 4\\
+		4 & 0 & 4 & 1 & 5 & 2 & 6 & 3\\
+		5 & 0 & 5 & 3 & 1 & 6 & 4 & 2 \\
+		6 & 0 & 6 & 5 & 4 & 3 & 2 & 1 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Multiplication Table Mod $7$.}
+\end{table}
+
+\mybox{0.9\textwidth}{\begin{prob} From the table above, solve the linear congruences $3x\equiv 1\pmod{7}$ and $2y\equiv 1\pmod{7}$. Does division work in mod $7$?\end{prob}}
+\begin{proof}[Solution] We see from the table that $3\cdot 5=15\equiv 1\pmod{7}$, hence $x\equiv 5\pmod{7}$. Furthermore, $2\cdot 4=8\equiv 1\pmod{7}$, hence $y\equiv 4\pmod{7}$. Every non-zero number in the table above has an inverse, therefore, we have division by non-zero elements in $\mathbb{Z}_7$. \end{proof}
+
+For every prime $p$, it can be proven that we can have division by non-zero elements in $\mathbb{Z}_p$. What about a case when $p$ is not prime?
+
+\clearpage
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{l | l l l l l l}
+		\toprule
+		$\times$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+		\midrule
+		0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		1 & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+		2 & 0 & 2 & 4 & 0 & 2 & 4 \\
+		3 & 0 & 3 & 0 & 3 & 0 & 3 \\
+		4 & 0 & 4 & 2 & 0 & 4 & 2 \\
+		5 & 0 & 5 & 4 & 3 & 2 & 1 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Multiplication Table Mod $6$.}
+
+\end{table}
+Are there any values $x$ such that $2x\equiv 1\pmod{6}$? 
+\clearpage
+No! We see from the table above that we can only have $2x\equiv 0, 2, 4\pmod{6}$. The reason that $2^{-1}$ mod $6$ does not exist is because $\gcd(2,6)=2\neq 1$. Therefore, division does not exist in $\mathbb{Z}_6$.
+
+For \color{blue}algebraic structures\color{black}, a topic of abstract algebra, we say that $\mathbb{Z}_{m}$ for composite $m$ is a \textbf{\color{red}ring\color{black}} because the elements are not invertible, and that $\mathbb{Z}_{p}$ for prime $p$ is a \textbf{\color{red}field\color{black}}.  
+
+The above discussion is very important to two theorems in number theory: Fermat's little theorem and Euler's totient theorem. We begin by further exploring $\mathbb{Z}_{p}$.
 \clearpage
 
-\section{Euler's Totient Formula}  
 
-%\section{A Famous Puzzle}
-%Do the light switch one involving number of divisors
+\section{Fermat's Little Theorem} Pierre de Fermat (1607-1665) was a French mathematician who helped develop differential calculus, number theory, analytical geometry, and probability. In the year 1640, he stated a very important `little' theorem.
 
-%also include Fermat's Little Theorem section
-%and proof of Euler's Totient  
+\begin{figure}[h]
+	\centering\includegraphics[width=0.23\linewidth]{images/fermat.jpg}
+\end{figure}
 
+
+\clearpage
+
+\subsection{Exploring Numbers}
+
+\mybox{0.85\textwidth}{\begin{prob} Begin with the set $\{1,2,3,4,5,6\}$. Multiply each number in the set by $3$ and reduce mod $7$. What is the new set that we get? What can we say about the products of the two sets? \\ \\ Try to do the same thing when we multiply the set $\{1,2, 3, 4, 5, 6, 7, 8, 9, 10\}$ by $5$ and reduce mod $11$. Can we generalize? \end{prob}}
+\clearpage
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|l | c|}
+		\toprule
+		$x$ & $3x\mod{7}$\\
+		\midrule
+		1 & 3 \\
+		2 & 6 \\
+		3 & 2 \\
+		4 & 5 \\
+		5 & 1 \\
+		6 & 4 \\
+		\bottomrule
+	\end{tabular}
+	\end{table}
+We note that the two sets are the same mod $7$. Hence $$3\times \{1,2,3,4,5,6\}\equiv \{1,2,3,4,5,6\}\pmod{7}.$$
+\clearpage
+Since the sets are the same, their product must be the same also: \begin{eqnarray*} \left(3\times 1\right)\left(3\times 2\right)\left(3\times 3\right)\left(3\times 4\right)\left(3\times 5\right)\left(3\times 6\right)&\equiv& 6!\pmod{7} \\ 3^6\cdot 6!&\equiv& 6!\pmod{7} \\ \color{blue}3^6&\color{blue}\equiv&\color{blue} 1\pmod{7}. \end{eqnarray*}
+
+The last step follows from the fact that $\gcd(6!, 7)=1$. 
+
+Is this a coincidence that multiplying a set by an integer and reducing mod $p$ gives back the same set? Let's try for $p=11$.
+
+\clearpage
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|l | c|}
+		\toprule
+		$x$ & $5x\mod{11}$\\
+		\midrule
+		1 & 5 \\
+		2 & 10 \\
+		3 & 4 \\
+		4 & 9 \\
+		5 & 3 \\
+		6 & 8 \\
+		7 & 2  \\
+		8 & 7  \\
+		9 & 1  \\
+		10 & 6 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\clearpage
+
+The two sets are equivalent again! Therefore $$5\times \{1,2,3,4,5,6,7,8,9,10\}\equiv \{1,2,3,4,5,6,7,8,9,10\}\pmod{11}.$$ Hence, computing the products of the two sets, we see that $$5^{10}\cdot 10!\equiv 10!\pmod{11}\implies 5^{10}\equiv 1\pmod{11}.$$ 
+
+\mybox{0.8\textwidth}{\begin{theorem}[Fermat] For every prime $p$ and integer $a$ relatively prime to $p$, we have $a^{p-1}\equiv 1\pmod{p}$. \end{theorem}}
+
+\subsection{Proof of Fermat's Little Theorem}
+\begin{proof} I claim that for $\gcd(a,p)=1$, we have $$a\times \{1, 2, 3, \cdots, p-1\}\equiv \{1, 2, 3, \cdots, p-1\}\pmod{p}.$$ Note that both of these sets have size $p-1$. Therefore, in order to prove they are identical, I must show that no element in the reduced left set is divisible by $p$ and that no two elements in that set are equivalent. 
+	
+For the first part of the proof, note that each element of the left set is the product of $a$ and a member of the original set. Since no member of the original set is divisible by $p$ and $\gcd(a,p)=1$, no member of the new set is divisible by $p$.
+
+For the second part of the proof, assume for the sake of contradiction that we have \textcolor{blue}{two distinct elements} of the original set $x$ and $y$ that when mapped to the left set are the same mod $p$. Then $$ax\equiv ay\pmod{p}\implies p\mid a(x-y).$$ Using Euclid's Lemma, we have $p\mid a$ or $p\mid x-y$. The first is impossible since $\gcd(a,p)=1$, therefore, $p\mid x-y$, and $x$ and $y$ are not distinct.
+
+Therefore, since no member of the reduced left set is divisible by $p$ and its elements are distinct, it must be equal to the set on the right when reduced mod $p$. 
+\clearpage
+
+Since the two sets are the same, their product must also be equivalent: $$a^{p-1}\cdot (p-1)!\equiv (p-1)!\pmod{p}\implies a^{p-1}\equiv 1\pmod{p}.$$ The last step follows since $\gcd\left((p-1)!, p\right)=1$.
+
+Multiplying the condition by $a$ removes the restriction and generalizes the statement for all $a$: \begin{theorem}[Fermat] For every prime $p$ and integer $a$, we have $a^{p}\equiv a\pmod{p}$. \end{theorem} For other proofs involving induction, combinatorics, and geometry, see the \href{http://artofproblemsolving.com/wiki/index.php/Fermat\%27s_Little_Theorem}{AoPS Wiki Page.}
+
+\end{proof}
+
+\subsection{Contest Style Little Theorem Problems}
+\mybox{0.82\textwidth}{\begin{prob}[AoPS Wiki] Find $ 2^{20} + 3^{30} + 4^{40} + 5^{50} + 6^{60}$ mod $7$. \end{prob} \begin{prob}[Brilliant.org] Find all prime numbers $p$ such that $29^p+1$ is a multiple of $p$.  \end{prob} \begin{prob}[1989 AIME] One of Euler's conjectures was disproved in the 1960s by three American mathematicians when they showed there was a positive integer such that $133^5+110^5+84^5+27^5=n^{5}$. Find the value of $n$. \end{prob}}
+\clearpage
+\subsection*{AoPS Wiki}
+Note that by Fermat's little theorem, $2^6\equiv 3^6\equiv 4^6\equiv 5^6\equiv 6^6\pmod{7}$. Therefore, \begin{eqnarray*} 2^{20}\equiv \left(2^6\right)^3\cdot 2^2&\equiv& 4\pmod{7} \\ 3^{30}\equiv \left(3^6\right)^5&\equiv& 1\pmod{7} \\ 4^{40}\equiv \left(4^6\right)^{6}\cdot 4^4\equiv 4^4\equiv 256&\equiv& 4\pmod{7} \\ 5^{50}\equiv \left(5^6\right)^{8}\cdot 5^2\equiv 25&\equiv& 4\pmod{7} \\ 6^{60} \equiv \left(6^6\right)^{10}&\equiv& 1\pmod{7}. \end{eqnarray*} 
+\clearpage
+Summing these gives $4+1+4+4+1=14\equiv \boxed{0}\pmod{7}$. 
+\subsection*{Brilliant.org} To begin with, if $p=29$, then we have $29\nmid 29^p+1$. Therefore, we have $p\neq 29$, and we can use Fermat's little theorem. By FLT, $29^p\equiv 29\pmod{p}$. Therefore, $$29^p+1\equiv 29+1\equiv 30\equiv 0\pmod{p}.$$ It follows that $p\mid 30$ and hence $p=\boxed{2,3,5}$.
+\clearpage
+	
+\subsection{AIME 1989}
+
+The equation we are given is $133^5+110^5+84^5+27^5=n^{5}$. Note that two terms are even and two are odd, therefore their sum is even and $\color{blue} n\equiv 0\pmod{2}$. Since the exponents are all $5$, we think to take mod $5$. By Fermat's little theorem, $$n^5\equiv n\equiv 133^5+110^5+84^5+27^5\equiv 3+0+4+2\equiv \color{blue} 4\pmod{5}.$$
+Furthermore, we also take the equation mod $3$: $$n^5\equiv 133^{5}+110^{5}+84^{5}+27^{5}\equiv 1^5+2^5+0+0\equiv 0\pmod{3}.$$ Therefore, $n\equiv \color{blue} 0\pmod{3}$. 
+\clearpage
+The \textbf{\textcolor{red}{Chinese Remainder Theorem}} says that a system of linear congruences such as \begin{eqnarray*} n&\equiv& 0\pmod{2} \\ n &\equiv& 0\pmod{3} \\ n&\equiv& 4\pmod{5} \end{eqnarray*} has a unique solution mod $2\cdot 3\cdot 5=30$. We find this unique solution by listing out possible integers that are $4$ mod $5$: $4, 9, 14, 19, 24, 29$. Therefore, $n\equiv 24\pmod{30}$. 
+We list integers that are $24$ mod $30$ near $133$: $\color{blue} 114, 144, 174, \cdots.$  We note that $n=114$ is too small and $n=174$ is too big, hence, $n=\boxed{144}$. 
+\section{Euler's Totient Theorem}
+Fermat occasionally omitted proofs of theorems he stated. When he proposed Fermat's Last Theorem, which claimed that there are no solutions to the diophantine equation $x^n+y^n=z^n$ for $n>2$, he famously wrote \begin{displayquote} ``It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers.I have discovered a truly marvelous proof of this, which this margin is too narrow to contain.'' - Fermat in \textit{Arithmetica} (1637) \end{displayquote}
+
+\subsection*{Euler Generalizing Fermat's Little Theorem}
+Fermat's Last Theorem was not finally proved until Andrew Wiles did so in 1993 (and later revised his proof in 1994). His proof was $109$ pages long and very few people in the world understand it; \href{https://math.stanford.edu/~lekheng/flt/wiles.pdf}{here is a link!}
+
+Fermat also failed to prove his little theorem, therefore, a Swiss mathematician by the name of Leonhard Euler published a proof in 1736. Euler continued to present other proofs of the theorem, and eventually generalized the problem in 1763 in his paper titled ``Euler's theorem".
+
+\subsection{Euler's Totient Function Definition}
+\begin{defi} Define $\phi(m)$ to be the number of positive integers less than $m$ that are relatively prime to $m$. For instance, $\phi(6)=2$ since $1$ and $5$ are relatively prime to $6$. \end{defi}
+
+\mybox{0.8\textwidth}{\begin{prob} Compute $\phi(24)$, $\phi(250)$, and $\phi(p^k)$ for prime $p$. Do you notice anything interesting about $\phi(n)$ compared to $n$? How about $\phi(24)$ compared to $\phi(8)$ and $\phi(3)$? \end{prob}}
+
+\clearpage
+
+\begin{proof}[Solution] We begin by prime factorizing $24=2^3\cdot 3^1$. Let $S$ be the set of all positive integers from $1$ to $24$, inclusive. We want to count the number of integers relatively prime to $24$ in $S$. We use complimentary counting by finding the number of integers that \textcolor{blue}{share a divisor} with $24$.
+	
+We use the \textbf{\textcolor{red}{Principle of Inclusion-Exclusion}} in order to count this: $$\left|\text{Mults of 2}\right|+\left|\text{Mults of 3}\right|-\left|\text{Mults of 6}\right|=\frac{24}{2}+\frac{24}{3}-\frac{24}{6}=16.$$
+
+However, we remember that we were using complimentary counting, hence $\phi(24)=24-16=8$. The numbers relatively prime to $24$ are $1, 5, 7, 11, 13, 17, 19, 23$. Note that they come in pairs!
+\clearpage
+We use the same method to compute $\phi(250)$. Since $250=2^1\cdot 5^3$, we again count the number of integers that share a divisor with $250$. Using PIE, we get: $$\left|\text{Mults of 2}\right|+\left|\text{Mults of 5}\right|-\left|\text{Mults of 10}\right|=\frac{250}{2}+\frac{250}{5}-\frac{250}{10}=150.$$
+We subtract this from $150$ to get $\phi(250)=250-150=100$. 
+
+When $n=p^k$, we again use complimentary counting to find $\phi(p^k)$. We count the number of integers that share a common divisor with $p^k$, which is $\displaystyle \frac{p^k}{p}=p^{k-1}.$ Hence, $$\phi(p^k)=p^k-p^{k-1}=p^k\left(1-\frac{1}{p}\right).$$ 
+Therefore, $\phi(8)=8\left(1-\frac12\right)=4$ and $\phi(3)=3\left(1-\frac13\right)=2$. Note that $$\phi(24)=8=\phi(8)\phi(3)=4\cdot 2.$$Furthermore, $\phi(125)=125\left(1-\frac15\right)=100$ and $\phi(2)=1$. Hence, $$\phi(250)=100=\phi(125)\phi(2)=100.$$ 
+
+\begin{defi} We call a function $f$ to be \textbf{multiplicative} if $f(1)=1$ and if for relatively prime $a,b$, we have $f(ab)=f(a)f(b)$. \end{defi}
+
+The equations above suggest that $\phi$ is a multiplicative function! The functions $\tau$ and $\sigma$ for divisors are both also multiplicative.
+\clearpage
+
+\subsection{Proof the Totient Function is Multiplicative}
+We define two sets, $S_{24}$ and $S_{(3,8)}$ (construction from \cite{ox:1}). We rigorously define the sets  as: \begin{eqnarray*}S_{24}&=&\{\:a\;\;\;\;\;\, : \: 1\le a\le 24 \text{ and } \gcd(a, 24)=1\} \\ S_{(3,8)}&=&\{(b,c)\: : \: 0\le b\le 2 \text { and } \gcd(b, 3)=1 \\ && \text{\color{white}nice latex\color{black}} 0\le c\le 7 \text { and } \gcd(c,8)=1 \}. \end{eqnarray*}
+By definition, $|S_{24}|=\phi(24)$ and $|S_{(3,8)}|=\phi(3)\phi(8)$. We prove there is a bijection from $S_{24}$ to $S_{(3,8)}$, completing our constructive proof.
+
+For an element $(b,c) \in S_{(3,8)}$, we can get from $x$ to $S_{24}$. By our conditions on $b$ and $c$, $b$ is for mod $3$ and $c$ is for mod $8$. Therefore, we have the linear congruences \begin{eqnarray*} x &\equiv& b\pmod{3} \\ x &\equiv& c\pmod{8}. \end{eqnarray*}
+By the \textbf{\textcolor{red}{Chinese Remainder Theorem}}, we are guranteed to have a unique solution mod $24$. Since both $\gcd(b, 3)=1$ and $\gcd(c, 8)=1$, we further have $\gcd(a, 24)=1$, therefore, we have a member of $S_{24}$. 
+
+For instance, if $(b,c)=(1, 5)$, then $x\equiv 13\pmod{24}$ since $13\equiv 1\pmod{3}$ and $13\equiv 5\pmod{8}$ suffices. 
+
+
+\vspace{5pt}
+We now prove that if $x\in S_{24}$, we can get to $S_{(3,8)}$. We use the \textcolor{blue}{division algorithm} to divide $x$ by $3$ and $8$, respectively, to give remainders $(b, c)$. 
+
+By the condition for the division algorithm, we have $0\le b\le 2$ and $0\le c\le 7$. Furthermore, since $\gcd(a, 24)=1$, we also have $\gcd(b, 3)=1$ and $\gcd(c, 8)=1$. Therefore, $(b,c)\in S_{(3,8)}$ and we have established our bijection.
+
+\mybox{0.9\textwidth}{\begin{prob} Find $x$ for $(b,c)=(2, 3)$ and $(b,c)=(1,7)$. Furthermore, find the pair $(b,c)$ for $x=5$ and $x=17$. \end{prob}}
+\clearpage
+
+\begin{proof}[Solution] $x=11$ for $(b,c)=(2,3)$ and $x=7$ for $(b,c)=(1,7)$. \\
+						$(b,c)=(2, 5)$ for $x=5$ and $(b,c)=(2, 1)$ for $x=17$. \end{proof}
+Note that since we have established our bijection, the size of the two sets must be equivalent, and we have $|S_{24}|=|S_{(3,8)}|=\phi(24)=\phi(3)\phi(8).$  We can extend this constructive proof for any relatively prime pair $(m,n)$ by replacing the $3$ with a $m$ and an $8$ with an $n$. \mybox{0.9\textwidth}{\begin{theorem} For relatively prime positive integers $m,n$, we have $\phi(mn)=\phi(m)\phi(n)$. \end{theorem}}
+\end{proof}
+
+\subsection{Proof Without Words}
+Here is a proof without words I created! The columns are mod $8$ and the rows are mod $3$. Try to fill in the rest of the details yourself (hint: Chinese Remainder Theorem).
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l | c c c c c c c c|}
+		\toprule
+		& 0 & \textbf{\textcolor{ForestGreen}{1}} & 2 & \textbf{\textcolor{ForestGreen}{3}} & 4 & \textbf{\textcolor{ForestGreen}{5}} & 6 & \textbf{\textcolor{ForestGreen}{7}} \\
+		\midrule
+		0 & 24 & 9 & 18 & 3 & 12 & 21 & 6 & 15 \\
+		\textbf{\textcolor{ForestGreen}{1}} & 16 & \textbf{\textcolor{ForestGreen}{1}} & 10 & \textbf{\textcolor{ForestGreen}{19}} & 4 & \textbf{\textcolor{ForestGreen}{13}} & 22 & \textbf{\textcolor{ForestGreen}{7}} \\
+		\textbf{\textcolor{ForestGreen}{2}} & 8 & \textbf{\textcolor{ForestGreen}{17}} & 2 & \textbf{\textcolor{ForestGreen}{11}} & 20 & \textbf{\textcolor{ForestGreen}{5}} & 14 & \textbf{\textcolor{ForestGreen}{23}} \\
+
+		\bottomrule
+	\end{tabular}
+	\caption{Source: Self}
+\end{table}
+\subsection{Formula for Phi}
+If we write $n$ in its \textcolor{blue}{canonical prime factorization}, we have $n=\displaystyle p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Using the multiplicative property above, we see that $$\phi(n)=\prod_{j=1}^{k}\phi\left(p_j^{e_j}\right).$$
+Using the formula established above, $p_j^{e_j}=p_j^{e_j}-p_j^{e_j-1}=p_j^{e_j}\left(1-\frac{1}{p_j}\right)$. We substitute this in to arrive at the formula below:
+\mybox{1.0\textwidth}{\begin{theorem} $$\phi(n)=\prod_{j=1}^{k}\left(p_j^{e_j}-p_j^{e_j-1}\right)=\prod_{j=1}^{k}\left[p_j^{e_j}\left(1-\frac{1}{p_j}\right)\right]=n\prod_{j=1}^{k}\left(1-\frac{1}{p_j}\right).$$ \end{theorem}}
+\vspace{5pt}
+As a quick check, note that $\phi(24)=24\left(1-\frac12\right)\left(1-\frac13\right)=8$ and $\phi(250)=250\left(1-\frac12\right)\left(1-\frac15\right)=100$. 
+
+Now that we are able to compute values of the totient function, we generalize Fermat's little theorem to Euler's totient theorem.
+\clearpage
+
+\subsection{Proof of Euler's Totient Theorem}
+\mybox{0.8\textwidth}{\begin{theorem} For relatively prime positive integers $a$ and $m$, we have $a^{\phi(m)}\equiv 1\pmod{m}$. \end{theorem}}
+\begin{proof} We use a similar method to the proof of Fermat's little theorem. Let the set of all positive integers relatively prime to $m$ that are less than or equal to $m$ be $R=\{a_1, a_2, a_3, \cdots a_{\phi(m)}\}$. Let $S=\{aa_1, aa_2, aa_3, \cdots aa_{\phi(m)}\}$. We will prove that $S$ and $R$ are the same reduced mod $m$. \clearpage
+	
+Notice that every element of $S$ is relatively prime to $m$ since $\gcd(a, m)=1$. Also $|R|=|S|$. Finally, we prove that the elements in $S$ are distinct mod $m$. Assume to the contrary, then $$aa_x\equiv aa_y\pmod{m}\implies a(a_x-a_y)\equiv 0\pmod{m}.$$ Using Euclid's Lemma, since $\gcd(a, m)=1$, we have $m\mid a_x-a_y$. This is a contradiction, hence, the elements in $S$ are distinct. 
+
+Since $R$ and $S$ are equivalent mod $M$, their products must be equivalent as well: $$a^{\phi(m)}\prod_{j=1}^{\phi(m)}a_j\equiv \prod_{j=1}^{\phi(m)}a_j \pmod{m}.$$ 
+Cancelling out the product since $\gcd(a_x, m)=1$, we arrive at the desired $$a^{\phi(m)}\equiv 1\pmod{m}.$$
+\end{proof}
+
+Euler's totient theorem is an incredibly powerful tool in elementary number theory. It can be used in conjunction with the Chinese remainder theorem to work with huge exponents and solve very complex problems. Euler's totient is also necessary to \textbf{\textcolor{red}{RSA encryption}}, where we encrypt data using large powers. Here's a link to some \href{https://simple.wikipedia.org/wiki/RSA_(algorithm)}{more information} about RSA encryption.
+\clearpage  
+
+\section{To Infinity and Beyond!}
+
+Congratulations on completing this very challenging pilot number theory class! We covered a lot of material quickly, but I hope that you all learned some new things. Don't worry if you didn't understand every topic; you can look back through the slides at a later point. 
+
+After completing this class, where do you go next in your number theory studies? To begin with, I highly recommend the book \href{https://www.amazon.com/Elementary-Number-Theory-Paperback-Burton/dp/1259025764/ref=mt_paperback?_encoding=UTF8&me=}{``Elementary Number Theory" by David Burton}. Burton's proofs are very illuminating, and he builds up a lot of the history behind number theory.
+\clearpage
+
+\subsection{Olympiad Number Theory Through Challenging Problems}
+For the past $3.5$ years, I have been working on writing my own Number Theory textbook. It is currently $129$ pages and has $5$ chapters on Divisibility, Modular Arithmetic, p-adic Valuation, Diophantine equations, and Problem Solving Strategies.
+
+The \textcolor{blue}{Third Edition} is featured on the AoPS website under the ``Articles" tab. \href{http://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf}{Here} is a link to the PDF version.
+\subsection*{$\star$ Euler's Totient Theorem in my Book}
+\mybox{0.8\textwidth}{\begin{prob}[AIME 1983] Let $a_n=6^n+8^n$.  Determine the remainder on dividing $a_{83}$ by $49$.  \end{prob} \begin{prob}[PuMaC 2008] Calculuate the last $3$ digits of $\displaystyle 2008^{2007^{2006^{\cdots^{2^1}}}}$. \end{prob} \begin{prob}[Canada Math Olympiad 2003]  Find the last $3$ digits of $2003^{2002^{2001}}$.  \end{prob}}
+
+\subsection*{$\star$ Fermat's Little Theorem Problems in my Book}
+\mybox{0.8\textwidth}{\begin{prob}[Balkan MO 1999] Let $p>2$ be a prime number such that $3|(p-2)$.  Let $$S=\{y^2-x^3-1 | 0\le x,y\le p-1 \cap x,y\in \mathbb{Z}\}$$ Prove that there are at most $p$ elements of $S$ divisible by $p$.\end{prob} \begin{prob}[IMO Shortlist N6 2005]  Let $a,b$ be positive integers such that $b^n+n$ is a multiple of $a^n+n$ for all positive integers $n$.  Prove that $a=b$. \end{prob}}
+
+\clearpage
+
+\subsection{Collection of Resources}
+\begin{itemize}
+	\item \href{http://artofproblemsolving.com/school/course/catalog/intermediate-numbertheory}{AoPS Intermediate Number Theory Course}
+	\item \href{http://www.artofproblemsolving.com/community/c3210_pen_problems}{PEN Number Theory Problems}
+	\item \href{https://projecteuler.net/}{Project Euler}
+	\item \href{https://www.amazon.com/Number-Theory-Structures-Examples-Problems/dp/081763245X}{``Number Theory: Structures, Examples, and Problems" by Titu Andreescu and Dorin Andrica (Amazon)}
+	\item \href{http://artofproblemsolving.com/articles/files/SatoNT.pdf}{Naoki Sato notes on Number Theory (PDF)}
+\end{itemize}
+
+\subsection{Thanks for Letting Me Be Your Teacher!}
+\begin{figure}[h]
+	\centering\includegraphics[width=0.55\linewidth]{images/thanks.jpg}
+\end{figure}
 
 
 \clearpage
