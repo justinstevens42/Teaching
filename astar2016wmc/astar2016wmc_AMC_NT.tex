@@ -3,11 +3,11 @@
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
 
-\newcommand*{\mytitle}{A-Star 2016 Winter Math Camp } % Title
+\newcommand*{\mytitle}{AStar 2016 Winter Math Camp } % Title
 \newcommand*{\runninghead}{AMC Number Theory} % Running head displayed on almost all slides
 \newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
 \newcommand*{\mydate}{\formatdate{26}{12}{2016}} % Presentation date
-\newcommand*{\myuni}{A-Star 2016 Winter Math Camp} % University or department
+\newcommand*{\myuni}{AStar 2016 Winter Math Camp} % University or department
 
 %----------------------------------------------------------------------------------------
 
@@ -912,6 +912,8 @@ This theorem is the reason $1$ is not a prime number; otherwise, the product wou
 In other words, if prime $p\mid ab$ for integers $a,b$, then $p\mid a$ or $p\mid b$. The proof of Euclid's Lemma requires Bezout's Theorem, which will come later in this course! 
 
 \clearpage
+
+%%%%%Domino effect video 
 \subsection{$\star$ Induction}
 Another key factor in the proof of the Fundamental Theorem of Arithmetic is the method of \textbf{mathematical induction}.
 	
@@ -977,7 +979,7 @@ While the proof may seem very complicated at first, seeing induction proofs is v
 
 \subsection{Canonical Prime Factorization}
 
-\color{black} The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}\left(p_j^{e_j}\right)=p_1^{e_1}p_2^{e_2}\cdots p_j^{e_j}.$$ 
+\color{black} The preferred method for writing the prime factorization of a positive integer $n$ is $$n=\prod_{j=1}^{k}\left(p_j^{e_j}\right)=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}.$$ 
 The $\prod$ symbol is similar to the $\sum$ symbol, except we multiply all the terms!
 
 Writing prime factorizations this way makes it easier to compute the greatest common divisor and least common multiple of two terms. It also allows us to do other problems involving least common multiples, sum of divisors, product of divisors, and number of divisors!  
@@ -1055,7 +1057,7 @@ Remember that $\prod$ is the symbol for multiplying terms and $\sum$ is the symb
 
 \subsection*{Let's Press the Button!}
 \begin{proof}[Solution]
-One problem solving trick when we don't know how to begin a problem is to simplify the problem. The number $100$ seems arbitrary, therefore, we try the problem for a jail with $10$ cells. We create a table of which jail cells are activated each time we press the button.
+One problem solving trick when we don't know how to begin a problem is to simplify the problem. The number $100$ seems arbitrary; therefore, we try the problem for a jail with $10$ cells. We create a table of which jail cells are activated each time we press the button.
 
 In the table, the jail cells are represented by the columns and the button pressing is represented by the rows. Note that a jail cell will be open at the end if it is activated an odd number of times, because it begins even. Therefore, we sum up the number of check marks for each jail cell in the button row, and if it is odd, we highlight it green.
 
