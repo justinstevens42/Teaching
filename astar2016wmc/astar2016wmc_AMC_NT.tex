@@ -1415,7 +1415,7 @@ Fermat's Last Theorem was not finally proved until Andrew Wiles did so in 1993 (
 Fermat also failed to prove his little theorem, therefore, a Swiss mathematician by the name of Leonhard Euler published a proof in 1736. Euler continued to present other proofs of the theorem, and eventually generalized the problem in 1763 in his paper titled ``Euler's theorem".
 
 \subsection{Euler's Totient Function Definition}
-\begin{defi} Define $\phi(m)$ to be the number of positive integers less than $m$ that are relatively prime to $m$. For instance, $\phi(6)=2$ since $1$ and $5$ are relatively prime to $6$. \end{defi}
+\begin{defi} Define $\phi(m)$ to be the number of positive integers less than or equal to $m$ that are relatively prime to $m$. For instance, $\phi(6)=2$ since $1$ and $5$ are relatively prime to $6$. \end{defi}
 
 \mybox{0.8\textwidth}{\begin{prob} Compute $\phi(24)$, $\phi(250)$, and $\phi(p^k)$ for prime $p$. Do you notice anything interesting about $\phi(n)$ compared to $n$? How about $\phi(24)$ compared to $\phi(8)$ and $\phi(3)$? \end{prob}}
 
@@ -1479,7 +1479,7 @@ Here is a proof without words I created! The columns are mod $8$ and the rows ar
 \end{table}
 \subsection{Formula for Phi}
 If we write $n$ in its \textcolor{blue}{canonical prime factorization}, we have $n=\displaystyle p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Using the multiplicative property above, we see that $$\phi(n)=\prod_{j=1}^{k}\phi\left(p_j^{e_j}\right).$$
-Using the formula established above, $p_j^{e_j}=p_j^{e_j}-p_j^{e_j-1}=p_j^{e_j}\left(1-\frac{1}{p_j}\right)$. We substitute this in to arrive at the formula below:
+Using the formula established above, $\phi(p_j^{e_j})=p_j^{e_j}-p_j^{e_j-1}=p_j^{e_j}\left(1-\frac{1}{p_j}\right)$. We substitute this in to arrive at the formula below:
 \mybox{1.0\textwidth}{\begin{theorem} $$\phi(n)=\prod_{j=1}^{k}\left(p_j^{e_j}-p_j^{e_j-1}\right)=\prod_{j=1}^{k}\left[p_j^{e_j}\left(1-\frac{1}{p_j}\right)\right]=n\prod_{j=1}^{k}\left(1-\frac{1}{p_j}\right).$$ \end{theorem}}
 \vspace{5pt}
 As a quick check, note that $\phi(24)=24\left(1-\frac12\right)\left(1-\frac13\right)=8$ and $\phi(250)=250\left(1-\frac12\right)\left(1-\frac15\right)=100$. 
@@ -1510,12 +1510,12 @@ After completing this class, where do you go next in your number theory studies?
 \subsection{Olympiad Number Theory Through Challenging Problems}
 For the past $3.5$ years, I have been working on writing my own Number Theory textbook. It is currently $129$ pages and has $5$ chapters on Divisibility, Modular Arithmetic, p-adic Valuation, Diophantine equations, and Problem Solving Strategies.
 
-The \textcolor{blue}{Third Edition} is featured on the AoPS website under the ``Articles" tab. \href{http://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf}{Here} is a link to the PDF version.
+The \href{http://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf}{\textcolor{blue}{Third Edition}} is featured on the AoPS website under the ``Articles" tab. 
 \subsection*{$\star$ Euler's Totient Theorem in my Book}
 \mybox{0.8\textwidth}{\begin{prob}[AIME 1983] Let $a_n=6^n+8^n$.  Determine the remainder on dividing $a_{83}$ by $49$.  \end{prob} \begin{prob}[PuMaC 2008] Calculuate the last $3$ digits of $\displaystyle 2008^{2007^{2006^{\cdots^{2^1}}}}$. \end{prob} \begin{prob}[Canada Math Olympiad 2003]  Find the last $3$ digits of $2003^{2002^{2001}}$.  \end{prob}}
 
 \subsection*{$\star$ Fermat's Little Theorem Problems in my Book}
-\mybox{0.8\textwidth}{\begin{prob}[Balkan MO 1999] Let $p>2$ be a prime number such that $3|(p-2)$.  Let $$S=\{y^2-x^3-1 | 0\le x,y\le p-1 \cap x,y\in \mathbb{Z}\}$$ Prove that there are at most $p$ elements of $S$ divisible by $p$.\end{prob} \begin{prob}[IMO Shortlist N6 2005]  Let $a,b$ be positive integers such that $b^n+n$ is a multiple of $a^n+n$ for all positive integers $n$.  Prove that $a=b$. \end{prob}}
+\mybox{0.8\textwidth}{\begin{prob}[Balkan MO 1999] Let $p>2$ be a prime number such that $3\mid p-2$.  Let $$S=\{y^2-x^3-1\: : \: 0\le x,y\le p-1 \: \cap\: x,y\in \mathbb{Z}\}$$ Prove that there are at most $p$ elements of $S$ divisible by $p$.\end{prob} \begin{prob}[IMO Shortlist N6 2005]  Let $a,b$ be positive integers such that $b^n+n$ is a multiple of $a^n+n$ for all positive integers $n$.  Prove that $a=b$. \end{prob}}
 
 \clearpage
 
@@ -1532,7 +1532,7 @@ The \textcolor{blue}{Third Edition} is featured on the AoPS website under the ``
 \begin{figure}[h]
 	\centering\includegraphics[width=0.55\linewidth]{images/thanks.jpg}
 \end{figure}
-
+%TOPICS TO ADD: Pythagorean Triplets, Diophantine Equations, Bezout's Theorem, etc. 
 
 \clearpage
 \thispagestyle{empty} % No slide header and footer
