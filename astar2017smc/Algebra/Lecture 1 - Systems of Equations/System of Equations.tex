@@ -1,0 +1,296 @@
+% !TeX document-id = {9dc4049a-302f-49cf-bd6d-ab733465c3ce}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[xcolor=dvipsnames, fontsize=11pt, % Font size
+pagesize, % Write page size to dvi or pdf
+parskip=half-, t]{beamer}
+\input{../beamer.tex}
+\titlegraphic{\includegraphics[height=0.15\textwidth]{../logo.png}}
+\title[System of Equations (Lecture 1)]{System of Equations} 
+\subtitle{Lecture 1}
+
+\author[Justin Stevens (Star League)]{\large Justin Stevens} % Your name
+\date{}
+
+
+\begin{document}
+\begin{frame}[c]
+\centering
+\titlepage
+\end{frame}
+
+\section{Equations in Three Variables}
+\begin{frame}[c]{Equations in Three Variables}
+	\centering
+	\mybox{0.95\textwidth}{
+		\begin{exmp} Solve the below system for $x,y, z$:
+			$$\systeme{
+				x+2y+3z=3,
+				2x+5y+7z=22,
+				-x+y+z=6}$$ \end{exmp}
+		\begin{exmp} Solve the below system for $r, s, t$: 
+$$\systeme{
+		r+s+t=7,
+		2r+3s-5t=11,
+		8r+11s-13t=47}$$ \end{exmp}}
+\end{frame}
+
+\begin{frame}[c]
+	\centering
+	\includegraphics[height=0.6\textwidth]{../images/findingx}
+\end{frame}
+
+\begin{frame}{$1$ Unique Solution}
+		\mybox{0.95\textwidth}{
+		\begin{exmp*} Solve the below system for $x,y, z$:
+			$$\systeme{
+				x+2y+3z=3,
+				2x+5y+7z=22,
+				-x+y+z=6}$$ \end{exmp*}} ~\\
+	Multiplying the first equation by $2$ and subtracting gives $y+z=16$. ~\\
+	
+Adding the first and third equation gives $3y+4z=9$. ~\\
+
+Solving this yields $(x, y, z)=(10, 55, -39)$. 
+\end{frame}
+
+\begin{frame}{$1$ Solution Dependent on $t$}
+\mybox{0.95\textwidth}{		\begin{exmp*} Solve the below system for $r, s, t$: 
+		$$\systeme{
+			r+s+t=7,
+			2r+3s-5t=11,
+			8r+11s-13t=47}$$ \end{exmp*}} ~\\
+Multiply the first equation by $2$ and second equation by $3$ and add these: \begin{align*} 2\left(r+s+t\right)+3\left(2r+3s-5t\right)&=2\cdot 7+3\cdot 11 \\
+8r+11s-13t&=47. \end{align*}
+This is exactly the third equation! We consider the first two equations. \medskip 
+
+We find that $(r, s, t)=(10-8t, -3+7t, t)$. Substitute and verify!		
+\end{frame}
+
+\begin{frame}[c]{Follow Up}
+	\centering
+	\mybox{0.95\textwidth}{	\begin{exmp} Solve the below system for $x,y, z$: 
+			$$\systeme{
+				x-y+z=12,
+				2x+3y-4z=5,
+				7x+8y-11z=42}$$ \end{exmp}	\begin{exmp} Solve the below system for $r, s, t$: 
+			$$\systeme{
+				r+2s+3t=7,
+				2r+4s+6t=14,
+				3r+6s+9t=21}$$ \end{exmp}} 
+\end{frame}
+
+\begin{frame}{No Solutions}
+	\mybox{0.95\textwidth}{	\begin{exmp*} Solve the below system for $x,y, z$: 
+		$$\systeme{
+			x-y+z=12,
+			2x+3y-4z=5,
+			7x+8y-11z=42}$$ \end{exmp*}} ~\\
+		
+		Multiplying the second equation by $3$ and add this to the first:
+		\begin{align*} 3\left(2x+3y-4z\right)+\left(x-y+z\right)&=3\cdot 5+12 \\
+					7x+8y-11z &=27. \end{align*}
+		Hence, this system has no solutions.
+\end{frame}
+
+\begin{frame}{$2$ Basis Solutions}
+	\mybox{0.95\textwidth}{\begin{exmp*} Solve the below system for $r, s, t$: 
+			$$\systeme{
+				r+2s+3t=7,
+				2r+4s+6t=14,
+				3r+6s+9t=21}$$ \end{exmp*}} ~\\
+			
+Multiplying the first equation by $2$ gives the second equation. \medskip \pause
+
+Multiplying the first equation by $3$ gives the third equation. \medskip \pause
+
+Hence, the solution is $(r, s, t)=(7-2s-3t, s, t)$. 
+\end{frame}
+
+\section{Symmetry}
+
+\begin{frame}[c]{Symmetry Problems}
+	\centering
+	\mybox{0.95\textwidth}{\begin{exmp} Solve the following system of equations in $w, x, y, z$: \begin{align*} 3w+x+y+z &=20 \\ w+3x+y+z&=6 \\ w+x+3y+z&=44 \\ w+x+y+3z&=2. \end{align*} \end{exmp}
+		\begin{exmp} Justin, Lazar, and Daniel are each thinking of a positive number. The product of Justin's and Lazar's is $27$. The product of Lazar's and Daniel's is $72$. The product of Justin's and Daniel's is $6$. Find each person's number. \end{exmp}}
+\end{frame}
+
+\begin{frame}{System in $4$ variables}
+	\mybox{0.95\textwidth}{\begin{exmp*} Solve the following system of equations in $w, x, y, z$: \begin{align*} 3w+x+y+z &=20 \\ w+3x+y+z&=6 \\ w+x+3y+z&=44 \\ w+x+y+3z&=2. \end{align*} \end{exmp*}} ~\\
+	Adding these equations gives $$6\left(w+x+y+z\right)=72\implies w+x+y+z=12.$$ This yields the solution $(w, x, y, z)=(4, -3, 16, -5)$. 
+\end{frame}
+
+\begin{frame}{What numbers are they thinking of?}
+	\mybox{0.95\textwidth}{		\begin{exmp*} Justin, Lazar, and Daniel are each thinking of a positive number. The product of Justin's and Lazar's is $27$. The product of Lazar's and Daniel's is $72$. The product of Justin's and Daniel's is $6$. Find each person's number. \end{exmp*}} ~\\
+	We have the system of equations \begin{align*} jl &=27 \\ ld&=72 \\ jd&=6. \end{align*}
+	Multiplying gives $\left(jl d\right)^2=27\cdot 72\cdot 6=3^6\cdot 2^4\implies jl d=108$. \medskip
+	
+	Therefore, $(j, l, d)=(\frac32, 18, 4)$.
+	
+\end{frame}
+
+\begin{frame}[c]{More Symmetry Problems}
+	\centering
+	\mybox{0.95\textwidth}{\begin{exmp} If $ x$, $ y$, and $ z$ are positive numbers satisfying $ x + \dfrac{1}{y} = 4$, $ y + \dfrac{1}{z} = 1$, and $ z + \dfrac{1}{x} = 7/3$ then what is $xyz$? \end{exmp} \begin{exmp} Let $A=x+\frac{1}{x}$ and $B=x^2+\frac{1}{x^2}$. Note that $(x+\frac{1}{x})^2=x^2+2+\frac{1}{x^2}$, therefore, $B=A^2-2$. Find formulas for $$C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$$ in terms of $A$. \footnote{Source: AoPS Introduction to Algebra} \end{exmp}}
+
+\end{frame}
+
+\begin{frame}{More Symmetry}
+	\mybox{0.95\textwidth}{\begin{exmp*} If $ x$, $ y$, and $ z$ are positive numbers satisfying $ x + \dfrac{1}{y} = 4$, $ y + \dfrac{1}{z} = 1$, and $ z + \dfrac{1}{x} = 7/3$ then what is $xyz$? \end{exmp*}} ~\\
+	
+We want to find the product $xyz$, therefore, we multiply the three equations: \small \begin{align*}\left(x+\frac{1}{y}\right)\left(y+\frac{1}{z}\right)\left(z+\frac{1}{x}\right)&=xyz+\frac{xy}{x}+\frac{xz}{z}+\frac{x}{zx}+\frac{yz}{y}+\frac{y}{yx}+\frac{z}{yz}+\frac{1}{xyz} \\ &= xyz+\left(x+y+z\right)+\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right)+\frac{1}{xyz} \\ &= 4\cdot 1 \cdot \frac73=\frac{28}{3}. \end{align*}  \normalsize
+
+Adding the original three equations: $$\left(x+\frac{1}{y}\right)+\left(y+\frac{1}{z}\right)+\left(z+\frac{1}{x}\right)=4+1+\frac{7}{3}=\frac{22}{3}$$
+
+How do we now find $xyz$? 
+
+\end{frame}
+
+\begin{frame}{More Symmetry II}
+	\mybox{0.95\textwidth}{\begin{exmp*} If $ x$, $ y$, and $ z$ are positive numbers satisfying $ x + \dfrac{1}{y} = 4$, $ y + \dfrac{1}{z} = 1$, and $ z + \dfrac{1}{x} = 7/3$ then what is $xyz$? \end{exmp*}} ~\\
+Substituting this into the first equation gives us $$xyz+\frac{22}{3}+\frac{1}{xyz}=\frac{28}{3}\implies xyz+\frac{1}{xyz}=2.$$
+
+Finally, multiplying by $xyz$ and re-arranging gives $$(xyz-1)^2=0\implies xyz=\boxed{1}.$$
+\end{frame}
+
+\begin{frame}{Exponent Mayhem}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+To compute $C$, we cube $x+\frac{1}{x}$: \begin{align*} (x+\frac{1}{x})^3&=x^3+3\cdot x^2\cdot \frac{1}{x}+3\cdot x\cdot \frac{1}{x^2}+\frac{1}{x^3} \\ &= x^3+3x+\frac{3}{x}+\frac{1}{x^3}. \end{align*}
+Therefore, substituting $A=x+\frac{1}{x}$ gives \begin{align*} A^3&=x^3+3\left(x+\frac{1}{x}\right)+\frac{1}{x^3} \:=\:C+3A \\ \implies \color{blue} C &= \color{blue} A^3-3A. \end{align*}
+\end{frame}
+
+\begin{frame}{Exponent Mayhem II}
+		\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+		
+		There are two methods for finding $D$. One of them involves taking $x+\frac{1}{x}$ to the fourth power. In order to continue with this method, however, I must introduce the binomial theorem and Pascal's triangle.  
+		
+		\begin{figure}[h]
+			\centering\includegraphics[width=0.36\linewidth]{../images/pascal.jpg}
+			\caption{Source:  iCoachMath.com}
+		\end{figure}
+\end{frame}
+
+\begin{frame}{Binomial Theorem}
+
+		The binomial theorem states that when we expand $x+y$ to the $n$th power, the coefficients will be the numbers in the $n$th row of Pascal's triangle. For instance, $$(x+y)^4=\textbf{1}x^4+\textbf{4}x^3y+\textbf{6}x^2y^2+\textbf{4}xy^3+\textbf{1}y^4.$$
+		The numbers $1, 4, 6, 4, 1$ make up the $4$th row of Pascal's triangle. \medskip 
+		
+		Furthermore, if you know binomial coefficients, note that $$\binom{4}{0}=1, \binom{4}{1}=4, \binom{4}{2}=6, \binom{4}{3}=4, \binom{4}{4}=1.$$
+		
+		\mybox{0.8\textwidth}{\begin{thm}[Binomial Expansion] $$(x+y)^n=\displaystyle \sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}.$$ \end{thm}}
+\end{frame}
+
+\begin{frame}{Exponent Mayhem III}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+	Using the expansion for $(x+y)^4$, we see that \begin{align*} (x+\frac{1}{x})^4&=x^4+4\cdot \left(x^3\cdot \frac{1}{x}\right)+6\cdot \left(x^2\cdot \frac{1}{x^2}\right)+4\cdot \left(x\cdot \frac{1}{x^3}\right)+\frac{1}{x^4} \\ &= \left(x^4+\frac{1}{x^4}\right)+4\left(x^2+\frac{1}{x^2}\right)+6. \end{align*}
+	We substitute the formula $B=x^2+\frac{1}{x^2}=A^2-2$ to get: $$\color{blue} D=x^4+\frac{1}{x^4}=A^4-4(A^2-2)-6=A^4-4A^2+2.$$ 
+	
+\end{frame}
+
+\begin{frame}{Exponent Mayhem IV}
+		\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+		
+	A simpler method exists for computing $D$ without the use of the binomial theorem. Note that if we multiply $A$ by $C$, we get the desired $x^4$ and $\frac{1}{x^4}$ terms: $$AC=\left(x+\frac{1}{x}\right)\left(x^3+\frac{1}{x^3}\right)=x^4+\left(x^2+\frac{1}{x^2}\right)+\frac{1}{x^4}.$$  
+	
+	From above, we found $C=A^3-3A$. Furthermore, $B=x^2+\frac{1}{x^2}=A^2-2$. Substituting these both in give $$D=x^4+\frac{1}{x^4}=A(A^3-3A)-(A^2-2)=A^4-4A^2+2.$$ Note this matches the answer above.  
+	
+\end{frame}
+
+\begin{frame}{Exponent Mayhem V}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\	
+	We attempt our new method for computing $E$. Note that if we multiply $A$ by $D$, we get the desired $x^5$ and $\frac{1}{x^5}$ terms: $$AD=\left(x+\frac{1}{x}\right)\left(x^4+\frac{1}{x^4}\right)=x^5+\left(x^3+\frac{1}{x^3}\right)+\frac{1}{x^5}.$$  
+	We substitute $D=A^4-4A^2+2$ and $C=x^3+\frac{1}{x^3}=A^3-3A$ into the above equation: $$\color{blue} E=x^5+\frac{1}{x^5}=A\left(A^4-4A^2+2\right)-\left(A^3-3A\right)=A^5-5A^3+5A.$$In general, if $x_n=x^n+\frac{1}{x^n}$, then we can recursively find the next term using the identity $$x_1x_{n-1}=x_n+x_{n-2}\implies x_n=x_1x_{n-1}-x_{n-2}.$$ 
+\end{frame}
+
+\begin{frame}{Exponent Mayhem in NIMO}
+	The identity above was a key motivator in a 2015 National Internet Math Olympiad (NIMO) challenge problem I cowrote with Evan Chen! \medskip 
+	
+	\mybox{0.95\textwidth}{\begin{exmp*}(Justin Stevens and Evan Chen)  Let $a$, $b$, $c$ be reals and $p$ be a prime number. Assume that \[ a^n(b+c)+b^n(a+c)+c^n(a+b)\equiv 8\pmod{p} \] for each nonnegative integer $n$. Let $m$ be the remainder when $a^p+b^p+c^p$ is divided by $p$, and $k$ the remainder when $m^p$ is divided by $p^4$. Find the maximum possible value of $k$. \end{exmp*}} ~\\ \medskip
+	
+	The solution involves finding similar recursion relations with some number theory tricks as well. The answer is $399$; try to figure out why after finishing this course!
+\end{frame}
+
+\begin{frame}{Final Symmetry Problems}
+	\mybox{0.95\textwidth}{\begin{exmp} Let $x,y,z$ be positive real numbers satisfying the simultaneous equations \begin{align*} x(y^2+yz+z^2) &= 3y+10z \\ y(z^2+zx+x^2) &= 21z+24x \\ z(x^2+xy+y^2) &= 7x+28y. \end{align*}  
+			Find $xy+yz+zx$. \textit{(Source: 2014 Purple Comet)}  \end{exmp} \begin{exmp} Let $a,b,$ and $c$ be non-zero real numbers such that $$\frac{ab}{a+b}=3,\: \frac{bc}{b+c}=4,\: \text{and } \frac{ca}{c+a}=5.$$ Compute the value of $\displaystyle \frac{abc}{ab+bc+ca}$. \textit{(Source: 2012 Purple Comet)} \end{exmp} }
+\end{frame}
+
+\begin{frame}{2014 Purple Comet I}
+	We note that the equations on the left hand side are symmetric. We therefore think to \textbf{sum} up the equations. I claim that when we do so, the left hand side becomes $(x+y+z)(xy+xz+yz)$. \color{red} Why? \color{black} \medskip
+	
+	Expand out, group, and colour the $xyz$ terms: \small \begin{eqnarray*} (x+y+z)(xy+xz+yz)=\color{red}\left(x^2y+ x^2z\right)\color{black}+\color{ForestGreen}\left(y^2x+y^2z\right)\color{black}+\color{blue}\left(z^2y+z^2x\right)\color{black}+3xyz \end{eqnarray*} \normalsize We distribute and colour the other terms: \begin{eqnarray*} x\left(y^2+yz+z^2\right)&=&\color{ForestGreen}y^2x\color{black}+xyz+\color{blue}z^2x \\ y\left(z^2+zx+x^2\right)&=&\color{blue}z^2y\color{black}+xyz+\color{red}x^2y \\ z\left(x^2+xy+y^2\right)&=&\color{red}x^2z\color{black}+xyz+\color{ForestGreen}y^2z. \end{eqnarray*}
+	
+\end{frame}
+
+\begin{frame}{2014 Purple Comet II}
+	
+	Therefore, by proof by colouring, we have showed that summing up the left hand side gives $(x+y+z)(xy+xz+yz)$. Summing up the right hand side gives $$\left(3y+10z\right)+\left(21z+24x\right)+\left(7x+28y\right)=31\left(x+y+z\right).$$ We equate the two of them, and divide through by $x+y+z$ (since it is positive): $$(x+y+z)(xy+xz+yz)=31(x+y+z)\implies xy+xz+yz=\boxed{31}.$$ 
+	
+	How did I think of the factorization? The motivation behind it came from the problem statement asking to find $xy+yz+zx$!
+\end{frame}
+
+\begin{frame}{Fractional System}
+	\mybox{0.95\textwidth}{\begin{exmp*} Let $a,b,$ and $c$ be non-zero real numbers such that $$\frac{ab}{a+b}=3,\: \frac{bc}{b+c}=4,\: \text{and } \frac{ca}{c+a}=5.$$ Compute the value of $\displaystyle \frac{abc}{ab+bc+ca}$. \textit{(Source: 2012 Purple Comet)} \end{exmp*}} ~\\
+Let's take the \textbf{reciprocal} of all of the equations: $$\frac{a+b}{ab}=\frac13\:,\:\: \frac{b+c}{bc}=\frac14\:,\:\: \text{and } \frac{c+a}{ca}=\frac15.$$ 
+	Note that we can simplify each of these expressions! For instance, $\frac{a+b}{ab}=\frac{1}{b}+\frac{1}{a}$. Then, the system of equations becomes $$\frac{1}{b}+\frac{1}{a}=\frac13\:,\:\: \frac{1}{c}+\frac{1}{b}=\frac14\:,\:\: \text{and } \frac{1}{a}+\frac{1}{c}=\frac15.$$ 
+\end{frame}
+
+\begin{frame}{Fractional System II}
+	
+	We continue by taking the reciprocal of the desired expression, $\frac{abc}{ab+bc+ca}$: $$\frac{ab+bc+ca}{abc}=\frac{1}{c}+\frac{1}{a}+\frac{1}{b}.$$ Aha! We've turned this into something we know how to work with. We sum up the three equations from the previous slide to get $$2\left(\frac1a+\frac1b+\frac1c\right)=\frac13+\frac14+\frac15=\frac{47}{60}.$$ Therefore, $\displaystyle \frac1a+\frac1b+\frac1c=\frac{47}{120}$. We have to take the reciprocal, however, to get $$\frac{abc}{ab+bc+ca}=\frac{1}{\frac1a+\frac1b+\frac1c}=\boxed{\frac{120}{47}}.$$
+	
+\end{frame}
+	
+
+
+
+\begin{frame}[c]{Substitution Problem}
+	\centering
+	\mybox{0.95\textwidth}{\begin{exmp}[HMMT 2013] Let $x$ and $y$ be real numbers with $x>y$. Find $x$ if $$x^2y^2+x^2+y^2+2xy=40 \text{ and }xy+x+y=8.$$ \textit{(Source: 2013 HMMT)}\end{exmp}}
+\end{frame}
+
+\begin{frame}{2013 HMMT}
+		\mybox{0.95\textwidth}{\begin{exmp*}[HMMT 2013] Let $x$ and $y$ be real numbers with $x>y$. Find $x$ if $$x^2y^2+x^2+y^2+2xy=40 \text{ and }xy+x+y=8.$$ \end{exmp*}} ~\\
+
+We substitute $a=xy$ and $b=x+y$. The system then becomes: $$a^2+b^2=40\:,\: a+b=8.$$  
+	We square the second equation to arrive at $(a+b)^2=a^2+2ab+b^2=64$.  \medskip
+	
+	Subtracting from the first equation: $2ab=64-40=24\implies ab=12.$ \medskip
+	
+	Solving this system, we now see that $\color{blue} (a,b)=(2,6), (6,2)$.
+\end{frame}
+
+\begin{frame}{2013 HMMT II}
+			\mybox{0.95\textwidth}{\begin{exmp*}[HMMT 2013] Let $x$ and $y$ be real numbers with $x>y$. Find $x$ if $$x^2y^2+x^2+y^2+2xy=40 \text{ and }xy+x+y=8.$$ \end{exmp*}} ~\\
+	If $(a,b)=(6,2)$, then we have $xy=6$ and $x+y=2$. We use the identity $$(z-x)(z-y)=z^2-z(x+y)+xy.$$ This case gives the quadratic $z^2-2z+6$ with discriminant $\Delta=2^2-4\cdot 6=-20$. Hence, there are no positive real solutions. \medskip
+	
+	On the other hand, when $(a,b)=(2,6)$, we have $xy=2$ and $x+y=6$. The quadratic for this case is $z^2-6z+2$. Completing the square: $$z^2-6z+2=(z-3)^2-7\implies z=3\pm \sqrt{7}.$$ Since $x>y$, we have $x=\boxed{3+\sqrt{7}}$.  
+\end{frame}
+\end{document}
+
+
+
+
+
+
+
+\clearpage
+
+
+\end{document}
+
+
+
+\begin{frame}{A Third Funky System}
+\mybox{0.95\textwidth}{\begin{exmp*} Solve for $r, s, t$: 
+		$$\systeme{
+			
+\end{document}
+	\mybox{0.95\textwidth}{\begin{exmp} Solve the following system of equations in $a,b,c$: \begin{align*}7a+5b+c &= 11 \\ a+4b+6c &= 18 \\ 2a+b+3c &= 21. \end{align*}\end{exmp}
+	\begin{exmp} Let $x,y,z$ be positive real numbers satisfying  \begin{align*} x(y^2+yz+z^2) &= 3y+10z \\ y(z^2+zx+x^2) &= 21z+24x \\ z(x^2+xy+y^2) &= 7x+28y. \end{align*}  
+		Find $xy+yz+zx$. \footnote{Source: 2014 Purple Comet} \end{exmp}}
+	
+\end{frame}
+
+\end{document}

@@ -1,0 +1,311 @@
+
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{beaver} % or try albatross, beaver, crane, ...
+  %\usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  
+\newcounter{example}
+\newenvironment<>{exmp}[1][]{%
+    \refstepcounter{example}\par\medskip
+  \alert{\textbf{Example~\theexample.} }}{}
+  
+\newenvironment<>{thm}[1][]{%
+ \par\medskip
+\textbf{\textcolor{MidnightBlue}{\sffamily Theorem.  }}}{}
+\newenvironment<>{exmp*}[1][]{%
+\par\medskip
+  \alert{\textbf{Example.} }}{}
+  
+\makeatletter
+\newenvironment<>{myproof}[1][\proofname]{%
+  \par
+  \def\insertproofname{#1.}%
+  \pushQED{\qed}
+  \textit{\insertproofname}  }
+{}
+\makeatother
+
+\setbeamertemplate{headline}{}
+\setbeamercovered{transparent}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\beamer@continueautobreak}{\frametitle}{\beamer@gobbleoptional}{}{\errmessage{failed to patch}}
+\patchcmd{\beamer@continueautobreak}{\framesubtitle}{\beamer@gobbleoptional}{}{\errmessage{failed to patch}}
+\makeatother
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+\colorlet{LightSpringGreen}{White!70!SpringGreen}
+ \usepackage{transparent}
+ \newcommand{\semitransp}[2][35]{\color{fg!#1}#2}
+\usepackage[T1]{fontenc}	 % For correct hyphenation and T1 encoding
+\usepackage{lmodern} % Default font: latin modern font
+%\usepackage{fourier} % Alternative font: utopia
+%\usepackage{charter} % Alternative font: low-resolution roman font
+\renewcommand{\familydefault}{\sfdefault} % Sans serif - this may need to be commented to see the alternative fonts
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    %commentstyle=\color{green}
+    keywordstyle=\color{blue},
+    %stringstyle=\color{black}
+    identifierstyle=\color{magenta},
+}
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+
+
+
+
+\usepackage{listings}
+\usepackage{setspace}
+\definecolor{Code}{rgb}{0,0,0}
+\definecolor{Decorators}{rgb}{0.5,0.5,0.5}
+\definecolor{Numbers}{rgb}{0.5,0,0}
+\definecolor{MatchingBrackets}{rgb}{0.25,0.5,0.5}
+\definecolor{Keywords}{rgb}{0,0,1}
+\definecolor{self}{rgb}{0,0,0}
+\definecolor{Strings}{rgb}{0,0.63,0}
+\definecolor{Comments}{rgb}{0,0.63,1}
+\definecolor{Backquotes}{rgb}{0,0,0}
+\definecolor{Classname}{rgb}{0,0,0}
+\definecolor{FunctionName}{rgb}{0,0,0}
+\definecolor{Operators}{rgb}{0,0,0}
+\definecolor{Background}{rgb}{0.98,0.98,0.98}
+\lstdefinelanguage{Python}{
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=1em,
+	xleftmargin=1em,
+	framextopmargin=2em,
+	framexbottommargin=2em,
+	showspaces=false,
+	showtabs=false,
+	showstringspaces=false,
+	frame=l,
+	tabsize=4,
+	% Basic
+	basicstyle=\ttfamily\small\setstretch{1},
+	backgroundcolor=\color{Background},
+	% Comments
+	commentstyle=\color{Comments}\slshape,
+	% Strings
+	stringstyle=\color{Strings},
+	morecomment=[s][\color{Strings}]{"""}{"""},
+	morecomment=[s][\color{Strings}]{'''}{'''},
+	% keywords
+	morekeywords={import,from,class,def,for,while,if,is,in,elif,else,not,and,or,print,break,continue,return,True,False,None,access,as,,del,except,exec,finally,global,import,lambda,pass,print,raise,try,assert},
+	keywordstyle={\color{Keywords}\bfseries},
+	% additional keywords
+	morekeywords={[2]@invariant,pylab,numpy,np,scipy},
+	keywordstyle={[2]\color{Decorators}\slshape},
+	emph={self},
+	emphstyle={\color{self}\slshape},
+	%
+}
+
+\usepackage{import}
+
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}
+
+\usepackage[para]{footmisc}
+
+%------------------------------------------------
+% Colors
+
+%------------------------------------------------
+
+%------------------------------------------------
+%------------------------------------------------
+
+%------------------------------------------------
+% Fonts
+\usepackage[T1]{fontenc}	 % For correct hyphenation and T1 encoding
+\usepackage{lmodern} % Default font: latin modern font
+%\usepackage{fourier} % Alternative font: utopia
+%\usepackage{charter} % Alternative font: low-resolution roman font
+\renewcommand{\familydefault}{\sfdefault} % Sans serif - this may need to be commented to see the alternative fonts
+%------------------------------------------------
+
+%------------------------------------------------
+% Various required packages
+\usepackage{amsthm} % Required for theorem environments
+\usepackage{bm} % Required for bold math symbols (used in the footer of the slides)
+\usepackage{graphicx} % Required for including images in figures
+\usepackage{tikz} % Required for colored boxes
+\usepackage{booktabs} % Required for horizontal rules in tables
+\usepackage{multicol} % Required for creating multiple columns in slides
+\usepackage{lastpage} % For printing the total number of pages at the bottom of each slide
+\usepackage[english]{babel} % Document language - required for customizing section titles
+\usepackage{microtype} % Better typography
+\usepackage{tocstyle} % Required for customizing the table of contents
+
+
+%\newtheorem{defi}{Definition}[section]
+%\newtheorem{exmp}{Exercise}[section] %Label for examples
+\newtheorem{remark}[theorem]{Remark} % Label for remarks
+\newtheorem{algorithm}[theorem]{Algorithm} % Label for algorithms
+\makeatletter % Correct qed adjustment
+%------------------------------------------------
+
+%------------------------------------------------
+% The code for the box which can be used to highlight an element of a slide (such as a theorem)
+\newcommand*{\mybox}[2]{ % The box takes two arguments: width and content
+\par\noindent
+\begin{tikzpicture}[mynodestyle/.style={rectangle,draw=Black,thick,inner sep=1.5mm, text justified,top color=white,bottom color=white,above}]\node[mynodestyle,at={(0.5*#1+2mm+0.4pt,0)}]{ % Box formatting
+\begin{minipage}[t]{#1}
+#2
+\end{minipage}
+};
+\end{tikzpicture}
+\par\vspace{-1.3em}}
+%------------------------------------------------
+
+%------------------------------------------------
+% MODIFICATIONS BY JUSTIN STEVENS
+%------------------------------------------------
+
+\usepackage[nodayofweek,level]{datetime}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\newcommand{\pmid}{\mid\!\mid}
+\usepackage{seqsplit}
+\usepackage{amsfonts}
+\usepackage{float} %use H to force it in place
+\usepackage{amssymb} %for nmid
+%\usepackage{enumitem} %for itemized lists with stars
+\usepackage{amsmath}
+\DeclareMathOperator{\lcm}{lcm}
+%\usepackage{epigraph}
+\usepackage{csquotes}
+\usepackage{relsize}
+\newcommand{\x}{\color{red}X\color{black}}
+
+\usetikzlibrary{tikzmark}
+
+\usepackage{textcomp}
+\newcommand{\ballgolftikz}[1]{%
+	\foreach \i  in {0,...,\number\numexpr#1 - 1\relax}{% 
+		\pgfmathsetmacro\k{\i*sqrt(3)/2}
+		\begin{scope}[shift={(\i*.5 cm,\k cm)}]
+			\foreach \t in {1,...,\number\numexpr #1-\i\relax}{
+				\shade[ball color= gray] (\t,0) circle (.5cm);}
+	\end{scope}}
+}  
+
+\usepackage{pifont}
+\usepackage{marginnote}
+\reversemarginpar
+\newcommand{\prechili}{\vspace*{1.2em}\hspace*{1.0em}}
+\newcommand{\nochili}{\hspace*{3.8em}}
+\newcommand{\chili}{\includegraphics[width=1.0em]{images/chili.png}}
+\newcommand{\gim}{\marginnote{\chili}}
+\newcommand{\yod}{\marginnote{\chili\chili}}
+\newcommand{\kurumi}{\marginnote{\chili\chili\chili}}
+\newcommand{\pencil}{\prechili\marginnote{\bfseries\ding{48}}}
+\newcommand{\defi}{{\bfseries\color{ForestGreen}Definition. }}
+
+\usepackage{mathtools}
+
+\newenvironment{polyalign}[1][9]
+{\array{c*{#1}{@{}>{{}}c<{{}}@{}c@{}}}}
+{\endarray}
+
+\usepackage{tabularx}
+\usepackage{bm}
+\usepackage{mwe}% provides example images (when installed)
+\newcommand\measureISpecification{6ex}% not defined in mwe
+\newcommand{\ctab}[1]{\raisebox{\dimexpr \measureISpecification/2 -.748ex}{#1}}% vertically centers numbers
+
+\usetikzlibrary{tikzmark}
+
+\usetikzlibrary{arrows} 
+
+\usepgflibrary{fpu}
+\usetikzlibrary{positioning}
+\usepackage{thmtools}
+\theoremstyle{definition}
+\declaretheorem[name=\bfseries Problem]{prob}
+%\declaretheorem[name=\bfseries Example]{exmp}
+\theoremstyle{plain}
+
+\newenvironment{soln}{\begin{myproof}[Solution]}{\end{myproof}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{% <---- BEWARE
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+	
+\usepackage{comment}
+\usepackage{systeme}
+
+
+\usepackage{scalerel}
+\usepackage{stackengine}
+\newcommand\showdiv[1]{\overline{\smash{\hstretch{.5}{)}\mkern-3.2mu\hstretch{.5}{)}}#1}}
+\newcommand\ph[1]{\textcolor{white}{#1}}
+
+
+\usepackage{animate}
+\usepackage{enumerate}
+\setbeamertemplate{title page}
+{
+  \vbox{}
+  \begingroup
+    \centering
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \insertauthor
+    \end{beamercolorbox}
+        \vskip1em\par
+
+  \endgroup
+  \vfill
+}
