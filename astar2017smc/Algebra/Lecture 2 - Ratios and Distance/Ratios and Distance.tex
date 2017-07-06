@@ -1,0 +1,183 @@
+% !TeX document-id = {9dc4049a-302f-49cf-bd6d-ab733465c3ce}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[xcolor=dvipsnames, fontsize=11pt, % Font size
+pagesize, % Write page size to dvi or pdf
+parskip=half-, t]{beamer}
+\input{../beamer.tex}
+\titlegraphic{\includegraphics[height=0.15\textwidth]{../logo.png}}
+\title[Rate Problems (Lecture 2)]{Rate Problems}
+\subtitle{Lecture 2}
+
+\author[Justin Stevens (Star League)]{\large Justin Stevens} % Your name
+\date{}
+
+
+\begin{document}
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+	\begin{frame}[c]
+		\centering
+		\titlepage
+	\end{frame}
+
+\begin{frame}[c]{Rate, Distance, and Time}
+\begin{thm} For rate problems, $\text{Distance}=\text{Rate}\cdot \text{Time}.$  \end{thm} \vfill
+\mybox{0.9\textwidth}{\begin{exmp}	To arrive at AStar Summer Math Camp, Justin drives for one hour at $30$ mph and for the second hour at $20$ mph. What is his average speed for the trip? \end{exmp} 	\begin{exmp} To arrive at AStar Summer Math Camp, Justin drives for a total \textit{distance} of $120$ miles. Suppose he drives the first half of the distance at $30$ mph and the second half of the distance at $20$ mph. What is his average speed for the trip?  \end{exmp}}
+\end{frame}
+
+\begin{frame}{Arithmetic Mean}
+	\mybox{0.9\textwidth}{\begin{exmp*}	To arrive at AStar Summer Math Camp, Justin drives for one hour at $30$ mph and for the second hour at $20$ mph. What is his average speed for the trip? \end{exmp*}} ~\\
+	
+	\begin{soln} 
+		The distance I drive in each of the blocks are given by \begin{align*}
+		d_1 &=30 \text{ mph}\cdot 1\text{ h}=30\text{ miles} \\
+		d_2 &=20\text{ mph}\cdot 1\text{ h}=20\text{ miles}. \end{align*} \pause
+		The sum of these distances is $d_1+d_2=50\text{ miles}$. 
+		The total time taken is $2$ hours, therefore, the average speed is $$\text{Rate}=\frac{\text{Distance}}{\text{Time}}=\frac{50\text{ miles}}{2\text{ hours}}=25\text{ mph}.$$ \pause \defi The arithmetic mean of two numbers $a$ and $b$ is $\frac{a+b}{2}$. \end{soln}
+\end{frame}
+
+\begin{frame}{Harmonic Mean}
+	\mybox{0.9\textwidth}{\begin{exmp*} To arrive at AStar Summer Math Camp, Justin drives for a total \textit{distance} of $120$ miles. Suppose he drives the first half of the distance at $30$ mph and the second half of the distance at $20$ mph. What is his average speed for the trip?  \end{exmp*}} ~\\
+	
+	\begin{soln} The distance driven in each half if $60$ miles. Therefore, 
+		\begin{align*}
+		60 &=30\cdot t_1\implies t_1=2\text{ hr} \\
+		60 &=20\cdot t_2\implies t_2=3\text{ hr}. \end{align*}
+		Therefore, the total time I drive is given by $t=t_1+t_2=2+3=5\text{ hr}.$ Therefore, my average speed is given by $$\text{Rate}=\frac{\text{Distance}}{\text{Time}}=\frac{120\text{ miles}}{5\text{ hr}}=24\text{ mph}.$$ \defi The harmonic mean of two numbers $a$ and $b$ is $\frac{2}{\frac{1}{a}+\frac{1}{b}}.$ \end{soln}
+\end{frame}
+
+
+\begin{frame}[c]{Clock Problems}
+	\centering
+	\mybox{0.95\textwidth}{\begin{exmp} What is the first time after $10$ o'clock at which the minute hand and the hour hand of a clock point in the exact same direction? \footnote[frame]{Source: AoPS Introduction to Algebra}\end{exmp} \begin{exmp} Cassandra sets her watch to the correct time at noon. At the actual time of $1:00$ PM, she notices that her watch reads $12:57$ and $36$ seconds. Assume that her watch loses time at a constant rate. What will be the actual time when her watch first reads $10:00$ PM? \footnote[frame]{Source: 2003 AMC 12B} \end{exmp}}
+\end{frame}
+
+\begin{frame}{Minute Hand and Hour Hand}
+	\mybox{0.95\textwidth}{\begin{exmp*} What is the first time after $10$ o'clock at which the minute hand and the hour hand of a clock point in the exact same direction? \footnote[frame]{Source: AoPS Introduction to Algebra}\end{exmp*}} ~\\
+	
+The hour hand travels $5$ minutes in the time the minute hand travels $60$: $$\frac{\text{Hour}}{\text{Minute}}=\frac{5}{60}\implies \text{Hour}=\frac{1}{12}\text{Minute}.$$
+The hour hand begins at $50$ and the minute hand begins at $0$. Therefore, $$50+\frac{1}{12}m=m\implies m=50\left(\frac{12}{11}\right)=\frac{600}{11}=54\frac{6}{11}.$$
+Hence, the time is $10:54:\frac{6}{11}.$
+\end{frame} 
+
+\begin{frame}{Cassandra's Watch}
+	\mybox{0.95\textwidth}{\begin{exmp*} Cassandra sets her watch to the correct time at noon. At the actual time of $1:00\text{ PM}$, she notices that her watch reads $12:57$ and $36$ seconds. Assume that her watch loses time at a constant rate. What will be the actual time when her watch first reads $10:00$ PM? \end{exmp*}} ~\\
+	\begin{table}[H]
+		\centering
+	\begin{tabular}{r|r}
+		Actual Time & Cassandra Time \\ \hline
+		12:00 PM & 12:00 PM \\
+		1:00 PM & 12:57:36 PM \\
+		? & 10:00 PM \end{tabular} 
+	\end{table}
+	Let Cassandra's time be $t_c$ and the actual time be $t_t$. We see that $$t_t-t_c=2\cdot 60+24=144\text{ seconds}.$$ Since $t_t=3600\text{ s}$, we see that $$\frac{t_t-t_c}{t_t}=\frac{144}{3600}=\frac{1}{25}\implies \frac{t_c}{t_t}=\frac{24}{25}.$$
+\end{frame}
+
+\begin{frame}{Cassandra's Watch II}
+		\mybox{0.95\textwidth}{\begin{exmp*} Cassandra sets her watch to the correct time at noon. At the actual time of $1:00$ PM, she notices that her watch reads $12:57$ and $36$ seconds. Assume that her watch loses time at a constant rate. What will be the actual time when her watch first reads $10:00$ PM? \end{exmp*}} ~\\
+		
+	Let Cassandra's time be $t_c$ and the actual time be $t_t$. \medskip
+		
+ Rearranging $t_t=\frac{25}{24}t_c\implies t_t=\frac{25}{24}t_c$. \medskip
+	
+	Hence, at time $t_c=10\cdot 60\text{ minutes}$, we have $$t_t=\frac{25}{24}\left(600\text{ minutes}\right)=625 \text{ minutes}\implies t_t=\boxed{10:25 \text{ pm}}.$$	
+\end{frame}
+
+\begin{frame}[c]{Three Stooges}
+	\mybox{0.95\textwidth}{\begin{exmp} Moe, Larry, and Curly work together to build a house. When Moe and Larry work together, it takes them $10$ hours. When Larry and Curly work together, it takes $12$ hours. When Moe and Curly work together, it takes $15$ hours. How long does it take all three working together? \end{exmp}}
+\end{frame}
+
+\begin{frame}{Moe, Larry, and Curly}
+		\mybox{0.95\textwidth}{\begin{exmp*} Moe, Larry, and Curly work together to build a house. When Moe and Larry work together, it takes them $10$ hours. When Larry and Curly work together, it takes $12$ hours. When Moe and Curly work together, it takes $15$ hours. How long does it take all three? \end{exmp*}} ~\\
+		
+Let the rate it takes Moe be $r_m$, the rate it takes Larry be $r_l$ and the rate it takes Curly be $r_c$. Therefore, we have the system of equations \begin{align*} 1&=\left(r_m+r_l\right)10  \\ 1&=\left(r_l+r_c\right)12 \\ 1&=\left(r_m+r_c\right)15. \end{align*}
+Dividing these, we see that $r_m+r_l=\frac{1}{10}$, $r_l+r_c=\frac{1}{12}$, and $r_m+r_c=\frac{1}{15}$: $$2\left(r_m+r_l+r_c\right)=\frac{1}{10}+\frac{1}{12}+\frac{1}{15}=\frac{1}{4}\implies r_m+r_l+r_c=\frac{1}{8}.$$ Hence, it takes all three of them $\boxed{8\text{ hours}}$ working together.
+\end{frame}
+
+\begin{frame}[c]{$\star$ Paula the Painter}
+	\centering
+	\mybox{0.95\textwidth}{\begin{exmp} Paula the painter and her two helpers each paint at constant, but different, rates. They always start at 8:00 AM, and all three always take the same amount of time to eat lunch. On Monday the three of them painted 50\% of a house, quitting at 4:00 PM. On Tuesday, when Paula wasn't there, the two helpers painted only 24\% of the house and quit at 2:12 PM. On Wednesday Paula worked by herself and finished the house by working until 7:12 P.M. How long, in minutes, was each day's lunch break? \\  $ \textbf{(A)}\ 30\qquad\textbf{(B)}\ 36\qquad\textbf{(C)}\ 42\qquad\textbf{(D)}\ 48\qquad\textbf{(E)}\ 60 $ \end{exmp}}
+\end{frame}
+
+\begin{frame}{$\star$ Paula the Painter Solution}
+	Let Paula's rate be $p$ and her helper's rate be $h$. Let the length of the lunch break be $L$. We thus have the system of equations:
+	\begin{align*}
+	\left(8-L\right)\left(p+h\right) &=50 \\
+	\left(6.2-L\right)h &=24 \\
+	\left(11.2-L\right)p &=26. \end{align*} \pause 
+	Expanding these gives: \begin{align*} 8p+8h-Lp-Lh &=50 \\
+									6.2h-Lh &= 24 \\
+									11.2p-Lp&=26. \end{align*} \pause
+	Adding the last two equations gives $$6.2h+11.2p-Lh-Lp=50.$$
+
+\end{frame}
+
+\begin{frame}{$\star$ Paula the Painter Solution}
+Equating the values that are $50$ gives \begin{align*} 8p+8h-Lp-Lh&=6.2h+11.2p-Lh-Lp \\  1.8h&=3.2p \\  h&=\frac{16}{9}p. \end{align*} \pause
+Substituting this into the bottom two equations gives: \begin{align*}
+\left(6.2-L\right)\frac{16}{9}p & = 24 \\
+\left(11.2-L\right)p &=26. \end{align*} \pause
+Rearranging the top equation gives $\left(6.2-L\right)p=24\cdot \frac{9}{16}=\frac{27}{2}$. \medskip \pause
+
+ Subtracting from the bottom gives $5p=26-\frac{27}{2}=\frac{25}{2}\implies p=\frac52$. \medskip \pause
+ 
+ Finally, we have $L=\frac{4}{5}\implies L=\boxed{48 \text{ minutes}}.$
+\end{frame}
+
+\begin{frame}[c]{Track Problems}
+	\centering
+	\mybox{.97\textwidth}{\begin{exmp} Brenda and Sally run in opposite directions on a circular track, starting at diametically opposite points.  They first meet after Brenda has run $100$ meters.  They next meet after Sally has run $150$ meters past their first meeting point.  Each girl runs at a constant speed.  What is the length of the track in meters? \footnote[frame]{Source: 2004 AMC12}  \\ $ \mathrm{(A) \ } 250 \qquad \mathrm{(B) \ } 300 \qquad \mathrm{(C) \ } 350 \qquad \mathrm{(D) \ }  400\qquad \mathrm{(E) \ } 500  $ 
+		 \end{exmp} \begin{exmp} In an $h$-meter race, Sam is exactly $d$ meters ahead of Walt when Sam finishes the race. The next time they race, Sam sportingly starts $d$ meters behind Walt, who is at the original start line. Both runners run at the same constant speed as they did in the first race. How many meters ahead is the winner of the second race when the winner crosses the finish line? \footnote[frame]{Source: 1998 AHSME} \\ $ \mathrm{(A) \ } \frac dh \qquad \mathrm{(B) \ } 0 \qquad \mathrm{(C) \ } \frac {d^2}h \qquad \mathrm{(D) \ } \frac {h^2}d \qquad \mathrm{(E) \ } \frac{d^2}{h-d}$  \end{exmp}}
+\end{frame}
+
+\begin{frame}{Brenda and Sally}
+	Let the length of the track be $L$. Then, the distance ran is:
+	\begin{table}[H] 
+		\centering
+	\begin{tabular}{l|l|l}
+		& Brenda & Sally \\ \hline
+		First Meeting ($t_1$) & $100$ & $L/2-100$ \\
+		Second Meeting ($t_2$) & $L-150$ & $150$ 
+	\end{tabular}
+	\end{table}
+Let Brenda's rate be $r_b$ and Sally's rate be $r_s$. From the distance formula:
+\begin{alignat*}{2} 100&=r_bt_1, \quad L/2-100&=r_st_1 \\
+			   L-150&=r_bt_2, \quad 150&=r_st_2. \end{alignat*}
+Dividing these equations, we arrive at the ratios $$\frac{t_1}{t_2}=\frac{100}{L-150}=\frac{L/2-100}{150}\implies L=\boxed{350\text{ meters}}.$$
+\end{frame}
+
+\begin{frame}{Brenda and Sally II}
+	\mybox{0.95\textwidth}{\begin{exmp*} Brenda and Sally run in opposite directions on a circular track, starting at diametically opposite points.  They first meet after Brenda has run $100$ meters.  They next meet after Sally has run $150$ meters past their first meeting point.  Each girl runs at a constant speed.  What is the length of the track in meters? \end{exmp*}} ~\\
+	
+The girls combined run half the length of the track in their first meeting and the entire length in their second meeting: 
+\begin{align*} L/2&=\left(r_b+r_s\right)t_1 \\
+			   L&=\left(r_b+r_s\right)t_2. \end{align*}
+Therefore, $t_2=2t_1$. For the first meeting, Brenda runs $r_bt_1=100\text{ meters}.$ \medskip 
+
+Hence, in the second meeting, Brenda runs $r_b\left(2t_1\right)=200\text{ meters}$. \medskip
+
+Therefore, the length of the track in meters is $200+150=\boxed{350\text{ meters}}.$
+\end{frame}
+
+\begin{frame}{Sam and Walt}
+	Let Sam's rate be $r_s$ and Walt's be $r_w$. Let the first race take time $t_1$: 
+$$	\begin{cases} r_st_1&=h \\
+			r_wt_1&=h-d \end{cases} \implies r_s=r_w\cdot \frac{h}{h-d}.$$
+Let the time it takes Sam to complete the second race be $t_s$. Therefore, \begin{align*} r_st_s&=h+d \\ \pause 
+\left(r_w\cdot \frac{h}{h-d}\right)t_s &=h+d \\  \pause
+r_wt_s &=\frac{(h+d)(h-d)}{h}. \end{align*}
+In time $t_s$, Walt runs a distance $d_w=r_wt_s=\frac{h^2-d^2}{h}=h-\frac{d^2}{h}$. \medskip \pause
+
+Therefore, Sam wins the second race and the answer is $\bm{\frac{d^2}{h}}.$
+\end{frame}
+
+\end{document}
+
+	
+
+	\begin{soln}
+		The key difference is in the previous problem, it was half of the \textit{time}. In this case, it is half of the \textit{distance}. Let the time it takes for the first half be $t_1$ and for the second half be $t_2$. Then, I have the equations 
+	\end{soln}
+\end{frame}
+
+
+\end{document}

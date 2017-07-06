@@ -1,0 +1,89 @@
+% !TeX document-id = {9dc4049a-302f-49cf-bd6d-ab733465c3ce}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[xcolor=dvipsnames, fontsize=11pt, % Font size
+pagesize, % Write page size to dvi or pdf
+parskip=half-, t]{beamer}
+\input{../beamer.tex}
+\titlegraphic{\includegraphics[height=0.15\textwidth]{../logo.png}}
+\title[Exponents and Radicals (Lecture 3)]{Exponents and Radicals}
+\subtitle{Lecture 3}
+
+\author[Justin Stevens (Star League)]{\large Justin Stevens} % Your name
+\date{}
+
+
+\begin{document}
+	\begin{frame}[c]
+		\centering
+		\titlepage
+	\end{frame}
+
+
+
+\begin{frame}[c]{Exponent Mayhem}
+	\centering
+	\mybox{0.95\textwidth}{ \begin{exmp} Let $A=x+\frac{1}{x}$ and $B=x^2+\frac{1}{x^2}$. Note that $(x+\frac{1}{x})^2=x^2+2+\frac{1}{x^2}$, therefore, $B=A^2-2$. Find formulas for $$C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$$ in terms of $A$. \footnote{Source: AoPS Introduction to Algebra} \end{exmp}}
+
+\end{frame}
+
+
+\begin{frame}{Exponent Mayhem}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+	To compute $C$, we cube $x+\frac{1}{x}$: \begin{align*} (x+\frac{1}{x})^3&=x^3+3\cdot x^2\cdot \frac{1}{x}+3\cdot x\cdot \frac{1}{x^2}+\frac{1}{x^3} \\ &= x^3+3x+\frac{3}{x}+\frac{1}{x^3}. \end{align*}
+	Therefore, substituting $A=x+\frac{1}{x}$ gives \begin{align*} A^3&=x^3+3\left(x+\frac{1}{x}\right)+\frac{1}{x^3} \:=\:C+3A \\ \implies \color{blue} C &= \color{blue} A^3-3A. \end{align*}
+\end{frame}
+
+\begin{frame}{Exponent Mayhem II}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+	There are two methods for finding $D$. One of them involves taking $x+\frac{1}{x}$ to the fourth power. In order to continue with this method, however, I must introduce the binomial theorem and Pascal's triangle.  
+	
+	\begin{figure}[h]
+		\centering\includegraphics[width=0.36\linewidth]{../images/pascal.jpg}
+		\caption{Source:  iCoachMath.com}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Binomial Theorem}
+	
+	The binomial theorem states that when we expand $x+y$ to the $n$th power, the coefficients will be the numbers in the $n$th row of Pascal's triangle. For instance, $$(x+y)^4=\textbf{1}x^4+\textbf{4}x^3y+\textbf{6}x^2y^2+\textbf{4}xy^3+\textbf{1}y^4.$$
+	The numbers $1, 4, 6, 4, 1$ make up the $4$th row of Pascal's triangle. \medskip 
+	
+	Furthermore, if you know binomial coefficients, note that $$\binom{4}{0}=1, \binom{4}{1}=4, \binom{4}{2}=6, \binom{4}{3}=4, \binom{4}{4}=1.$$
+	
+	\mybox{0.8\textwidth}{\begin{thm}[Binomial Expansion] $$(x+y)^n=\displaystyle \sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}.$$ \end{thm}}
+\end{frame}
+
+\begin{frame}{Exponent Mayhem III}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+	Using the expansion for $(x+y)^4$, we see that \begin{align*} (x+\frac{1}{x})^4&=x^4+4\cdot \left(x^3\cdot \frac{1}{x}\right)+6\cdot \left(x^2\cdot \frac{1}{x^2}\right)+4\cdot \left(x\cdot \frac{1}{x^3}\right)+\frac{1}{x^4} \\ &= \left(x^4+\frac{1}{x^4}\right)+4\left(x^2+\frac{1}{x^2}\right)+6. \end{align*}
+	We substitute the formula $B=x^2+\frac{1}{x^2}=A^2-2$ to get: $$\color{blue} D=x^4+\frac{1}{x^4}=A^4-4(A^2-2)-6=A^4-4A^2+2.$$ 
+	
+\end{frame}
+
+\begin{frame}{Exponent Mayhem IV}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\
+	
+	A simpler method exists for computing $D$ without the use of the binomial theorem. Note that if we multiply $A$ by $C$, we get the desired $x^4$ and $\frac{1}{x^4}$ terms: $$AC=\left(x+\frac{1}{x}\right)\left(x^3+\frac{1}{x^3}\right)=x^4+\left(x^2+\frac{1}{x^2}\right)+\frac{1}{x^4}.$$  
+	
+	From above, we found $C=A^3-3A$. Furthermore, $B=x^2+\frac{1}{x^2}=A^2-2$. Substituting these both in give $$D=x^4+\frac{1}{x^4}=A(A^3-3A)-(A^2-2)=A^4-4A^2+2.$$ Note this matches the answer above.  
+	
+\end{frame}
+
+\begin{frame}{Exponent Mayhem V}
+	\mybox{0.95\textwidth}{\begin{exmp*} Find formulas for $C=x^3+\frac{1}{x^3}\:, D=x^4+\frac{1}{x^4}, E=x^5+\frac{1}{x^5}$ in terms of $A=x+\frac{1}{x}$. \end{exmp*}} ~\\	
+	We attempt our new method for computing $E$. Note that if we multiply $A$ by $D$, we get the desired $x^5$ and $\frac{1}{x^5}$ terms: $$AD=\left(x+\frac{1}{x}\right)\left(x^4+\frac{1}{x^4}\right)=x^5+\left(x^3+\frac{1}{x^3}\right)+\frac{1}{x^5}.$$  
+	We substitute $D=A^4-4A^2+2$ and $C=x^3+\frac{1}{x^3}=A^3-3A$ into the above equation: $$\color{blue} E=x^5+\frac{1}{x^5}=A\left(A^4-4A^2+2\right)-\left(A^3-3A\right)=A^5-5A^3+5A.$$In general, if $x_n=x^n+\frac{1}{x^n}$, then we can recursively find the next term using the identity $$x_1x_{n-1}=x_n+x_{n-2}\implies x_n=x_1x_{n-1}-x_{n-2}.$$ 
+\end{frame}
+
+\begin{frame}{Exponent Mayhem in NIMO}
+	The identity above was a key motivator in a 2015 National Internet Math Olympiad (NIMO) challenge problem I cowrote with Evan Chen! \medskip 
+	
+	\mybox{0.95\textwidth}{\begin{exmp*}(Justin Stevens and Evan Chen)  Let $a$, $b$, $c$ be reals and $p$ be a prime number. Assume that \[ a^n(b+c)+b^n(a+c)+c^n(a+b)\equiv 8\pmod{p} \] for each nonnegative integer $n$. Let $m$ be the remainder when $a^p+b^p+c^p$ is divided by $p$, and $k$ the remainder when $m^p$ is divided by $p^4$. Find the maximum possible value of $k$. \end{exmp*}} ~\\ \medskip
+	
+	The solution involves finding similar recursion relations with some number theory tricks as well. The answer is $399$; try to figure out why after finishing this course!
+\end{frame}
+
+\end{document}

@@ -1,0 +1,83 @@
+\input{HEADER.tex}
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\mytitle}{Building Blocks of Geometry} % Title
+\newcommand*{\runninghead}{AMC Geometry} % Running head displayed on almost all slides
+\newcommand*{\myauthor}{Justin Stevens} % Presenters name(s)
+\newcommand*{\mydate}{\formatdate{26}{12}{2017}} % Presentation date
+\newcommand*{\myuni}{AStar 2016 Winter Math Camp} % University or department
+
+%----------------------------------------------------------------------------------------
+
+\usepackage{asymptote}
+
+
+\begin{document}
+	
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+% Title slide - you may have to tweak a few of the numbers if you wish to make changes to the layout
+\thispagestyle{empty} % No slide header and footer
+\begin{tikzpicture}[remember picture,overlay] % Background box
+\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+\end{tikzpicture}
+% Text within the box
+\begin{flushright}
+\vspace{0.6cm}
+\color{white}\sffamily
+{\bfseries\Large\mytitle\par} % Title
+\vspace{0.5cm}
+\normalsize
+\myauthor\par % Author name
+\mydate\par % Date
+\vfill
+\end{flushright}
+
+
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+\clearpage
+
+\section{Congruences Theorems}
+\clearpage
+\section{Angles in Polygons}
+discussion discussion
+\clearpage
+\thispagestyle{empty}
+\begin{figure}[h!]
+	\centering\includegraphics[width=0.9\linewidth]{images/parallel.png}
+\end{figure}
+
+
+\clearpage
+
+\section{Angles in Circles}
+\clearpage
+\section{Similar Triangles}
+\clearpage
+\section{Special Points of Triangles}
+\clearpage
+\section{Power of a Point}
+\clearpage
+\section{Area of Complex Figures}
+\clearpage
+\section{Trigonometry}
+
+
+
+
+
+
+\end{document}
